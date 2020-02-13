@@ -1,15 +1,74 @@
 {
-  "name": "nextfolio",
+  "name": "casper-portfolio",
   "version": "0.1.0",
   "private": true,
+  "author": {
+    "email": "remilekun.salami@gmail.com", 
+    "name": "Remilekun Salami",
+    "url": "https://remilekunsalami.com"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "export": "next export",
+    "deploy": "npm run build && npm run export",
+    "lint": "eslint '**/*.{js,jsx}'",
+    "lint:fix": "eslint --fix '**/*.{js,jsx}'",
+    "icon-component:generate": "svgr -d src/components/icons/ svgs/"
   },
   "dependencies": {
+    "@emotion/core": "^10.0.27",
+    "@emotion/styled": "^10.0.27",
+    "babel-plugin-emotion": "^10.0.27",
+    "emotion": "^10.0.27",
+    "emotion-server": "^10.0.27",
+    "emotion-theming": "^10.0.27",
     "next": "9.2.1",
     "react": "16.12.0",
-    "react-dom": "16.12.0"
+    "react-dom": "16.12.0",
+    "react-ga": "^2.7.0",
+    "react-helmet": "^5.2.1",
+    "rebass": "^4.0.7",
+    "vanilla-lazyload": "^12.4.0"
+  },
+  "devDependencies": {
+    "@svgr/cli": "^5.1.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-emotion": "^10.0.27",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-react": "^7.18.3",
+    "eslint-plugin-react-hooks": "^2.3.0",
+    "husky": "^4.2.2",
+    "lint-staged": "^10.0.7",
+    "prettier": "^1.19.1",
+    "prettierrc": "^0.0.0-5"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,scss,css}": [
+      "prettier --write",
+      "git add"
+    ]
   }
 }
