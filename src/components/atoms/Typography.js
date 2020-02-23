@@ -18,6 +18,7 @@ export const Heading = styled(HeadingTag)`
   }
   display: block;
   font-weight: ${({ theme, weight }) => theme.font.weight[weight]};
+  line-height: 1;
   margin: 0;
   position: relative;
   text-align: ${({ theme, align }) => theme.font.align[align]};
@@ -47,6 +48,7 @@ export const Paragraph = styled.p`
   display: block;
   font-size: ${({ theme, size }) => theme.font.size[size]};
   font-weight: ${({ theme, weight }) => theme.font.weight[weight]};
+  line-height: 1;
   margin: 0;
   text-align: ${({ theme, align }) => theme.font.align[align]};
   text-decoration: ${({ decoration }) => decoration};
@@ -66,9 +68,9 @@ export const Text = styled.span`
     color: ${({ theme, color }) => theme.colors[color]};
   }
   display: inline;
-
   font-size: ${({ theme, size }) => theme.font.size[size]};
   font-weight: ${({ theme, weight }) => theme.font.weight[weight]};
+  line-height: 1;
   text-align: ${({ theme, align }) => theme.font.align[align]};
   text-decoration: ${({ decoration }) => decoration};
 

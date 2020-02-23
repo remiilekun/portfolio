@@ -9,12 +9,14 @@ export const Wrapper = styled.nav`
   position: fixed;
   top: 0;
   width: 100%;
+  z-index: 2;
 
-  ${({ scrolled }) =>
+  ${({ scrolled, theme }) =>
     scrolled &&
     css`
-      background-color: ${({ theme }) => theme.colors.steelGrey};
-      box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+      background-color: ${theme.colors.steelGrey};
+      // box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+      // box-shadow: rgba(2, 12, 27, 0.7) 0px 10px 30px -10px;
     `}
 `;
 

@@ -68,7 +68,7 @@ export const Nav = () => {
                           <NavItem>About Me</NavItem>
                           <NavItem>Works</NavItem>
                           <NavItem>Contact Me</NavItem>
-                          <NavButton color="white">Download Resume</NavButton>
+                          <NavButton>Download Resume</NavButton>
                         </NavList>
                       </MobileMenu>
                     </MobileOverlay>
@@ -86,7 +86,7 @@ export const Nav = () => {
               <NavItem>About Me</NavItem>
               <NavItem>Works</NavItem>
               <NavItem>Contact Me</NavItem>
-              <NavButton color="white">Download Resume</NavButton>
+              <NavButton>Download Resume</NavButton>
             </NavList>
           )}
         </Flex>

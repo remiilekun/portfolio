@@ -12,8 +12,9 @@ export default class MyDocument extends Document {
     return (
       <html lang="en">
         <Head>
+          <link rel="shortcut icon" type="image/x-icon" href="/public/favicon.ico" />
           <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-          <title>Remilekun Salami</title>
+          <link rel="manifest" href="/public/manifest.json" />
           <style data-emotion-css={this.props.ids.join(' ')} dangerouslySetInnerHTML={{ __html: this.props.css }} />
         </Head>
         <body>

@@ -185,7 +185,7 @@ OutlineButton.propTypes = {
 };
 
 OutlineButton.defaultProps = {
-  color: 'primary',
+  color: 'white',
   fontWeight: 'medium',
   size: 'normal',
 };

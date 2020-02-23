@@ -1,9 +1,14 @@
 import React from 'react';
+import Head from 'next/head';
+import { HomeBanner } from 'components/molecules';
 
 const Home = () => (
-  <div>
-    <p>Hello world</p>
-  </div>
+  <>
+    <Head>
+      <title>Remilekun Salami</title>
+    </Head>
+    <HomeBanner />
+  </>
 );
 
 export default Home;

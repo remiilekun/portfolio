@@ -1,6 +1,7 @@
 const path = require('path');
+const withImages = require('next-images');
 
-module.exports = {
+module.exports = withImages({
   exportPathMap() {
     return {
       '/': { page: '/' },
@@ -16,4 +17,4 @@ module.exports = {
     config.resolve.alias.components = path.join(__dirname, 'src/components'); // eslint-disable-line no-param-reassign
     return config;
   },
-};
+});
