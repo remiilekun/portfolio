@@ -15,7 +15,7 @@
     "deploy": "npm run build && npm run export",
     "lint": "eslint '**/*.{js,jsx}'",
     "lint:fix": "eslint --fix '**/*.{js,jsx}'",
-    "icon-component:generate": "svgr -d src/components/icons/ svgs/"
+    "icon-component:generate": "svgr -d src/components/icons/ src/svgs/"
   },
   "dependencies": {
     "@emotion/core": "^10.0.27",

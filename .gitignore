@@ -11,7 +11,7 @@
 # next.js
 **/.next/
 /out/
-src/out/
+src/svgs/
 
 # production
 /build

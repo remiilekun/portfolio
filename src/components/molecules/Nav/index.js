@@ -75,7 +75,7 @@ export const Nav = () => {
                   ),
               )}
 
-              <Hamburger active={active} onClick={toggleActive}>
+              <Hamburger aria-label="Hamburger button" active={active} onClick={toggleActive}>
                 <span />
                 <span />
                 <span />
