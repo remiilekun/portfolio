@@ -1,5 +1,10 @@
-export { default as RightArrowIcon } from './RightArrow';
 export { default as GithubIcon } from './Github';
+export { default as HtmlIcon } from './Html';
 export { default as InstagramIcon } from './Instagram';
+export { default as JsIcon } from './Js';
 export { default as LinkedinIcon } from './Linkedin';
+export { default as NodeIcon } from './Node';
+export { default as ReactIcon } from './React';
+export { default as RightArrowIcon } from './RightArrow';
+export { default as SwiftIcon } from './Swift';
 export { default as TwitterIcon } from './Twitter';

@@ -23,7 +23,7 @@ export const Wrapper = styled.nav`
 export const Brand = styled.span`
   color: ${({ theme }) => theme.colors.white};
   font-size: ${({ theme }) => theme.font.size.big};
-  font-weight: 900;
+  font-weight: 700;
   letter-spacing: 0.5px;
 `;
 

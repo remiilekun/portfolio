@@ -10,7 +10,7 @@ const Wrapper = styled.section`
   background-position: calc(100% + 4rem) 0;
   background-repeat: no-repeat;
   background-size: 28rem;
-  padding-bottom: 8rem;
+  padding-bottom: 15rem;
   padding-top: 24rem;
 
   ${({ theme }) => theme.mq.sm`
@@ -20,19 +20,21 @@ const Wrapper = styled.section`
   ${({ theme }) => theme.mq.md`
   background-position: calc(100% + 1rem) 0;
   background-size: 30rem;
-  padding-top : 8rem;
+  padding-top: 8rem;
+  padding-bottom: 10rem;
   `}
 
   ${({ theme }) => theme.mq.lg`
   background-position: calc(100%) 5rem;
   background-size: 40rem;
-  padding-top : 18rem;
+  padding-top: 18rem;
+  padding-bottom: 15rem;
   `}
 
   ${({ theme }) => theme.mq.xl`
   background-position: calc(100%) -5rem;
   background-size: 70rem;
-  padding-bottom: 18rem;
+  padding-bottom: 20rem;
   `}
 
 `;
