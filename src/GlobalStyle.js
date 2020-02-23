@@ -106,6 +106,7 @@ const globalStyle = css`
   }
 
   body {
+    background-color: #1b1b2b;
     font-family: Gilroy, sans-serif;
     font-size: 1.6rem;
     line-height: 1.4;
