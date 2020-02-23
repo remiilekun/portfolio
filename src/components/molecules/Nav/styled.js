@@ -122,11 +122,22 @@ export const MobileOverlay = styled(animated.div)`
 `;
 
 export const MobileMenu = styled(animated.div)`
-  background-color: ${({ theme }) => theme.colors.primary}29;
+  background-color: #000;
   border-bottom-left-radius: 500px;
+  overflow: hidden;
   padding: 10rem 5rem 20rem;
   position: fixed;
   right: 0;
   top: 0;
   transform-origin: 100% 0%;
+
+  &::before {
+    background-color: ${({ theme }) => theme.colors.primary}29;
+    bottom: 0;
+    content: '';
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
 `;

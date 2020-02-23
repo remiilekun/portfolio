@@ -55,7 +55,7 @@ export const Nav = () => {
     <Wrapper scrolled={scrolled}>
       <Content fluid>
         <Flex justifyContent="space-between" alignItems="center">
-          <Brand>Casper.RS</Brand>
+          <Brand>Remi Salami</Brand>
 
           {breakpoint === 'mobile' ? (
             <MobileWrapper>
@@ -66,7 +66,7 @@ export const Nav = () => {
                       <MobileMenu style={{ transform }}>
                         <NavList>
                           <NavItem>About Me</NavItem>
-                          <NavItem>Casper’s Work</NavItem>
+                          <NavItem>Works</NavItem>
                           <NavItem>Contact Me</NavItem>
                           <NavButton color="white">Download Resume</NavButton>
                         </NavList>
@@ -84,7 +84,7 @@ export const Nav = () => {
           ) : (
             <NavList>
               <NavItem>About Me</NavItem>
-              <NavItem>Casper’s Work</NavItem>
+              <NavItem>Works</NavItem>
               <NavItem>Contact Me</NavItem>
               <NavButton color="white">Download Resume</NavButton>
             </NavList>
