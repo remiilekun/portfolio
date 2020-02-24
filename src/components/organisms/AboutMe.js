@@ -7,7 +7,9 @@ import { useMeasure } from 'react-use';
 import { skills } from 'data/skills';
 import Companies from './Companies';
 
-const Wrapper = styled.section``;
+const Wrapper = styled.section`
+  margin-bottom: 8rem;
+`;
 
 const Text = styled(Typography.Paragraph)`
   font-size: ${({ theme }) => theme.font.size.normal};
@@ -15,16 +17,16 @@ const Text = styled(Typography.Paragraph)`
 `;
 
 const PictureWrapper = styled.div`
-  max-width: 25rem;
   margin: 0 auto;
+  max-width: 25rem;
 
   ${({ theme }) => theme.mq.sm`
-max-width: 40rem;
-`}
+    max-width: 40rem;
+  `}
 
   ${({ theme }) => theme.mq.md`
-max-width: 100%;
-`}
+    max-width: 100%;
+  `}
 `;
 
 const Picture = styled(Image)`
@@ -66,7 +68,7 @@ const AboutMe = () => {
         <SectionHeader>About Me</SectionHeader>
 
         <SubSection>
-          <Flex mx="-1rem" flexWrap="wrap" pt="3rem" mb="3rem">
+          <Flex mx="-1rem" flexWrap="wrap" mb="3rem">
             <Box width={[1, 1, 6 / 12, 7 / 12, 8 / 12]} px="1rem" order={[2, 2, 1]}>
               <Text>
                 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex nobis asperiores enim aspernatur similique
@@ -87,7 +89,7 @@ const AboutMe = () => {
           <Subtitle>Here are a few technologies I've worked with recently:</Subtitle>
           <Flex flexWrap="wrap" mx="-0.5rem">
             {Object.keys(skills).map(type => (
-              <Box width={[1 / 2, 4 / 12, 4 / 12, 2 / 12]} px="0.5rem" mb={['1rem', '1rem', '1rem', 0]}>
+              <Box key={type} width={[1 / 2, 4 / 12, 4 / 12, 2 / 12]} px="0.5rem" mb={['1rem', '1rem', '1rem', 0]}>
                 <SkillBadge type={type} />
               </Box>
             ))}

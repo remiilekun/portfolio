@@ -5,7 +5,7 @@ import { Typography } from 'components/atoms';
 const Wrapper = styled(Box)`
   align-items: center;
   display: flex;
-  margin-bottom: 2rem;
+  margin-bottom: 5rem;
 `;
 
 const Lines = styled.span`

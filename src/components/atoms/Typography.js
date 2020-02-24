@@ -25,9 +25,9 @@ export const Heading = styled(HeadingTag)`
   ${({ theme, type }) => {
     return css`
       font-size: ${theme.heading.mobile[type]};
-      @media screen and (min-width: 577px) {
+      ${theme.mq.sm`
         font-size: ${theme.heading.desktop[type]};
-      }
+        `}
     `;
   }}
 

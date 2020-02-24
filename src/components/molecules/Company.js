@@ -18,8 +18,10 @@ const Role = styled(Typography.Paragraph)`
 `;
 
 const Period = styled(Typography.Paragraph)`
+  font-size: ${({ theme }) => theme.font.size.small};
   font-weight: ${({ theme }) => theme.font.weight.medium};
   margin-bottom: 1rem;
+  opacity: 0.5;
 `;
 
 const Description = styled(Typography.Paragraph)`

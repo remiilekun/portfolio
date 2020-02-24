@@ -5,9 +5,9 @@ import { Flex, Box } from 'rebass';
 const Companies = () => {
   return (
     <Flex>
-      <Box maxWidth="65rem" px="1rem">
+      <Box maxWidth="65rem">
         {companies.map(({ id, ...company }) => (
-          <Company id={id} {...company} />
+          <Company key={id} {...company} />
         ))}
       </Box>
     </Flex>
