@@ -1,4 +1,4 @@
-import Document, { Head, Main, NextScript } from 'next/document';
+import Document, { Html, Head, Main, NextScript } from 'next/document';
 import { extractCritical } from 'emotion-server';
 import { GA_TRACKING_ID } from 'lib/gtag';
 
@@ -11,14 +11,14 @@ export default class MyDocument extends Document {
 
   render() {
     return (
-      <html lang="en">
+      <Html lang="en">
         <Head>
           <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
           <meta name="title" content="Remilekun Salami" />
           <meta name="author" content="Remilekun Salami" />
           <meta name="description" content="A Front-End developer based in Lagos, Nigeria." />
-          <link rel="shortcut icon" type="image/x-icon" href="/public/favicon.ico" />
-          <link rel="manifest" href="/public/manifest.json" />
+          <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+          <link rel="manifest" href="/manifest.json" />
           <meta
             name="keywords"
             content="remi, remilekun,salami, remi salami, remilekun salami, salami remilekun, remiilekun, developer, front-end developer, front-end, freelance, freelance developer, freelancer, front-end web developer, web developer, website developer, HTML5, HTML5 developer, CSS3, CSS, CSS3 developer, SASS, SASS developer, Javascript, react developer, react-native developer, Javascript developer, mobile developer, front-end mobile developer, front-end developer in Lagos, front-end developer in Nigeria, front-end developer in Lagos - Nigeria"
@@ -66,7 +66,7 @@ export default class MyDocument extends Document {
           <Main />
           <NextScript />
         </body>
-      </html>
+      </Html>
     );
   }
 }

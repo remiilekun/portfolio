@@ -3,28 +3,28 @@ import { css, Global } from '@emotion/core';
 const globalStyle = css`
   @font-face {
     font-family: 'Gilroy';
-    src: url('/public/assets/fonts/Gilroy/Gilroy-Regular.otf') format('truetype');
+    src: url('/assets/fonts/Gilroy/Gilroy-Regular.otf') format('truetype');
     font-display: swap;
   }
 
   @font-face {
     font-family: 'Gilroy';
     font-weight: 500;
-    src: url('/public/assets/fonts/Gilroy/Gilroy-Medium.otf') format('truetype');
+    src: url('/assets/fonts/Gilroy/Gilroy-Medium.otf') format('truetype');
     font-display: swap;
   }
 
   @font-face {
     font-family: 'Gilroy';
     font-weight: 700;
-    src: url('/public/assets/fonts/Gilroy/Gilroy-Bold.otf') format('truetype');
+    src: url('/assets/fonts/Gilroy/Gilroy-Bold.otf') format('truetype');
     font-display: swap;
   }
 
   @font-face {
     font-family: 'Gilroy';
     font-weight: 900;
-    src: url('/public/assets/fonts/Gilroy/Gilroy-Black.otf') format('truetype');
+    src: url('/assets/fonts/Gilroy/Gilroy-Black.otf') format('truetype');
     font-display: swap;
   }
 

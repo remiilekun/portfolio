@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import { Flex, Box } from 'rebass';
 import { Content, OutlineButton, Typography } from 'components/atoms';
 import { RightArrowIcon } from 'components/icons';
-import codingIllustration from '../../public/assets/img/coding-i.png';
+import codingIllustration from '../../../public/assets/img/coding-i.png';
 
 const Wrapper = styled.section`
   background-image: url(${codingIllustration});

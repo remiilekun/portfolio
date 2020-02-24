@@ -3,7 +3,7 @@ import { SectionHeader } from 'components/molecules';
 import { Content, Typography } from 'components/atoms';
 import { Flex, Box } from 'rebass';
 import ContactForm from './ContactForm';
-import supportIllustration from '../../public/assets/img/support-i.png';
+import supportIllustration from '../../../public/assets/img/support-i.png';
 
 const Wrapper = styled.section`
   margin-bottom: 8rem;
