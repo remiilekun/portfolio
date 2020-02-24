@@ -37,7 +37,9 @@ const Projects = ({ showAll }) => {
 
       {more && (
         <Box onClick={loadMore} width="1" py="2rem" display="flex" alignItems="center" justifyContent="center">
-          <OutlineButton>View More</OutlineButton>
+          <OutlineButton fontSize="normal" size="large">
+            View More
+          </OutlineButton>
         </Box>
       )}
     </Flex>
