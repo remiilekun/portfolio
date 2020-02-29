@@ -6,28 +6,23 @@ import ContactForm from './ContactForm';
 import supportIllustration from '../../../public/assets/img/support-i.png';
 
 const Wrapper = styled.section`
-  margin-bottom: 8rem;
+  margin-bottom: 5rem;
 
   ${({ theme }) => theme.mq.md`
   background-image: url(${supportIllustration});
   background-repeat: no-repeat;
   background-position: calc(100% + 10rem) 50%;
   background-size: 30rem;
-  padding-top: 8rem;
-  padding-bottom: 10rem;
   `}
 
   ${({ theme }) => theme.mq.lg`
-  background-position: calc(100%) 70%;
+  background-position: calc(100%) 50%;
   background-size: 40rem;
-  padding-top: 18rem;
-  padding-bottom: 15rem;
   `}
 
   ${({ theme }) => theme.mq.xl`
-  background-position: calc(100% - 4rem) 60%;
+  background-position: calc(100% - 4rem) 35%;
   background-size: 50rem;
-  padding-bottom: 20rem;
   `}
 
 `;
@@ -38,9 +33,9 @@ const Subtitle = styled(Typography.Paragraph)`
   margin-bottom: 2rem;
 `;
 
-const ContactMe = () => {
+const ContactMe = props => {
   return (
-    <Wrapper>
+    <Wrapper {...props}>
       <Content fluid>
         <SectionHeader>Let us talk</SectionHeader>
 

@@ -1,25 +1,41 @@
 import React, { useEffect, useState } from 'react';
 import { Flex } from 'rebass';
+import Link from 'next/link';
 import { createBreakpoint } from 'react-use';
 import { useTransition } from 'react-spring';
 import cb from 'bezier-easing';
 import { Content } from '../../atoms';
 import {
-  Wrapper,
   Brand,
-  NavList,
-  NavItem,
-  NavButton,
-  MobileMenu,
   Hamburger,
-  MobileWrapper,
+  MobileMenu,
   MobileOverlay,
+  MobileWrapper,
+  NavButton,
+  NavItem,
+  NavList,
+  Wrapper,
 } from './styled';
 
 export const useBreakpoint = createBreakpoint({
   desktop: 768,
   mobile: 0,
 });
+
+const NavMenu = () => (
+  <NavList>
+    <Link href="#about">
+      <NavItem>About Me</NavItem>
+    </Link>
+    <Link href="#works">
+      <NavItem>Works</NavItem>
+    </Link>
+    <Link href="#contact">
+      <NavItem>Contact Me</NavItem>
+    </Link>
+    <NavButton>Download Resume</NavButton>
+  </NavList>
+);
 
 export const Nav = () => {
   const [active, setActive] = useState(false);
@@ -30,7 +46,7 @@ export const Nav = () => {
   useEffect(() => {
     const onScroll = () => {
       const offset = window.pageYOffset;
-      setScrolled(offset > 60);
+      setScrolled(offset > 10);
     };
 
     onScroll();
@@ -64,17 +80,11 @@ export const Nav = () => {
                   item && (
                     <MobileOverlay key={key} style={{ opacity }}>
                       <MobileMenu style={{ transform }}>
-                        <NavList>
-                          <NavItem>About Me</NavItem>
-                          <NavItem>Works</NavItem>
-                          <NavItem>Contact Me</NavItem>
-                          <NavButton>Download Resume</NavButton>
-                        </NavList>
+                        <NavMenu />
                       </MobileMenu>
                     </MobileOverlay>
                   ),
               )}
-
               <Hamburger aria-label="Hamburger button" active={active} onClick={toggleActive}>
                 <span />
                 <span />
@@ -82,12 +92,7 @@ export const Nav = () => {
               </Hamburger>
             </MobileWrapper>
           ) : (
-            <NavList>
-              <NavItem>About Me</NavItem>
-              <NavItem>Works</NavItem>
-              <NavItem>Contact Me</NavItem>
-              <NavButton>Download Resume</NavButton>
-            </NavList>
+            <NavMenu />
           )}
         </Flex>
       </Content>

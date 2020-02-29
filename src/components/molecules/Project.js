@@ -75,7 +75,7 @@ const Name = styled(Typography.Text)`
 const Description = styled(Typography.Paragraph)`
   color: ${({ theme }) => theme.colors.white};
   font-size: ${({ theme }) => theme.font.size.normal};
-  line-height: 1.71;
+  line-height: 1.7;
   margin-bottom: 1rem;
 `;
 

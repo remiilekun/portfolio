@@ -4,16 +4,15 @@ import { GithubIcon, TwitterIcon, InstagramIcon, LinkedinIcon } from 'components
 
 const Wrapper = styled.aside`
   align-items: center;
-  bottom: 0;
+  background-color: ${({ theme }) => theme.colors.steelGrey};
   display: flex;
   flex-direction: row;
   justify-content: center;
-  left: 0;
   padding: 1rem 0;
-  position: fixed;
-  right: 0;
+  z-index: 1;
 
   ${({ theme }) => theme.mq.md`
+  position: fixed;
     bottom: 0;
     flex-direction: column;
     left: 0;
@@ -25,9 +24,20 @@ const Wrapper = styled.aside`
 `;
 
 const Item = styled.span`
+  transition: all 0.3s;
   svg {
     height: 2.5rem;
     width: 2.5rem;
+  }
+
+  &:hover {
+    transform: translateY(-3px);
+
+    svg {
+      path {
+        fill: ${({ theme }) => theme.colors.primary};
+      }
+    }
   }
 
   &:not(:last-child) {
@@ -39,11 +49,12 @@ const Item = styled.span`
     height: 2rem;
     width: 2rem;
   }
+  
 
   &:not(:last-child){
     margin-right: 0;
     margin-bottom: 3rem;
-}
+  }
 `}
 `;
 

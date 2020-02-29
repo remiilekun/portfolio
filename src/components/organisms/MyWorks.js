@@ -7,9 +7,9 @@ const Wrapper = styled.section`
   margin-bottom: 8rem;
 `;
 
-const MyWorks = () => {
+const MyWorks = props => {
   return (
-    <Wrapper>
+    <Wrapper {...props}>
       <Content fluid>
         <SectionHeader>My Works</SectionHeader>
         <Projects />

@@ -16,6 +16,7 @@ export default class MyDocument extends Document {
           <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
           <meta name="title" content="Remilekun Salami" />
           <meta name="author" content="Remilekun Salami" />
+          <meta name="theme-color" content="#b0aff6" />
           <meta name="description" content="A Front-End developer based in Lagos, Nigeria." />
           <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
           <link rel="manifest" href="/manifest.json" />

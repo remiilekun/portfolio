@@ -6,7 +6,6 @@ const Wrapper = styled.div`
   position: relative;
   padding-top: 6rem;
   min-height: 100vh;
-  padding-bottom: 6rem;
 
   ${({ theme }) => theme.mq.md`
   padding-left: 5rem;
@@ -23,8 +22,8 @@ const PageWrapper = ({ children }) => {
   return (
     <Wrapper>
       <Nav />
-      <Socials />
       <Main>{children}</Main>
+      <Socials />
     </Wrapper>
   );
 };

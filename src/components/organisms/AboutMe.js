@@ -59,11 +59,11 @@ const Subtitle = styled(Typography.Paragraph)`
   font-weight: ${({ theme }) => theme.font.weight.bold};
 `;
 
-const AboutMe = () => {
+const AboutMe = props => {
   const [imageRef, { width }] = useMeasure();
 
   return (
-    <Wrapper>
+    <Wrapper {...props}>
       <Content fluid>
         <SectionHeader>About Me</SectionHeader>
 

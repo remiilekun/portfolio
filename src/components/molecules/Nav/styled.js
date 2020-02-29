@@ -8,6 +8,7 @@ export const Wrapper = styled.nav`
   padding: 1.5rem 0;
   position: fixed;
   top: 0;
+  transition: all 0.2s;
   width: 100%;
   z-index: 2;
 
@@ -15,9 +16,13 @@ export const Wrapper = styled.nav`
     scrolled &&
     css`
       background-color: ${theme.colors.steelGrey};
-      // box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
-      // box-shadow: rgba(2, 12, 27, 0.7) 0px 10px 30px -10px;
+      box-shadow: 0 5px 5px rgba(0, 0, 0, 0.15);
     `}
+
+  ${({ theme }) => theme.mq.md`
+    left: 0;  
+    width: 100%;
+  `}
 `;
 
 export const Brand = styled.span`
@@ -39,7 +44,9 @@ export const NavList = styled.ul`
 
 export const NavItem = styled.li`
   color: ${({ theme }) => theme.colors.white};
+  cursor: pointer;
   font-size: ${({ theme }) => theme.font.size.small};
+  user-select: none;
   &:not(:last-child) {
     margin-bottom: 3rem;
   }

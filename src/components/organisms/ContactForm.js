@@ -5,17 +5,23 @@ const ContactForm = () => {
     <Form action="https://formspree.io/remilekun.salami@gmail.com" method="POST">
       <Form.Group>
         <Form.Label htmlFor="name">Name</Form.Label>
-        <Form.Input required placeholder="Enter your name" name="name" />
+        <Form.Input id="name" required placeholder="Enter your name" name="name" />
       </Form.Group>
 
       <Form.Group>
         <Form.Label htmlFor="email">Email Address</Form.Label>
-        <Form.Input required type="email" placeholder="Enter your email address" name="email" />
+        <Form.Input id="email" required type="email" placeholder="Enter your email address" name="email" />
       </Form.Group>
 
       <Form.Group>
         <Form.Label htmlFor="message">Your Message</Form.Label>
-        <Form.Textarea required placeholder="I want to build the next great thing" rows="5" name="message" />
+        <Form.Textarea
+          id="message"
+          name="message"
+          placeholder="I want to build the next great thing"
+          required
+          rows="5"
+        />
       </Form.Group>
 
       <Form.Group alignItems="center" justiyContent="center">
