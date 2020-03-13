@@ -1,0 +1,26 @@
+function scrollAnchors(e, respond = null) {
+  const distanceToTop = el => Math.floor(el.getBoundingClientRect().top);
+  e.preventDefault();
+  const targetID = respond ? respond.getAttribute('href') : this.getAttribute('href');
+  const targetAnchor = document.querySelector(targetID);
+  if (!targetAnchor) return;
+  const originalTop = distanceToTop(targetAnchor);
+  const offsetTop = 80;
+  window.scrollBy({ top: originalTop - offsetTop, left: 0, behavior: 'smooth' });
+  const checkIfDone = setInterval(function() {
+    const atBottom = window.innerHeight + window.pageYOffset >= document.body.offsetHeight - 2;
+    if (distanceToTop(targetAnchor) === offsetTop || atBottom) {
+      window.history.pushState('', '', targetID);
+      clearInterval(checkIfDone);
+    }
+  }, 100);
+}
+
+export const initialize = () => {
+  if (typeof document !== 'undefined') {
+    const navLinks = document.querySelectorAll('.nl');
+    navLinks.forEach(link => {
+      link.addEventListener('click', scrollAnchors);
+    });
+  }
+};

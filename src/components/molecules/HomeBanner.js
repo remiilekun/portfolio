@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 import { Flex, Box } from 'rebass';
 import { Content, OutlineButton, Typography } from 'components/atoms';
 import { RightArrowIcon } from 'components/icons';
+import Link from 'next/link';
 import codingIllustration from '../../../public/assets/img/coding-i.png';
 
 const Wrapper = styled.section`
@@ -63,10 +64,12 @@ export const HomeBanner = () => {
             <Greeting type="h2">Hello, I am </Greeting>
             <Name type="h1">Remilekun Salami</Name>
             <Summary>A software engineer based in Lagos, Nigeria.</Summary>
-            <OutlineButton fontSize="small" size="large">
-              Say Hello
-              <RightArrowIcon style={{ marginLeft: '1.5rem' }} />
-            </OutlineButton>
+            <Link href="#contact">
+              <OutlineButton fontSize="small" size="large">
+                Say Hello
+                <RightArrowIcon style={{ marginLeft: '1.5rem' }} />
+              </OutlineButton>
+            </Link>
           </Box>
         </Flex>
       </Content>

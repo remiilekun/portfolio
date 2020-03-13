@@ -17,6 +17,7 @@ const nextConfig = {
     }
     config.resolve.alias.components = path.join(__dirname, 'src/components'); // eslint-disable-line no-param-reassign
     config.resolve.alias.data = path.join(__dirname, 'src/data'); // eslint-disable-line no-param-reassign
+    config.resolve.alias.hooks = path.join(__dirname, 'src/hooks'); // eslint-disable-line no-param-reassign
     config.resolve.alias.lib = path.join(__dirname, 'src/lib'); // eslint-disable-line no-param-reassign
     return config;
   },

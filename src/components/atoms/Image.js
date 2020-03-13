@@ -28,7 +28,7 @@ const StlyedImage = styled.img`
   display: inline-block;
 `;
 
-export const Image = ({ alt, className, placeholder, sizes, spin, spinnerSize, src, srcset, ...rest }) => {
+export const Image = ({ alt, className, sizes, spin, spinnerSize, src, srcset, ...rest }) => {
   const [loading, setLoading] = useState(!!src);
   const [, setError] = useState(!src);
   useEffect(() => {
@@ -63,7 +63,6 @@ export const Image = ({ alt, className, placeholder, sizes, spin, spinnerSize, s
 Image.propTypes = {
   alt: PropTypes.string.isRequired,
   className: PropTypes.string,
-  placeholder: PropTypes.string,
   sizes: PropTypes.string,
   spin: PropTypes.bool,
   spinnerSize: PropTypes.string,
@@ -73,7 +72,6 @@ Image.propTypes = {
 
 Image.defaultProps = {
   className: '',
-  placeholder: 'artist',
   sizes: '',
   spin: true,
   spinnerSize: '2.5rem',

@@ -27,6 +27,7 @@ export const Wrapper = styled.nav`
 
 export const Brand = styled.span`
   color: ${({ theme }) => theme.colors.white};
+  cursor: pointer;
   font-size: ${({ theme }) => theme.font.size.big};
   font-weight: 700;
   letter-spacing: 0.5px;
@@ -36,6 +37,7 @@ export const NavList = styled.ul`
   align-items: center;
   display: flex;
   flex-direction: column;
+  position: relative;
 
   ${({ theme }) => theme.mq.md`
   flex-direction: row;
@@ -43,10 +45,6 @@ export const NavList = styled.ul`
 `;
 
 export const NavItem = styled.li`
-  color: ${({ theme }) => theme.colors.white};
-  cursor: pointer;
-  font-size: ${({ theme }) => theme.font.size.small};
-  user-select: none;
   &:not(:last-child) {
     margin-bottom: 3rem;
   }
@@ -57,6 +55,16 @@ export const NavItem = styled.li`
     margin-right: 2rem;
   }
   `}
+`;
+
+export const NavLink = styled.a`
+  &,
+  &:visited {
+    color: ${({ theme }) => theme.colors.white};
+  }
+  font-size: ${({ theme }) => theme.font.size.small};
+  text-decoration: none;
+  user-select: none;
 `;
 
 export const NavButton = styled(OutlineButton)`

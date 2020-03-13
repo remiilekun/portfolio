@@ -86,7 +86,7 @@ const AboutMe = props => {
         </SubSection>
 
         <SubSection>
-          <Subtitle>Here are a few technologies I've worked with recently:</Subtitle>
+          <Subtitle>My technology stack:</Subtitle>
           <Flex flexWrap="wrap" mx="-0.5rem">
             {Object.keys(skills).map(type => (
               <Box key={type} width={[1 / 2, 4 / 12, 4 / 12, 2 / 12]} px="0.5rem" mb={['1rem', '1rem', '1rem', 0]}>
@@ -96,11 +96,10 @@ const AboutMe = props => {
           </Flex>
         </SubSection>
 
-        <SubSection>
+        {/* <SubSection>
           <Subtitle>I have been able to create solutions for:</Subtitle>
-
           <Companies />
-        </SubSection>
+        </SubSection> */}
       </Content>
     </Wrapper>
   );

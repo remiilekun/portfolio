@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useLayoutEffect, useRef } from 'react';
 import { Flex } from 'rebass';
 import Link from 'next/link';
 import { createBreakpoint } from 'react-use';
 import { useTransition } from 'react-spring';
 import cb from 'bezier-easing';
+import * as smoothScroll from 'lib/smoothScroll';
+import { useMultipleClickaway } from 'hooks';
 import { Content } from '../../atoms';
 import {
   Brand,
@@ -13,6 +15,7 @@ import {
   MobileWrapper,
   NavButton,
   NavItem,
+  NavLink,
   NavList,
   Wrapper,
 } from './styled';
@@ -22,26 +25,60 @@ export const useBreakpoint = createBreakpoint({
   mobile: 0,
 });
 
-const NavMenu = () => (
-  <NavList>
-    <Link href="#about">
-      <NavItem>About Me</NavItem>
-    </Link>
-    <Link href="#works">
-      <NavItem>Works</NavItem>
-    </Link>
-    <Link href="#contact">
-      <NavItem>Contact Me</NavItem>
-    </Link>
-    <NavButton>Download Resume</NavButton>
-  </NavList>
-);
+const NavMenu = () => {
+  useLayoutEffect(() => {
+    smoothScroll.initialize();
+  }, []);
+
+  return (
+    <NavList>
+      <NavItem>
+        <Link href="#about" passHref>
+          <NavLink className="nl">About Me</NavLink>
+        </Link>
+      </NavItem>
+
+      <NavItem>
+        <Link href="#works" passHref>
+          <NavLink className="nl">Works</NavLink>
+        </Link>
+      </NavItem>
+
+      <NavItem>
+        <Link href="#contact" passHref>
+          <NavLink className="nl">Contact Me</NavLink>
+        </Link>
+      </NavItem>
+
+      <NavButton>Download Resume</NavButton>
+    </NavList>
+  );
+};
 
 export const Nav = () => {
   const [active, setActive] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const breakpoint = useBreakpoint();
   const toggleActive = () => setActive(v => !v);
+  const hamRef = useRef(null);
+  const menuRef = useRef(null);
+
+  const [isOutside] = useMultipleClickaway([hamRef, menuRef]);
+
+  useEffect(() => {
+    if (isOutside) {
+      setActive(false);
+    }
+    // eslint-disable-next-line
+  }, [isOutside, active]);
+
+  const scrollToTop = () => {
+    if (window !== undefined) {
+      window.scroll({ top: 0, left: 0, behavior: 'smooth' });
+      const noHashURL = window.location.href.replace(/#.*$/, '');
+      window.history.replaceState('', document.title, noHashURL);
+    }
+  };
 
   useEffect(() => {
     const onScroll = () => {
@@ -71,7 +108,7 @@ export const Nav = () => {
     <Wrapper scrolled={scrolled}>
       <Content fluid>
         <Flex justifyContent="space-between" alignItems="center">
-          <Brand>Remi Salami</Brand>
+          <Brand onClick={scrollToTop}>Remi Salami</Brand>
 
           {breakpoint === 'mobile' ? (
             <MobileWrapper>
@@ -79,13 +116,13 @@ export const Nav = () => {
                 ({ item, key, props: { opacity, transform } }) =>
                   item && (
                     <MobileOverlay key={key} style={{ opacity }}>
-                      <MobileMenu style={{ transform }}>
+                      <MobileMenu ref={menuRef} style={{ transform }}>
                         <NavMenu />
                       </MobileMenu>
                     </MobileOverlay>
                   ),
               )}
-              <Hamburger aria-label="Hamburger button" active={active} onClick={toggleActive}>
+              <Hamburger ref={hamRef} aria-label="Hamburger button" active={active} onClick={toggleActive}>
                 <span />
                 <span />
                 <span />
