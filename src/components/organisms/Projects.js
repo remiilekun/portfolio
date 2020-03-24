@@ -9,7 +9,7 @@ const Projects = ({ showAll }) => {
   const [data, setData] = useState([]);
   const [more, setMore] = useState(true);
   const [page, setPage] = useState(1);
-  const limit = 3;
+  const limit = 4;
   const currentCursor = page * limit;
 
   useEffect(() => {
@@ -18,7 +18,7 @@ const Projects = ({ showAll }) => {
       setMore(false);
     } else {
       setData([...works.slice(0, currentCursor)]);
-      setMore(works.length >= currentCursor);
+      setMore(works.length > currentCursor);
     }
   }, [showAll]);
 

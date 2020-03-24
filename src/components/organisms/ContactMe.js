@@ -42,9 +42,7 @@ const ContactMe = props => {
         <Flex>
           <Box width={[1, 1, 10 / 12, 8 / 12, 6 / 12]}>
             <Subtitle>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Volutpat neque egestas dignissim pellentesque a
-              semper sagittis. Aliquet etiam aliquet lectus vel turpis in. Ut pellentesque turpis scelerisque tristique
-              consectetur ut leo. Massa magna nec eleifend pellentesque magna in
+              Feel free to reach out to me if you have any question or if you'll like to create magic with me.
             </Subtitle>
 
             <Box maxWidth="50rem">

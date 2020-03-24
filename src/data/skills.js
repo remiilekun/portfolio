@@ -22,7 +22,7 @@ export const skills = {
     icon: ReactIcon,
   },
   swift: {
-    name: 'Swift UI',
+    name: 'Swift',
     icon: SwiftIcon,
   },
 };

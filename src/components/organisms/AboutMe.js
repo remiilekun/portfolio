@@ -5,10 +5,9 @@ import { Content, Typography, Image } from 'components/atoms';
 import { Box, Flex } from 'rebass';
 import { useMeasure } from 'react-use';
 import { skills } from 'data/skills';
-import Companies from './Companies';
 
 const Wrapper = styled.section`
-  margin-bottom: 8rem;
+  margin-bottom: 15rem;
 `;
 
 const Text = styled(Typography.Paragraph)`
@@ -25,7 +24,7 @@ const PictureWrapper = styled.div`
   `}
 
   ${({ theme }) => theme.mq.md`
-    max-width: 100%;
+    max-width: 45rem;
   `}
 `;
 
@@ -68,18 +67,26 @@ const AboutMe = props => {
         <SectionHeader>About Me</SectionHeader>
 
         <SubSection>
-          <Flex mx="-1rem" flexWrap="wrap" mb="3rem">
-            <Box width={[1, 1, 6 / 12, 7 / 12, 8 / 12]} px="1rem" order={[2, 2, 1]}>
+          <Flex mx="-1.5rem" flexWrap="wrap" mb="3rem" alignItems="center">
+            <Box
+              width={[1, 1, 6 / 12, 7 / 12, 8 / 12]}
+              px="1.5rem"
+              order={[2, 2, 1]}
+              maxWidth={['100%', '100%', '80rem']}
+            >
               <Text>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex nobis asperiores enim aspernatur similique
-                iure provident nisi quas cumque excepturi. Rerum ducimus veniam recusandae consequatur beatae esse,
-                repellat voluptate eum laudantium architecto laborum fugit distinctio doloremque nemo est vero, nam sunt
-                eaque quod vel nostrum ratione perferendis eos. Quos, nostrum?
+                Hello, I am Remilekun Salami a.k.a Casper, A software engineer based in Lagos, Nigeria. I am passionate
+                about writing elegant code to enable easy extendabilty and maintenance. I’m highly skilled in building
+                functional applications and can comfortably translate design mockups into responsive pixel-perfect web
+                and/or mobile screens to bring designs to life. I currently work at uduX as a frontend developer and I
+                work on the uduX iOS and web applications. In my spare time, I read articles to improve myself, read
+                manga, watch anime/movies, and hang out with friends.
               </Text>
             </Box>
-            <Box order={[1, 1, 2]} px="1rem" width={[1, 1, 6 / 12, 5 / 12, 4 / 12]} mb={['2rem', null, 0]}>
+
+            <Box order={[1, 1, 2]} px="1.5rem" width={[1, 1, 6 / 12, 5 / 12, 4 / 12]} mb={['2rem', null, 0]} ml="auto">
               <PictureWrapper ref={imageRef}>
-                <Picture height={width} src="https://picsum.photos/300" alt="Remi Salami" />
+                <Picture height={width} src="/assets/img/remi.jpg" alt="Remi Salami" />
               </PictureWrapper>
             </Box>
           </Flex>

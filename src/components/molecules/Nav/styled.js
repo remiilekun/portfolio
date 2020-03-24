@@ -5,7 +5,7 @@ import { OutlineButton, ButtonTemplate } from '../../atoms';
 
 export const Wrapper = styled.nav`
   left: 0;
-  padding: 1.5rem 0;
+  padding: 2rem 0;
   position: fixed;
   top: 0;
   transition: all 0.2s;

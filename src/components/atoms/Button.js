@@ -147,6 +147,10 @@ export const OutlineButton = styled(ButtonTemplate)`
     color: ${({ theme, color, textColor }) => theme.colors[textColor || color]};
   }
 
+  &:hover {
+    background-color: ${({ theme, color }) => theme.colors[color]}1A;
+  }
+
   ${({ noBorder }) =>
     noBorder &&
     css`

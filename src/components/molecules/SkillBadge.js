@@ -6,10 +6,10 @@ import { skills } from 'data/skills';
 
 const Logo = styled.svg`
   flex-shrink: 0;
+  height: 100%;
   height: 2rem;
   margin-right: 1rem;
   width: 2rem;
-  height: 100%;
 `;
 
 const Text = styled(Typography.Text)`
@@ -29,15 +29,15 @@ const Wrapper = styled.div`
   justify-content: center;
   padding: 1rem 1.5rem;
 
-  & + & {
-    margin-left: 1.5rem;
+  &:not(:last-of-type) {
+    margin-right: 1.5rem;
   }
 `;
 
-export const SkillBadge = ({ type }) => {
+export const SkillBadge = ({ type, ...props }) => {
   const skill = skills[type];
   return (
-    <Wrapper>
+    <Wrapper {...props}>
       <Logo as={skill.icon} /> <Text>{skill.name}</Text>
     </Wrapper>
   );

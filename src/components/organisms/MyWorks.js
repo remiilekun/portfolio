@@ -4,7 +4,7 @@ import { Content } from 'components/atoms';
 import Projects from './Projects';
 
 const Wrapper = styled.section`
-  margin-bottom: 8rem;
+  margin-bottom: 15rem;
 `;
 
 const MyWorks = props => {

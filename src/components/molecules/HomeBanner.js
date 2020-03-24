@@ -51,8 +51,17 @@ const Name = styled(Typography.Heading)`
 
 const Summary = styled(Typography.Paragraph)`
   color: ${({ theme }) => theme.colors.primary};
-  line-height: 1.4;
+  line-height: 1.6;
   margin-bottom: 3rem;
+  max-width: 50rem;
+
+  ${({ theme }) => theme.mq.md`
+  max-width: 40rem;
+  `}
+
+  ${({ theme }) => theme.mq.lg`
+  max-width: 50rem;
+  `}
 `;
 
 export const HomeBanner = () => {
@@ -63,9 +72,11 @@ export const HomeBanner = () => {
           <Box width={[1, 1, 10 / 12, 8 / 12, 6 / 12]}>
             <Greeting type="h2">Hello, I am </Greeting>
             <Name type="h1">Remilekun Salami</Name>
-            <Summary>A software engineer based in Lagos, Nigeria.</Summary>
-            <Link href="#contact">
-              <OutlineButton fontSize="small" size="large">
+            <Summary>
+              A software engineer based in Lagos, Nigeria specializing in building amazing web and mobile applications.
+            </Summary>
+            <Link href="#contact" passHref>
+              <OutlineButton fontSize="small" size="large" as="a" className="nl">
                 Say Hello
                 <RightArrowIcon style={{ marginLeft: '1.5rem' }} />
               </OutlineButton>

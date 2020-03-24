@@ -1,4 +1,5 @@
 export * from './Company';
+export * from './Footer';
 export * from './HomeBanner';
 export * from './Nav';
 export * from './Project';

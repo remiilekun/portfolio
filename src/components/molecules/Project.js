@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import { Flex, Box } from 'rebass';
 import PropTypes from 'prop-types';
 import { Image, Typography, OutlineButton } from 'components/atoms';
-import { RightArrowIcon } from 'components/icons';
+import { RightArrowIcon, AppStoreIcon, PlayStoreIcon } from 'components/icons';
 import { useTheme } from 'emotion-theming';
 import { useMeasure } from 'react-use';
 import { SkillBadge } from './SkillBadge';
@@ -17,7 +17,7 @@ const Wrapper = styled(Flex)`
   `}
 
   & + & {
-    margin-top: 4rem;
+    margin-top: 8rem;
   }
 `;
 
@@ -43,7 +43,7 @@ const ProjectImage = styled(Image)`
   `}
 
   img {
-    height: 100%;
+    height: auto;
     object-fit: cover;
     width: 100%;
   }
@@ -55,15 +55,10 @@ const Heading = styled(Box)`
   margin-bottom: 1.5rem;
 `;
 
-const Logo = styled(Image)`
-  height: 5rem;
-  width: 8rem;
-
-  img {
-    height: 100%;
-    object-fit: contain;
-    width: 100%;
-  }
+const Logo = styled.svg`
+  height: 4rem;
+  margin-right: 1rem;
+  width: 7rem;
 `;
 
 const Name = styled(Typography.Text)`
@@ -80,25 +75,50 @@ const Description = styled(Typography.Paragraph)`
 `;
 
 const Technologies = styled(Box)`
-  display: flex;
   align-items: center;
+  display: flex;
+  flex-wrap: wrap;
   margin-bottom: 1rem;
 `;
 
 const Arrow = styled(RightArrowIcon)`
-  transform: rotate(-45deg);
-  margin-left: 1rem;
   margin-bottom: -2px;
+  margin-left: 1rem;
+  transform: rotate(-45deg);
 `;
 
-const Link = styled.a``;
+const Skill = styled(SkillBadge)`
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
+`;
+
+const Links = styled.ul`
+  align-items: center;
+  display: flex;
+`;
+
+const LinkItem = styled.li`
+  display: flex;
+  &:not(:last-child) {
+    margin-right: 1.5rem;
+  }
+`;
+
+const Link = styled.a`
+  display: flex;
+  text-decoration: none;
+
+  svg {
+    margin-left: 1rem;
+  }
+`;
 
 export const Project = ({ coverImage, description, imageOrder, link, logo, name, technologies }) => {
   const [imageRef, { width }] = useMeasure();
   const { primary } = useTheme().colors;
 
   const height = () => {
-    return (width * 75) / 100;
+    return (width * 62.5) / 100;
   };
 
   return (
@@ -110,22 +130,67 @@ export const Project = ({ coverImage, description, imageOrder, link, logo, name,
       </Box>
       <Box px={[0, null, '1.5rem']} width={[1, 1, 1 / 2]}>
         <Heading>
-          <Logo src={logo} alt={`${name} logo`} />
+          {logo && <Logo as={logo} />}
           <Name>{name}</Name>
         </Heading>
         <Description>{description}</Description>
         <Technologies>
           {technologies.map(tech => (
-            <SkillBadge key={tech} type={tech} />
+            <Skill key={tech} type={tech} />
           ))}
         </Technologies>
-        {link && (
-          <Link href={link} target="_blank" rel="noopener noreferrer">
-            <OutlineButton size="small" noBorder color="primary" fontSize="small">
-              Visit page <Arrow fill={primary} stroke="5px" />
-            </OutlineButton>
-          </Link>
-        )}
+        <Links>
+          {link.web && (
+            <LinkItem>
+              <OutlineButton
+                as={Link}
+                color="primary"
+                fontSize="small"
+                href={link.web}
+                noBorder
+                rel="noopener noreferrer"
+                size="small"
+                target="_blank"
+              >
+                Visit page <Arrow fill={primary} stroke="5px" />
+              </OutlineButton>
+            </LinkItem>
+          )}
+
+          {link.ios && (
+            <LinkItem>
+              <OutlineButton
+                as={Link}
+                color="primary"
+                fontSize="small"
+                href={link.ios}
+                noBorder
+                rel="noopener noreferrer"
+                size="small"
+                target="_blank"
+              >
+                App Store <AppStoreIcon width="1.8rem" height="1.8rem" />
+              </OutlineButton>
+            </LinkItem>
+          )}
+
+          {link.android && (
+            <LinkItem>
+              <OutlineButton
+                as={Link}
+                color="primary"
+                fontSize="small"
+                href={link.android}
+                noBorder
+                rel="noopener noreferrer"
+                size="small"
+                target="_blank"
+              >
+                Play Store <PlayStoreIcon width="1.8rem" height="1.8rem" />
+              </OutlineButton>
+            </LinkItem>
+          )}
+        </Links>
       </Box>
     </Wrapper>
   );
@@ -135,13 +200,21 @@ Project.propTypes = {
   coverImage: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   imageOrder: PropTypes.number,
-  link: PropTypes.string,
-  logo: PropTypes.string.isRequired,
+  link: PropTypes.shape({
+    android: PropTypes.string,
+    ios: PropTypes.string,
+    web: PropTypes.string,
+  }),
+  logo: PropTypes.func.isRequired,
   name: PropTypes.string.isRequired,
   technologies: PropTypes.array.isRequired,
 };
 
 Project.defaultProps = {
   imageOrder: 1,
-  link: '',
+  link: {
+    android: '',
+    ios: '',
+    web: '',
+  },
 };
