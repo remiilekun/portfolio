@@ -5,6 +5,7 @@ import { Content, Typography, Image } from 'components/atoms';
 import { Box, Flex } from 'rebass';
 import { useMeasure } from 'react-use';
 import { skills } from 'data/skills';
+import Fade from 'react-reveal/Fade';
 
 const Wrapper = styled.section`
   margin-bottom: 15rem;
@@ -74,20 +75,24 @@ const AboutMe = props => {
               order={[2, 2, 1]}
               maxWidth={['100%', '100%', '80rem']}
             >
-              <Text>
-                Hello, I am Remilekun Salami a.k.a Casper, A software engineer based in Lagos, Nigeria. I am passionate
-                about writing elegant code to enable easy extendabilty and maintenance. I’m highly skilled in building
-                functional applications and can comfortably translate design mockups into responsive pixel-perfect web
-                and/or mobile screens to bring designs to life. I currently work at uduX as a frontend developer and I
-                work on the uduX iOS and web applications. In my spare time, I read articles to improve myself, read
-                manga, watch anime/movies, and hang out with friends.
-              </Text>
+              <Fade left>
+                <Text>
+                  Hello, I am Remilekun Salami a.k.a Casper, A software engineer based in Lagos, Nigeria. I am
+                  passionate about writing elegant code to enable easy extendabilty and maintenance. I’m highly skilled
+                  in building functional applications and can comfortably translate design mockups into responsive
+                  pixel-perfect web and/or mobile screens to bring designs to life. I currently work at uduX as a
+                  frontend developer and I work on the uduX iOS and web applications. In my spare time, I read articles
+                  to improve myself, read manga, watch anime/movies, and hang out with friends.
+                </Text>
+              </Fade>
             </Box>
 
             <Box order={[1, 1, 2]} px="1.5rem" width={[1, 1, 6 / 12, 5 / 12, 4 / 12]} mb={['2rem', null, 0]} ml="auto">
-              <PictureWrapper ref={imageRef}>
-                <Picture height={width} src="/assets/img/remi.jpg" alt="Remi Salami" />
-              </PictureWrapper>
+              <Fade bottom>
+                <PictureWrapper ref={imageRef}>
+                  <Picture height={width} src="/assets/img/remi.jpg" alt="Remi Salami" />
+                </PictureWrapper>
+              </Fade>
             </Box>
           </Flex>
         </SubSection>
@@ -95,9 +100,11 @@ const AboutMe = props => {
         <SubSection>
           <Subtitle>My technology stack:</Subtitle>
           <Flex flexWrap="wrap" mx="-0.5rem">
-            {Object.keys(skills).map(type => (
+            {Object.keys(skills).map((type, index) => (
               <Box key={type} width={[1 / 2, 4 / 12, 4 / 12, 2 / 12]} px="0.5rem" mb={['1rem', '1rem', '1rem', 0]}>
-                <SkillBadge type={type} />
+                <Fade bottom delay={index * 250}>
+                  <SkillBadge type={type} />
+                </Fade>
               </Box>
             ))}
           </Flex>

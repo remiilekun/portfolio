@@ -33,9 +33,10 @@ const Wrapper = styled.section`
   `}
 
   ${({ theme }) => theme.mq.xl`
-  background-position: calc(100%) -5rem;
+  background-position: calc(100%) 0;
   background-size: 70rem;
-  padding-bottom: 20rem;
+  padding-top: 25rem;
+  padding-bottom: 30rem;
   `}
 
 `;

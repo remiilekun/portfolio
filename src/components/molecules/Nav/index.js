@@ -6,6 +6,7 @@ import { useTransition } from 'react-spring';
 import cb from 'bezier-easing';
 import * as smoothScroll from 'lib/smoothScroll';
 import { useMultipleClickaway } from 'hooks';
+import Fade from 'react-reveal/Fade';
 import { Content } from '../../atoms';
 import {
   Brand,
@@ -33,24 +34,39 @@ const NavMenu = () => {
   return (
     <NavList>
       <NavItem>
-        <Link href="#about" passHref>
-          <NavLink className="nl">About Me</NavLink>
-        </Link>
+        <Fade top>
+          <Link href="#about" passHref>
+            <NavLink className="nl">About Me</NavLink>
+          </Link>
+        </Fade>
       </NavItem>
 
       <NavItem>
-        <Link href="#works" passHref>
-          <NavLink className="nl">Works</NavLink>
-        </Link>
+        <Fade top delay={100}>
+          <Link href="#works" passHref>
+            <NavLink className="nl">Works</NavLink>
+          </Link>
+        </Fade>
       </NavItem>
 
       <NavItem>
-        <Link href="#contact" passHref>
-          <NavLink className="nl">Contact Me</NavLink>
-        </Link>
+        <Fade top delay={200}>
+          <Link href="#contact" passHref>
+            <NavLink className="nl">Contact Me</NavLink>
+          </Link>
+        </Fade>
       </NavItem>
 
-      <NavButton>Download Resume</NavButton>
+      <Fade top delay={300}>
+        <NavButton
+          as="a"
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://docs.google.com/document/d/e/2PACX-1vQOHsJSOYMhdjPsnQ8WgfFXPkF6rI8hrhsjoIOkWyxjMjU6KDTXfOV8Cmdb-bp0-x44fCSSPg4bDAPh/pub"
+        >
+          Download Resume
+        </NavButton>
+      </Fade>
     </NavList>
   );
 };

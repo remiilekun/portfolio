@@ -6,8 +6,11 @@ import { ThemeProvider } from 'emotion-theming';
 import { cache } from 'emotion';
 import PageWrapper from 'components/organisms/PageWrapper';
 import * as gtag from 'lib/gtag';
+import config from 'react-reveal/globals';
 import GlobalStyle from '../GlobalStyle';
 import { theme } from '../theme';
+
+config({ ssrFadeout: true });
 
 Router.events.on('routeChangeComplete', url => gtag.pageview(url));
 

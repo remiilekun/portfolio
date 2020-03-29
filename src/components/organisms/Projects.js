@@ -1,9 +1,21 @@
+import { useState, useEffect } from 'react';
 import { Project } from 'components/molecules';
 import PropTypes from 'prop-types';
 import { Flex, Box } from 'rebass';
 import { works } from 'data/works';
 import { OutlineButton } from 'components/atoms';
-import { useState, useEffect } from 'react';
+import Slide from 'react-reveal/Slide';
+import styled from '@emotion/styled';
+
+const ProjectsWrapper = styled(Flex)`
+  flex-direction: column;
+
+  .react-reveal {
+    &:not(:last-child) {
+      margin-bottom: 8rem;
+    }
+  }
+`;
 
 const Projects = ({ showAll }) => {
   const [data, setData] = useState([]);
@@ -30,9 +42,11 @@ const Projects = ({ showAll }) => {
   };
 
   return (
-    <Flex flexDirection="column">
+    <ProjectsWrapper>
       {data.map(({ id, ...project }, i) => (
-        <Project key={id} {...project} imageOrder={i % 2} />
+        <Slide bottom key={id}>
+          <Project {...project} imageOrder={i % 2} />
+        </Slide>
       ))}
 
       {more && (
@@ -42,7 +56,7 @@ const Projects = ({ showAll }) => {
           </OutlineButton>
         </Box>
       )}
-    </Flex>
+    </ProjectsWrapper>
   );
 };
 
