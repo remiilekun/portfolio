@@ -5,6 +5,7 @@ export const Content = styled.div`
   display: block;
   margin-left: auto;
   margin-right: auto;
+  max-width: 144rem;
   padding-left: 2rem;
   padding-right: 2rem;
   width: 100%;
