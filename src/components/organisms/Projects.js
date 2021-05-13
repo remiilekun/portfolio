@@ -3,7 +3,7 @@ import { Project } from 'components/molecules';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
 import { Flex, Box } from 'rebass';
-import { works } from 'data/works';
+import { projects } from 'data/projects';
 import { OutlineButton } from 'components/atoms';
 import Slide from 'react-reveal/Slide';
 import styled from '@emotion/styled';
@@ -20,7 +20,7 @@ const ProjectsWrapper = styled(Flex)`
 
 const Projects = ({ showAll }) => {
   const data = useMemo(() => {
-    return showAll ? works : [...works.slice(0, 3)];
+    return showAll ? projects : [...projects.slice(0, 3)];
   }, []);
 
   return (
@@ -31,7 +31,7 @@ const Projects = ({ showAll }) => {
         </Slide>
       ))}
 
-      {!showAll && works?.length > 3 && (
+      {!showAll && projects?.length > 3 && (
         <Box width="1" py="2rem" display="flex" alignItems="center" justifyContent="center">
           <Link href="/projects" passHref>
             <OutlineButton fontSize="normal" size="large" as="a">

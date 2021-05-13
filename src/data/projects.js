@@ -1,6 +1,6 @@
 import { FindmaidsIcon, UduXIcon, Chiji14XchangeIcon, GitExplorerIcon } from 'components/icons';
 
-export const works = [
+export const projects = [
   {
     coverImage: '/assets/img/projects/npf.jpg',
     description:

@@ -44,8 +44,8 @@ const NavMenu = () => {
 
       <NavItem>
         <Fade top delay={100}>
-          <Link href="#works" passHref>
-            <NavLink className="nl">Works</NavLink>
+          <Link href="#projects" passHref>
+            <NavLink className="nl">Projects</NavLink>
           </Link>
         </Fade>
       </NavItem>
