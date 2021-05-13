@@ -11,7 +11,7 @@ const MyWorks = props => {
   return (
     <Wrapper {...props}>
       <Content fluid>
-        <SectionHeader>My Works</SectionHeader>
+        <SectionHeader>My Projects</SectionHeader>
         <Projects />
       </Content>
     </Wrapper>

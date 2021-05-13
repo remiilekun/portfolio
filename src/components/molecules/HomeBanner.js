@@ -4,10 +4,9 @@ import { Flex, Box } from 'rebass';
 import { Content, OutlineButton, Typography } from 'components/atoms';
 import { RightArrowIcon } from 'components/icons';
 import Link from 'next/link';
-import codingIllustration from '../../../public/assets/img/coding-i.png';
 
 const Wrapper = styled.section`
-  background-image: url(${codingIllustration});
+  background-image: url("/assets/img/coding-i.png");
   background-position: calc(100% + 4rem) 0;
   background-repeat: no-repeat;
   background-size: 28rem;
