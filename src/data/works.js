@@ -2,6 +2,39 @@ import { FindmaidsIcon, UduXIcon, Chiji14XchangeIcon, GitExplorerIcon } from 'co
 
 export const works = [
   {
+    coverImage: '/assets/img/projects/npf.jpg',
+    description:
+      'The NPF Microfinance Banking Mobile App allows you to bank on the go. Carryout all banking related activities from the comfort of your mobile phone.',
+    name: 'NPF MFB',
+    technologies: ['react', 'reactNative'],
+    link: {
+      ios: 'https://apps.apple.com/ng/app/npf-microfinance-bank/id1546736456',
+      android: 'https://play.google.com/store/apps/details?id=com.npfmicrofinancebank.ibank',
+    },
+    id: 'proj-npf',
+  },
+  {
+    coverImage: '/assets/img/projects/swap.jpg',
+    description: 'A community to aid easy barter and foster relationships between game lovers.',
+    name: 'swapurgame',
+    technologies: ['html', 'react'],
+    link: {
+      web: 'https://www.swapurgame.com/',
+    },
+    id: 'proj-swap',
+  },
+  {
+    coverImage: '/assets/img/projects/sharply.jpg',
+    description:
+      'A fully automated logistics solution that allows small and medium scale logistics company manage their riders and customer.',
+    name: 'Sharply Africa',
+    technologies: ['html', 'react'],
+    link: {
+      web: 'https://www.sharply.africa/',
+    },
+    id: 'proj-sharply',
+  },
+  {
     coverImage: '/assets/img/projects/udux.jpg',
     description:
       "uduX is a music streaming platform. I worked with a team of software engineers on uduX, by translating designs and consuming apis, my role was to build applications that enables ease of use of streaming and accessibility of user's uduX data for both platforms, web and mobile( iOS ).",

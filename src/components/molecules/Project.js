@@ -113,12 +113,22 @@ const Link = styled.a`
   }
 `;
 
-export const Project = ({ coverImage, description, imageOrder, link, logo, name, technologies }) => {
+export const Project = ({ coverImage, description, imageOrder, link, logo, logoType, name, technologies }) => {
   const [imageRef, { width }] = useMeasure();
   const { primary } = useTheme().colors;
 
   const height = () => {
     return (width * 62.5) / 100;
+  };
+
+  const renderLogo = () => {
+    if (logo) {
+      if (logoType === 'svg') {
+        return <Logo as={logo} />;
+      }
+      return <Logo as="img" src={logo} alt={name} />;
+    }
+    return null;
   };
 
   return (
@@ -130,7 +140,7 @@ export const Project = ({ coverImage, description, imageOrder, link, logo, name,
       </Box>
       <Box px={[0, null, '1.5rem']} width={[1, 1, 1 / 2]}>
         <Heading>
-          {logo && <Logo as={logo} />}
+          {renderLogo()}
           <Name>{name}</Name>
         </Heading>
         <Description>{description}</Description>
@@ -206,12 +216,14 @@ Project.propTypes = {
     web: PropTypes.string,
   }),
   logo: PropTypes.func.isRequired,
+  logoType: PropTypes.string,
   name: PropTypes.string.isRequired,
   technologies: PropTypes.array.isRequired,
 };
 
 Project.defaultProps = {
   imageOrder: 1,
+  logoType: 'svg',
   link: {
     android: '',
     ios: '',
