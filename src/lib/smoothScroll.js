@@ -1,7 +1,8 @@
-function scrollAnchors(e, respond = null) {
+function scrollAnchors(e) {
   const distanceToTop = el => Math.floor(el.getBoundingClientRect().top);
   e.preventDefault();
-  const targetID = respond ? respond.getAttribute('href') : this.getAttribute('href');
+  const [, id] = this.getAttribute('href').split('#');
+  const targetID = `#${id}`;
   const targetAnchor = document.querySelector(targetID);
   if (!targetAnchor) return;
   const originalTop = distanceToTop(targetAnchor);

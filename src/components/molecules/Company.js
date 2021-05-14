@@ -94,7 +94,7 @@ export const Company = ({ company, description, period, role }) => {
         }}
       >
         {description.map(x => (
-          <Description>{x}</Description>
+          <Description key={x}>{x}</Description>
         ))}
       </Box>
     </Wrapper>
@@ -103,7 +103,7 @@ export const Company = ({ company, description, period, role }) => {
 
 Company.propTypes = {
   company: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
+  description: PropTypes.array.isRequired,
   period: PropTypes.string.isRequired,
   role: PropTypes.string.isRequired,
 };

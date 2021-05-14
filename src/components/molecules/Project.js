@@ -215,7 +215,7 @@ Project.propTypes = {
     ios: PropTypes.string,
     web: PropTypes.string,
   }),
-  logo: PropTypes.func.isRequired,
+  logo: PropTypes.any,
   logoType: PropTypes.string,
   name: PropTypes.string.isRequired,
   technologies: PropTypes.array.isRequired,

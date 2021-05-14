@@ -13,7 +13,6 @@ export default class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
-          <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
           <meta name="title" content="Remilekun Salami" />
           <meta name="author" content="Remilekun Salami" />
           <meta name="theme-color" content="#b0aff6" />

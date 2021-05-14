@@ -205,4 +205,6 @@ const globalStyle = css`
   }
 `;
 
-export default () => <Global styles={globalStyle} />;
+const GlobalStyle = () => <Global styles={globalStyle} />;
+
+export default GlobalStyle;
