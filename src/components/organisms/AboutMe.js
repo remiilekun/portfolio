@@ -6,6 +6,7 @@ import { Box, Flex } from 'rebass';
 import { useMeasure } from 'react-use';
 import { skills } from 'data/skills';
 import Fade from 'react-reveal/Fade';
+import Companies from './Companies';
 
 const Wrapper = styled.section`
   margin-bottom: 15rem;
@@ -77,12 +78,12 @@ const AboutMe = props => {
             >
               <Fade left>
                 <Text>
-                  Hello, I am Remilekun Salami a.k.a Casper, A software engineer based in Lagos, Nigeria. I am
-                  passionate about writing elegant code to enable easy extendabilty and maintenance. I’m highly skilled
-                  in building functional applications and can comfortably translate design mockups into responsive
-                  pixel-perfect web and/or mobile screens to bring designs to life. I currently work at uduX as a
-                  frontend developer and I work on the uduX iOS and web applications. In my spare time, I read articles
-                  to improve myself, read manga, watch anime/movies, and hang out with friends.
+                  Hello, I am Remilekun Salami (Casper), a software engineer based in Lagos, Nigeria. I am passionate
+                  about writing elegant code to enable easy extendabilty and maintenance. I’m highly skilled in building
+                  functional applications and can comfortably translate design mockups into responsive pixel-perfect web
+                  and/or mobile screens to bring designs to life. I currently work at OPay as a frontend developer. In
+                  my spare time I read articles to help my growth, read manga, watch anime/movies, hang out with
+                  friends, you can also catch me playing Apex Legends (gamer tag: casper_rsj).
                 </Text>
               </Fade>
             </Box>
@@ -110,10 +111,10 @@ const AboutMe = props => {
           </Flex>
         </SubSection>
 
-        {/* <SubSection>
+        <SubSection>
           <Subtitle>I have been able to create solutions for:</Subtitle>
           <Companies />
-        </SubSection> */}
+        </SubSection>
       </Content>
     </Wrapper>
   );
