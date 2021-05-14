@@ -7,6 +7,7 @@ import cb from 'bezier-easing';
 import * as smoothScroll from 'lib/smoothScroll';
 import { useMultipleClickaway } from 'hooks';
 import Fade from 'react-reveal/Fade';
+import { useRouter } from 'next/router';
 import { Content } from '../../atoms';
 import {
   Brand,
@@ -43,8 +44,8 @@ const NavMenu = () => {
 
       <NavItem>
         <Fade top delay={100}>
-          <Link href="#works" passHref>
-            <NavLink className="nl">Works</NavLink>
+          <Link href="#projects" passHref>
+            <NavLink className="nl">Projects</NavLink>
           </Link>
         </Fade>
       </NavItem>
@@ -70,6 +71,7 @@ export const Nav = () => {
   const [active, setActive] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const breakpoint = useBreakpoint();
+  const { pathname, push } = useRouter();
   const toggleActive = () => setActive(v => !v);
   const hamRef = useRef(null);
   const menuRef = useRef(null);
@@ -80,7 +82,6 @@ export const Nav = () => {
     if (isOutside) {
       setActive(false);
     }
-    // eslint-disable-next-line
   }, [isOutside, active]);
 
   const scrollToTop = () => {
@@ -89,6 +90,14 @@ export const Nav = () => {
       const noHashURL = window.location.href.replace(/#.*$/, '');
       window.history.replaceState('', document.title, noHashURL);
     }
+  };
+
+  const goToHome = () => {
+    push('/');
+  };
+
+  const onLogoClick = () => {
+    return pathname === '/' ? scrollToTop() : goToHome();
   };
 
   useEffect(() => {
@@ -106,8 +115,8 @@ export const Nav = () => {
 
   const easing = cb(0.53, -0.19, 0.39, 1.29);
   const transitions = useTransition(active, null, {
-    from: { opacity: 0, transform: 'scale(0) ' },
-    enter: { opacity: 1, transform: 'scale(1) ' },
+    from: { opacity: 0, transform: 'scale(0)' },
+    enter: { opacity: 1, transform: 'scale(1)' },
     leave: { opacity: 0, transform: 'scale(0)' },
     config: {
       duration: 300,
@@ -119,7 +128,7 @@ export const Nav = () => {
     <Wrapper scrolled={scrolled}>
       <Content fluid>
         <Flex justifyContent="space-between" alignItems="center">
-          <Brand onClick={scrollToTop}>Remi Salami</Brand>
+          <Brand onClick={onLogoClick}>Remi Salami</Brand>
 
           {breakpoint === 'mobile' ? (
             <MobileWrapper>

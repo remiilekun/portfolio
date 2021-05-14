@@ -24,10 +24,11 @@ const Period = styled(Typography.Paragraph)`
   opacity: 0.5;
 `;
 
-const Description = styled(Typography.Paragraph)`
+const Description = styled.li`
+  color: ${({ theme }) => theme.colors.white};
   font-weight: ${({ theme }) => theme.font.weight.medium};
   line-height: 1.7;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 `;
 
 const HeaderWrapper = styled(Box)`
@@ -85,7 +86,17 @@ export const Company = ({ company, description, period, role }) => {
       <CompanyHeader>{company}</CompanyHeader>
       <Role>{role}</Role>
       <Period>{period}</Period>
-      <Description>{description}</Description>
+      <Box
+        as="ul"
+        sx={{
+          listStyle: 'disc',
+          listStylePosition: 'inside',
+        }}
+      >
+        {description.map(x => (
+          <Description>{x}</Description>
+        ))}
+      </Box>
     </Wrapper>
   );
 };

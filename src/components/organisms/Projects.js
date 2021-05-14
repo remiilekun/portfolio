@@ -1,8 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useMemo } from 'react';
 import { Project } from 'components/molecules';
 import PropTypes from 'prop-types';
+import Link from 'next/link';
 import { Flex, Box } from 'rebass';
-import { works } from 'data/works';
+import { projects } from 'data/projects';
 import { OutlineButton } from 'components/atoms';
 import Slide from 'react-reveal/Slide';
 import styled from '@emotion/styled';
@@ -18,28 +19,9 @@ const ProjectsWrapper = styled(Flex)`
 `;
 
 const Projects = ({ showAll }) => {
-  const [data, setData] = useState([]);
-  const [more, setMore] = useState(true);
-  const [page, setPage] = useState(1);
-  const limit = 4;
-  const currentCursor = page * limit;
-
-  useEffect(() => {
-    if (showAll) {
-      setData([...works]);
-      setMore(false);
-    } else {
-      setData([...works.slice(0, currentCursor)]);
-      setMore(works.length > currentCursor);
-    }
-  }, [showAll]);
-
-  const loadMore = () => {
-    const nextCursor = (page + 1) * limit;
-    setData(prev => [...prev, ...works.slice(currentCursor, nextCursor)]);
-    setPage(v => v + 1);
-    setMore(works.length >= nextCursor);
-  };
+  const data = useMemo(() => {
+    return showAll ? projects : [...projects.slice(0, 3)];
+  }, []);
 
   return (
     <ProjectsWrapper>
@@ -49,11 +31,13 @@ const Projects = ({ showAll }) => {
         </Slide>
       ))}
 
-      {more && (
-        <Box onClick={loadMore} width="1" py="2rem" display="flex" alignItems="center" justifyContent="center">
-          <OutlineButton fontSize="normal" size="large">
-            View More
-          </OutlineButton>
+      {!showAll && projects?.length > 3 && (
+        <Box width="1" py="2rem" display="flex" alignItems="center" justifyContent="center">
+          <Link href="/projects" passHref>
+            <OutlineButton fontSize="normal" size="large" as="a">
+              View More
+            </OutlineButton>
+          </Link>
         </Box>
       )}
     </ProjectsWrapper>

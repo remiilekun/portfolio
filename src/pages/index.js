@@ -2,7 +2,7 @@ import React from 'react';
 import Head from 'next/head';
 import { HomeBanner, Footer } from 'components/molecules';
 import AboutMe from 'components/organisms/AboutMe';
-import MyWorks from 'components/organisms/MyWorks';
+import MyProjects from 'components/organisms/MyProjects';
 import ContactMe from 'components/organisms/ContactMe';
 
 const Home = () => {
@@ -13,7 +13,7 @@ const Home = () => {
       </Head>
       <HomeBanner />
       <AboutMe id="about" />
-      <MyWorks id="works" />
+      <MyProjects id="projects" />
       <ContactMe id="contact" />
       <Footer />
     </>

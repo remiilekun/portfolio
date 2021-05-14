@@ -3,6 +3,7 @@ export * from './Footer';
 export * from './HomeBanner';
 export * from './Nav';
 export * from './Project';
+export * from './ProjectsBanner';
 export * from './SectionHeader';
 export * from './SkillBadge';
 export * from './Socials';
