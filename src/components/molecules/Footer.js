@@ -18,15 +18,17 @@ export const Footer = () => {
     <Wrapper>
       <Content>
         <Typography.Paragraph align="center" size="small">
-          Designed With{' '}
-          <span aria-label="Heart Emoji" role="img">
-            ♥️
+          <span aria-label="Design Emoji" role="img">
+            🎨
           </span>{' '}
-          by Layor Salami and{' '}
+          <a href="http://layorsalami.com/" rel="noopener noreferrer" target="_blank">
+            Layor Salami
+          </a>{' '}
+          ,
           <span aria-label="Code Emoji" role="img">
             👨🏾‍💻
           </span>{' '}
-          by Remi Salami
+          Remi Salami
         </Typography.Paragraph>
       </Content>
     </Wrapper>

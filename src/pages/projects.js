@@ -1,7 +1,9 @@
 import Head from 'next/head';
 import { Content } from 'components/atoms';
-import { ProjectsBanner } from 'components/molecules';
+import { ProjectsBanner, Footer } from 'components/molecules';
 import Projects from 'components/organisms/Projects';
+
+import { Box } from 'rebass';
 
 const ProjectsPage = () => {
   return (
@@ -10,9 +12,13 @@ const ProjectsPage = () => {
         <title>Projects - Remilekun Salami</title>
       </Head>
       <ProjectsBanner />
-      <Content fluid>
-        <Projects showAll />
-      </Content>
+      <Box mb="8rem">
+        <Content fluid>
+          <Projects showAll />
+        </Content>
+      </Box>
+
+      <Footer />
     </>
   );
 };
