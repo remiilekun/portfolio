@@ -2,6 +2,17 @@ import { FindmaidsIcon, UduXIcon, Chiji14XchangeIcon, GitExplorerIcon } from 'co
 
 export const projects = [
   {
+    coverImage: '/assets/img/projects/sharply.png',
+    description:
+      'A fully automated logistics solution that allows small and medium scale logistics company manage their riders and customer.',
+    name: 'Sharply Africa',
+    technologies: ['html', 'react'],
+    link: {
+      web: 'https://www.sharply.africa/',
+    },
+    id: 'proj-sharply',
+  },
+  {
     coverImage: '/assets/img/projects/npf.jpg',
     description:
       'The NPF Microfinance Banking Mobile App allows you to bank on the go. Carryout all banking related activities from the comfort of your mobile phone.',
@@ -22,17 +33,6 @@ export const projects = [
       web: 'https://www.swapurgame.com/',
     },
     id: 'proj-swap',
-  },
-  {
-    coverImage: '/assets/img/projects/sharply.jpg',
-    description:
-      'A fully automated logistics solution that allows small and medium scale logistics company manage their riders and customer.',
-    name: 'Sharply Africa',
-    technologies: ['html', 'react'],
-    link: {
-      web: 'https://www.sharply.africa/',
-    },
-    id: 'proj-sharply',
   },
   {
     coverImage: '/assets/img/projects/udux.jpg',

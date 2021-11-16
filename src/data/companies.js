@@ -1,5 +1,18 @@
 export const companies = [
   {
+    company: 'Bravado',
+    description: [
+      'Develop mobile app using react-native and graphql for enhanced maintainability ',
+      'Collaborate with the team to define, design and ship new features',
+      'Translate designs into high-quality code',
+      'Performing bug fixes and code reviews',
+      'Maintaining and improving the codebase',
+    ],
+    role: 'Senior Mobile (React Native) Developer',
+    period: 'July 2021 - Present',
+    id: 'opay',
+  },
+  {
     company: 'OPay',
     description: [
       'Write reusable, performant code for internal projects.',
@@ -9,7 +22,7 @@ export const companies = [
       'Developing competencies in backend tasks such as creating & consuming APIs and querying MongoDB & SQL databases.',
     ],
     role: 'Frontend Developer',
-    period: 'July 2020 - Present',
+    period: 'July 2020 - July 2021',
     id: 'opay',
   },
   {

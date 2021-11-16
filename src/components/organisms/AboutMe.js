@@ -81,9 +81,10 @@ const AboutMe = props => {
                   Hello, I am Remilekun Salami (Casper), a software engineer based in Lagos, Nigeria. I am passionate
                   about writing elegant code to enable easy extendabilty and maintenance. I’m highly skilled in building
                   functional applications and can comfortably translate design mockups into responsive pixel-perfect web
-                  and/or mobile screens to bring designs to life. I currently work at OPay as a frontend developer. In
-                  my spare time I read articles to help my growth, read manga, watch anime/movies, hang out with
-                  friends, you can also catch me playing Apex Legends (gamer tag: casper_rsj).
+                  and/or mobile screens to bring designs to life. I currently work at Bravado as a senior mobile
+                  (React-Native) developer. In my spare time I read articles to help my growth, read manga, watch
+                  anime/movies, hang out with friends, you can also catch me playing Apex Legends (gamer tag:
+                  casper_rsj).
                 </Text>
               </Fade>
             </Box>
