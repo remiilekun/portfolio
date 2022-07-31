@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useLayoutEffect, useRef } from 'react';
-import { Flex } from 'rebass';
+import { Flex } from '@theme-ui/components';
 import Link from 'next/link';
 import { createBreakpoint } from 'react-use';
 import { useTransition } from 'react-spring';
