@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { Box } from 'rebass';
+import { Box } from '@theme-ui/components';
 import { Typography } from 'components/atoms';
 
 const Wrapper = styled(Box)`

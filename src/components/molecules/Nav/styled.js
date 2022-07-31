@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { css } from '@emotion/core';
+import { css } from '@emotion/react';
 import { animated } from 'react-spring';
 import { OutlineButton, ButtonTemplate } from '../../atoms';
 
@@ -97,15 +97,15 @@ export const Hamburger = styled(ButtonTemplate)`
     transition: 0.3s ease-in-out;
     width: 100%;
 
-    &:nth-child(1) {
+    &:nth-of-type(1) {
       top: 0px;
       transform-origin: left center;
     }
-    &:nth-child(2) {
+    &:nth-of-type(2) {
       top: 10px;
       transform-origin: left center;
     }
-    &:nth-child(3) {
+    &:nth-of-type(3) {
       top: 19px;
       transform-origin: left center;
     }
@@ -115,14 +115,14 @@ export const Hamburger = styled(ButtonTemplate)`
     active &&
     css`
       span {
-        &:nth-child(1) {
+        &:nth-of-type(1) {
           transform: rotate(40deg);
         }
-        &:nth-child(2) {
+        &:nth-of-type(2) {
           width: 0%;
           opacity: 0;
         }
-        &:nth-child(3) {
+        &:nth-of-type(3) {
           transform: rotate(-40deg);
         }
       }

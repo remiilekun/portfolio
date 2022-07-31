@@ -1,10 +1,10 @@
 import styled from '@emotion/styled';
-import { Flex, Box } from 'rebass';
+import { Flex, Box } from '@theme-ui/components';
 import PropTypes from 'prop-types';
 import { Image, Typography, OutlineButton } from 'components/atoms';
 import { RightArrowIcon, AppStoreIcon, PlayStoreIcon } from 'components/icons';
-import { useTheme } from 'emotion-theming';
 import { useMeasure } from 'react-use';
+import { useTheme } from '@emotion/react';
 import { SkillBadge } from './SkillBadge';
 
 const Wrapper = styled(Flex)`
@@ -133,12 +133,24 @@ export const Project = ({ coverImage, description, imageOrder, link, logo, logoT
 
   return (
     <Wrapper className="flexxx">
-      <Box px={[0, null, '1.5rem']} order={[0, 0, imageOrder]} width={[1, 1, 1 / 2]} mb={['1.5rem', null, 0]}>
+      <Box
+        sx={{
+          mb: ['1.5rem', null, 0],
+          order: [0, 0, imageOrder],
+          px: [0, null, '1.5rem'],
+          width: ['100%', null, '50%'],
+        }}
+      >
         <ImageWrapper ref={imageRef}>
           <ProjectImage height={height()} src={coverImage} alt="" />
         </ImageWrapper>
       </Box>
-      <Box px={[0, null, '1.5rem']} width={[1, 1, 1 / 2]}>
+      <Box
+        sx={{
+          px: [0, null, '1.5rem'],
+          width: ['100%', null, '50%'],
+        }}
+      >
         <Heading>
           {renderLogo()}
           <Name>{name}</Name>

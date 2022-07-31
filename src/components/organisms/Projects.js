@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 import { Project } from 'components/molecules';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
-import { Flex, Box } from 'rebass';
+import { Flex, Box } from '@theme-ui/components';
 import { projects } from 'data/projects';
 import { OutlineButton } from 'components/atoms';
 import Slide from 'react-reveal/Slide';
@@ -32,7 +32,15 @@ const Projects = ({ showAll }) => {
       ))}
 
       {!showAll && projects?.length > 3 && (
-        <Box width="1" py="2rem" display="flex" alignItems="center" justifyContent="center">
+        <Box
+          sx={{
+            alignItems: 'center',
+            display: 'flex',
+            justifyContent: 'center',
+            py: '2rem',
+            width: '100%',
+          }}
+        >
           <Link href="/projects" passHref>
             <OutlineButton fontSize="normal" size="large" as="a">
               View More

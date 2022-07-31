@@ -1,13 +1,13 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document';
-import { extractCritical } from 'emotion-server';
+
 import { GA_TRACKING_ID } from 'lib/gtag';
 
 export default class MyDocument extends Document {
-  static getInitialProps({ renderPage }) {
-    const page = renderPage();
-    const styles = extractCritical(page.html);
-    return { ...page, ...styles };
-  }
+  // static getInitialProps({ renderPage }) {
+  //   const page = renderPage();
+
+  //   return { ...page };
+  // }
 
   render() {
     return (
@@ -58,7 +58,6 @@ export default class MyDocument extends Document {
           <meta property="twitter:image" content="https://remilekunsalami.com/assets/img/remi.jpg" />
           <meta property="twitter:image:alt" content="A picture of Remilekun Salami" />
           {/* eslint-disable-next-line react/no-danger */}
-          <style data-emotion-css={this.props.ids.join(' ')} dangerouslySetInnerHTML={{ __html: this.props.css }} />
           <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`} />
           <script
             // eslint-disable-next-line react/no-danger

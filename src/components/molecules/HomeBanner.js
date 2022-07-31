@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { Flex, Box } from 'rebass';
+import { Flex, Box } from '@theme-ui/components';
 import { Content, OutlineButton, Typography } from 'components/atoms';
 import { RightArrowIcon } from 'components/icons';
 import Link from 'next/link';
@@ -69,7 +69,7 @@ export const HomeBanner = () => {
     <Wrapper>
       <Content fluid>
         <Flex>
-          <Box width={[1, 1, 10 / 12, 8 / 12, 6 / 12]}>
+          <Box sx={{ width: ['100%', null, '83.3%', '66.67%', '50%'] }}>
             <Greeting type="h2">Hello, I am </Greeting>
             <Name type="h1">Remilekun Salami</Name>
             <Summary>

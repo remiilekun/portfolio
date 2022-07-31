@@ -2,7 +2,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { SectionHeader, SkillBadge } from 'components/molecules';
 import { Content, Typography, Image } from 'components/atoms';
-import { Box, Flex } from 'rebass';
+import { Box, Flex } from '@theme-ui/components';
 import { useMeasure } from 'react-use';
 import { skills } from 'data/skills';
 import Fade from 'react-reveal/Fade';
@@ -71,10 +71,12 @@ const AboutMe = props => {
         <SubSection>
           <Flex mx="-1.5rem" flexWrap="wrap" mb="3rem" alignItems="center">
             <Box
-              width={[1, 1, 6 / 12, 7 / 12, 8 / 12]}
-              px="1.5rem"
-              order={[2, 2, 1]}
-              maxWidth={['100%', '100%', '80rem']}
+              sx={{
+                maxWidth: ['100%', '100%', '80rem'],
+                order: [2, 2, 1],
+                px: '1.5rem',
+                width: ['100%', null, '50%', '58.33%', '66.67%'],
+              }}
             >
               <Fade left>
                 <Text>
@@ -89,7 +91,15 @@ const AboutMe = props => {
               </Fade>
             </Box>
 
-            <Box order={[1, 1, 2]} px="1.5rem" width={[1, 1, 6 / 12, 5 / 12, 4 / 12]} mb={['2rem', null, 0]} ml="auto">
+            <Box
+              sx={{
+                mb: ['2rem', null, 0],
+                ml: 'auto',
+                order: [1, 1, 2],
+                px: '1.5rem',
+                width: ['100%', null, '50%', '41.67%', '33.3%'],
+              }}
+            >
               <Fade bottom>
                 <PictureWrapper ref={imageRef}>
                   <Picture height={width} src="/assets/img/remi.jpg" alt="Remi Salami" />
@@ -103,7 +113,14 @@ const AboutMe = props => {
           <Subtitle>My technology stack:</Subtitle>
           <Flex flexWrap="wrap" mx="-0.5rem">
             {Object.keys(skills).map((type, index) => (
-              <Box key={type} width={[1 / 2, 4 / 12, 4 / 12, 2 / 12]} px="0.5rem" mb={['1rem', '1rem', '1rem', 0]}>
+              <Box
+                key={type}
+                sx={{
+                  mb: ['1rem', '1rem', '1rem', 0],
+                  px: '0.5rem',
+                  width: ['50%', '33.3%', null, 2 / '16.67%'],
+                }}
+              >
                 <Fade bottom delay={index * 250}>
                   <SkillBadge type={type} />
                 </Fade>

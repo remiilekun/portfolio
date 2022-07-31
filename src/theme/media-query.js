@@ -1,4 +1,4 @@
-import { css } from '@emotion/core';
+import { css } from '@emotion/react';
 import { breakpoints } from './breakpoints';
 
 export const mq = Object.keys(breakpoints).reduce((acc, label) => {

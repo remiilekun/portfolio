@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import PropTypes from 'prop-types';
 import { Typography } from 'components/atoms';
-import { Box } from 'rebass';
+import { Box } from '@theme-ui/components';
 
 const Wrapper = styled.div`
   width: 100%;

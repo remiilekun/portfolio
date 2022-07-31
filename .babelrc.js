@@ -1,4 +1,18 @@
 module.exports = {
   presets: ['next/babel'],
-  plugins: [['emotion']],
+  plugins: [
+    [
+      'inline-react-svg',
+      {
+        svgo: {
+          plugins: [
+            {
+              name: 'removeViewBox',
+              active: false,
+            },
+          ],
+        },
+      },
+    ],
+  ],
 };
