@@ -24,7 +24,7 @@ const ContactForm = () => {
         />
       </Form.Group>
 
-      <Form.Group alignItems="center" justiyContent="center">
+      <Form.Group sx={{ alignItems: 'center', justifyContent: 'center' }}>
         <OutlineButton fontSize="normal" size="large">
           Talk to me
         </OutlineButton>

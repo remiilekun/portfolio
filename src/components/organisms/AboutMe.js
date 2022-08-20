@@ -1,11 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
+import { Box, Flex, Grid } from '@theme-ui/components';
+import { useMeasure } from 'react-use';
+import Fade from 'react-reveal/Fade';
 import { SectionHeader, SkillBadge } from 'components/molecules';
 import { Content, Typography, Image } from 'components/atoms';
-import { Box, Flex } from 'rebass';
-import { useMeasure } from 'react-use';
-import { skills } from 'data/skills';
-import Fade from 'react-reveal/Fade';
+import { getStrapiResourceImageURL } from 'lib/utils';
 import Companies from './Companies';
 
 const Wrapper = styled.section`
@@ -60,39 +61,41 @@ const Subtitle = styled(Typography.Paragraph)`
   font-weight: ${({ theme }) => theme.font.weight.bold};
 `;
 
-const AboutMe = props => {
+const AboutMe = ({ companies, data, skills, ...props }) => {
   const [imageRef, { width }] = useMeasure();
 
   return (
     <Wrapper {...props}>
       <Content fluid>
-        <SectionHeader>About Me</SectionHeader>
+        <SectionHeader>{data.title}</SectionHeader>
 
         <SubSection>
-          <Flex mx="-1.5rem" flexWrap="wrap" mb="3rem" alignItems="center">
+          <Flex mx="-1.5rem" mb="3rem" sx={{ flexWrap: 'wrap', alignItems: 'center' }}>
             <Box
-              width={[1, 1, 6 / 12, 7 / 12, 8 / 12]}
-              px="1.5rem"
-              order={[2, 2, 1]}
-              maxWidth={['100%', '100%', '80rem']}
+              sx={{
+                maxWidth: ['100%', '100%', '80rem'],
+                order: [2, 2, 1],
+                px: '1.5rem',
+                width: ['100%', null, '50%', '58.33%', '66.67%'],
+              }}
             >
               <Fade left>
-                <Text>
-                  Hello, I am Remilekun Salami (Casper), a software engineer based in Lagos, Nigeria. I am passionate
-                  about writing elegant code to enable easy extendabilty and maintenance. I’m highly skilled in building
-                  functional applications and can comfortably translate design mockups into responsive pixel-perfect web
-                  and/or mobile screens to bring designs to life. I currently work at Bravado as a senior mobile
-                  (React-Native) developer. In my spare time I read articles to help my growth, read manga, watch
-                  anime/movies, hang out with friends, you can also catch me playing Apex Legends (gamer tag:
-                  casper_rsj).
-                </Text>
+                <Text>{data.description}</Text>
               </Fade>
             </Box>
 
-            <Box order={[1, 1, 2]} px="1.5rem" width={[1, 1, 6 / 12, 5 / 12, 4 / 12]} mb={['2rem', null, 0]} ml="auto">
+            <Box
+              sx={{
+                mb: ['2rem', null, 0],
+                ml: 'auto',
+                order: [1, 1, 2],
+                px: '1.5rem',
+                width: ['100%', null, '50%', '41.67%', '33.3%'],
+              }}
+            >
               <Fade bottom>
                 <PictureWrapper ref={imageRef}>
-                  <Picture height={width} src="/assets/img/remi.jpg" alt="Remi Salami" />
+                  <Picture height={width} src={getStrapiResourceImageURL(data.avatar)} alt="Remi Salami" />
                 </PictureWrapper>
               </Fade>
             </Box>
@@ -101,20 +104,26 @@ const AboutMe = props => {
 
         <SubSection>
           <Subtitle>My technology stack:</Subtitle>
-          <Flex flexWrap="wrap" mx="-0.5rem">
-            {Object.keys(skills).map((type, index) => (
-              <Box key={type} width={[1 / 2, 4 / 12, 4 / 12, 2 / 12]} px="0.5rem" mb={['1rem', '1rem', '1rem', 0]}>
+          <Grid
+            sx={{
+              flexWrap: 'wrap',
+              gridGap: '1rem',
+              gridTemplateColumns: ['repeat(2, 1fr)', 'repeat(3, 1fr)', null, 'repeat(6, 1fr)'],
+            }}
+          >
+            {skills.map((skill, index) => (
+              <Box key={skill.id} sx={{ width: '100%' }}>
                 <Fade bottom delay={index * 250}>
-                  <SkillBadge type={type} />
+                  <SkillBadge skill={skill} />
                 </Fade>
               </Box>
             ))}
-          </Flex>
+          </Grid>
         </SubSection>
 
         <SubSection>
           <Subtitle>I have been able to create solutions for:</Subtitle>
-          <Companies />
+          <Companies companies={companies} />
         </SubSection>
       </Content>
     </Wrapper>
@@ -122,3 +131,13 @@ const AboutMe = props => {
 };
 
 export default AboutMe;
+
+AboutMe.propTypes = {
+  companies: PropTypes.array,
+  data: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    avatar: PropTypes.object,
+  }).isRequired,
+  skills: PropTypes.array,
+};

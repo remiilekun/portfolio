@@ -1,21 +1,40 @@
-import styled from '@emotion/styled';
+import PropTypes from 'prop-types';
+import { Box } from '@theme-ui/components';
 import { SectionHeader } from 'components/molecules';
 import { Content } from 'components/atoms';
 import Projects from './Projects';
 
-const Wrapper = styled.section`
-  margin-bottom: 15rem;
-`;
+const MyProjects = ({ projects, ...props }) => {
+  const data = projects.sort((a, b) => b.priority - a.priority);
 
-const MyWorks = props => {
   return (
-    <Wrapper {...props}>
+    <Box mb="15rem" {...props}>
       <Content fluid>
         <SectionHeader>My Projects</SectionHeader>
-        <Projects />
+        <Projects projects={data} />
       </Content>
-    </Wrapper>
+    </Box>
   );
 };
 
-export default MyWorks;
+export default MyProjects;
+
+MyProjects.propTypes = {
+  projects: PropTypes.arrayOf(
+    PropTypes.shape({
+      coverImage: PropTypes.object,
+      description: PropTypes.string.isRequired,
+      imageOrder: PropTypes.number,
+      link: PropTypes.shape({
+        android: PropTypes.string,
+        ios: PropTypes.string,
+        web: PropTypes.string,
+      }),
+      logo: PropTypes.any,
+      name: PropTypes.string.isRequired,
+      technologies: PropTypes.shape({
+        data: PropTypes.array.isRequired,
+      }),
+    }),
+  ),
+};

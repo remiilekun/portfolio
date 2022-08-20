@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { css, keyframes } from '@emotion/core';
+import { css, keyframes } from '@emotion/react';
 import PropTypes from 'prop-types';
 
 const rotate = keyframes`
@@ -113,6 +113,7 @@ export const Button = styled(ButtonTemplate)`
         }
       `;
     }
+    return null;
   }}
 
   ${({ color, faded, theme }) =>

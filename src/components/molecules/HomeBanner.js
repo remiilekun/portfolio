@@ -1,6 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
-import { Flex, Box } from 'rebass';
+import { Flex, Box } from '@theme-ui/components';
 import { Content, OutlineButton, Typography } from 'components/atoms';
 import { RightArrowIcon } from 'components/icons';
 import Link from 'next/link';
@@ -64,17 +65,15 @@ const Summary = styled(Typography.Paragraph)`
   `}
 `;
 
-export const HomeBanner = () => {
+export const HomeBanner = ({ data }) => {
   return (
     <Wrapper>
       <Content fluid>
         <Flex>
-          <Box width={[1, 1, 10 / 12, 8 / 12, 6 / 12]}>
-            <Greeting type="h2">Hello, I am </Greeting>
-            <Name type="h1">Remilekun Salami</Name>
-            <Summary>
-              A software engineer based in Lagos, Nigeria specializing in building amazing web and mobile applications.
-            </Summary>
+          <Box sx={{ width: ['100%', null, '83.3%', '66.67%', '50%'] }}>
+            <Greeting type="h1">{data.title}</Greeting>
+            <Name type="h2">{data.subtitle}</Name>
+            <Summary>{data.description}</Summary>
             <Link href="#contact" passHref>
               <OutlineButton fontSize="small" size="large" as="a" className="nl">
                 Say Hello
@@ -86,4 +85,12 @@ export const HomeBanner = () => {
       </Content>
     </Wrapper>
   );
+};
+
+HomeBanner.propTypes = {
+  data: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    subtitle: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+  }).isRequired,
 };

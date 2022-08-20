@@ -1,11 +1,11 @@
 import styled from '@emotion/styled';
 import PropTypes from 'prop-types';
 import { Typography } from 'components/atoms';
-import { Box } from 'rebass';
+import { Box } from '@theme-ui/components';
+import { parseAndFormatCompanyDate } from 'lib/date';
 
 const Wrapper = styled.div`
   width: 100%;
-
   & + & {
     margin-top: 5rem;
   }
@@ -80,10 +80,13 @@ const CompanyHeader = ({ children, ...props }) => {
   );
 };
 
-export const Company = ({ company, description, period, role }) => {
+export const Company = ({ name, description, start_date, end_date, role }) => {
+  const period = `${parseAndFormatCompanyDate(start_date)} ${
+    end_date ? `- ${parseAndFormatCompanyDate(end_date)}` : ''
+  }`;
   return (
     <Wrapper>
-      <CompanyHeader>{company}</CompanyHeader>
+      <CompanyHeader>{name}</CompanyHeader>
       <Role>{role}</Role>
       <Period>{period}</Period>
       <Box
@@ -94,7 +97,7 @@ export const Company = ({ company, description, period, role }) => {
         }}
       >
         {description.map(x => (
-          <Description key={x}>{x}</Description>
+          <Description key={x.item}>{x.item}</Description>
         ))}
       </Box>
     </Wrapper>
@@ -102,8 +105,9 @@ export const Company = ({ company, description, period, role }) => {
 };
 
 Company.propTypes = {
-  company: PropTypes.string.isRequired,
   description: PropTypes.array.isRequired,
-  period: PropTypes.string.isRequired,
+  end_date: PropTypes.string,
+  name: PropTypes.string.isRequired,
   role: PropTypes.string.isRequired,
+  start_date: PropTypes.string.isRequired,
 };

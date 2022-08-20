@@ -1,9 +1,7 @@
-import { useMemo } from 'react';
 import { Project } from 'components/molecules';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
-import { Flex, Box } from 'rebass';
-import { projects } from 'data/projects';
+import { Flex, Box } from '@theme-ui/components';
 import { OutlineButton } from 'components/atoms';
 import Slide from 'react-reveal/Slide';
 import styled from '@emotion/styled';
@@ -18,10 +16,8 @@ const ProjectsWrapper = styled(Flex)`
   }
 `;
 
-const Projects = ({ showAll }) => {
-  const data = useMemo(() => {
-    return showAll ? projects : [...projects.slice(0, 3)];
-  }, []);
+const Projects = ({ projects, showAll }) => {
+  const data = showAll ? projects : [...projects.slice(0, 3)];
 
   return (
     <ProjectsWrapper>
@@ -32,7 +28,15 @@ const Projects = ({ showAll }) => {
       ))}
 
       {!showAll && projects?.length > 3 && (
-        <Box width="1" py="2rem" display="flex" alignItems="center" justifyContent="center">
+        <Box
+          sx={{
+            alignItems: 'center',
+            display: 'flex',
+            justifyContent: 'center',
+            py: '2rem',
+            width: '100%',
+          }}
+        >
           <Link href="/projects" passHref>
             <OutlineButton fontSize="normal" size="large" as="a">
               View More
@@ -45,11 +49,24 @@ const Projects = ({ showAll }) => {
 };
 
 Projects.propTypes = {
+  projects: PropTypes.arrayOf(
+    PropTypes.shape({
+      coverImage: PropTypes.object,
+      description: PropTypes.string.isRequired,
+      imageOrder: PropTypes.number,
+      link: PropTypes.shape({
+        android: PropTypes.string,
+        ios: PropTypes.string,
+        web: PropTypes.string,
+      }),
+      logo: PropTypes.any,
+      name: PropTypes.string.isRequired,
+      technologies: PropTypes.shape({
+        data: PropTypes.array.isRequired,
+      }),
+    }),
+  ),
   showAll: PropTypes.bool,
-};
-
-Projects.defaultProps = {
-  showAll: false,
 };
 
 export default Projects;
