@@ -51,7 +51,7 @@ const Projects = ({ projects, showAll }) => {
 Projects.propTypes = {
   projects: PropTypes.arrayOf(
     PropTypes.shape({
-      coverImage: PropTypes.string.isRequired,
+      coverImage: PropTypes.object,
       description: PropTypes.string.isRequired,
       imageOrder: PropTypes.number,
       link: PropTypes.shape({
@@ -61,7 +61,9 @@ Projects.propTypes = {
       }),
       logo: PropTypes.any,
       name: PropTypes.string.isRequired,
-      technologies: PropTypes.array.isRequired,
+      technologies: PropTypes.shape({
+        data: PropTypes.array.isRequired,
+      }),
     }),
   ),
   showAll: PropTypes.bool,

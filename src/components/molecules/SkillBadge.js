@@ -44,7 +44,7 @@ export const SkillBadge = ({ skill, ...props }) => {
 
 SkillBadge.propTypes = {
   skill: PropTypes.shape({
-    icon: PropTypes.string,
+    icon: PropTypes.object,
     name: PropTypes.string,
   }).isRequired,
 };

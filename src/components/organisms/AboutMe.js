@@ -70,7 +70,7 @@ const AboutMe = ({ companies, data, skills, ...props }) => {
         <SectionHeader>{data.title}</SectionHeader>
 
         <SubSection>
-          <Flex mx="-1.5rem" flexWrap="wrap" mb="3rem" alignItems="center">
+          <Flex mx="-1.5rem" mb="3rem" sx={{ flexWrap: 'wrap', alignItems: 'center' }}>
             <Box
               sx={{
                 maxWidth: ['100%', '100%', '80rem'],
@@ -104,7 +104,7 @@ const AboutMe = ({ companies, data, skills, ...props }) => {
 
         <SubSection>
           <Subtitle>My technology stack:</Subtitle>
-          <Flex flexWrap="wrap" mx="-0.5rem">
+          <Flex mx="-0.5rem" sx={{ flexWrap: 'wrap' }}>
             {skills.map((skill, index) => (
               <Box
                 key={skill.id}

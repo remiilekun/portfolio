@@ -97,7 +97,7 @@ export const Company = ({ name, description, start_date, end_date, role }) => {
         }}
       >
         {description.map(x => (
-          <Description key={x}>{x.item}</Description>
+          <Description key={x.item}>{x.item}</Description>
         ))}
       </Box>
     </Wrapper>

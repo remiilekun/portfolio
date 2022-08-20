@@ -218,7 +218,7 @@ export const Project = ({ coverImage, description, imageOrder, link, logo, name,
 };
 
 Project.propTypes = {
-  coverImage: PropTypes.string.isRequired,
+  coverImage: PropTypes.object,
   description: PropTypes.string.isRequired,
   imageOrder: PropTypes.number,
   link: PropTypes.shape({
@@ -228,7 +228,9 @@ Project.propTypes = {
   }),
   logo: PropTypes.any,
   name: PropTypes.string.isRequired,
-  technologies: PropTypes.array.isRequired,
+  technologies: PropTypes.shape({
+    data: PropTypes.array.isRequired,
+  }),
 };
 
 Project.defaultProps = {

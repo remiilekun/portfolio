@@ -59,7 +59,12 @@ const NavMenu = () => {
       </NavItem>
 
       <Fade top delay={300}>
-        <NavButton as="a" target="_blank" rel="noopener noreferrer" href="/assets/resume.pdf">
+        <NavButton
+          as="a"
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://docs.google.com/document/d/1JPVGTeOGftEtEoZrCpdf37zV3PFPgT0qQEHhO49SGgA/export?format=pdf"
+        >
           Download Resume
         </NavButton>
       </Fade>
@@ -68,6 +73,7 @@ const NavMenu = () => {
 };
 
 export const Nav = () => {
+  const [mounted, setMounted] = useState(false);
   const [active, setActive] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const breakpoint = useBreakpoint();
@@ -77,6 +83,10 @@ export const Nav = () => {
   const menuRef = useRef(null);
 
   const [isOutside] = useMultipleClickaway([hamRef, menuRef]);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     if (isOutside) {
@@ -125,34 +135,36 @@ export const Nav = () => {
   });
 
   return (
-    <Wrapper scrolled={scrolled}>
-      <Content fluid>
-        <Flex sx={{ alignItems: 'center', justifyContent: 'space-between' }}>
-          <Brand onClick={onLogoClick}>Remi Salami</Brand>
+    mounted && (
+      <Wrapper scrolled={scrolled}>
+        <Content fluid>
+          <Flex sx={{ alignItems: 'center', justifyContent: 'space-between' }}>
+            <Brand onClick={onLogoClick}>Remi Salami</Brand>
 
-          {breakpoint === 'mobile' ? (
-            <MobileWrapper>
-              {transitions.map(
-                ({ item, key, props: { opacity, transform } }) =>
-                  item && (
-                    <MobileOverlay key={key} style={{ opacity }}>
-                      <MobileMenu ref={menuRef} style={{ transform }}>
-                        <NavMenu />
-                      </MobileMenu>
-                    </MobileOverlay>
-                  ),
-              )}
-              <Hamburger ref={hamRef} aria-label="Hamburger button" active={active} onClick={toggleActive}>
-                <span />
-                <span />
-                <span />
-              </Hamburger>
-            </MobileWrapper>
-          ) : (
-            <NavMenu />
-          )}
-        </Flex>
-      </Content>
-    </Wrapper>
+            {breakpoint === 'mobile' ? (
+              <MobileWrapper>
+                {transitions.map(
+                  ({ item, key, props: { opacity, transform } }) =>
+                    item && (
+                      <MobileOverlay key={key} style={{ opacity }}>
+                        <MobileMenu ref={menuRef} style={{ transform }}>
+                          <NavMenu />
+                        </MobileMenu>
+                      </MobileOverlay>
+                    ),
+                )}
+                <Hamburger ref={hamRef} aria-label="Hamburger button" active={active} onClick={toggleActive}>
+                  <span />
+                  <span />
+                  <span />
+                </Hamburger>
+              </MobileWrapper>
+            ) : (
+              <NavMenu />
+            )}
+          </Flex>
+        </Content>
+      </Wrapper>
+    )
   );
 };
