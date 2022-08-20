@@ -64,17 +64,15 @@ const Summary = styled(Typography.Paragraph)`
   `}
 `;
 
-export const HomeBanner = () => {
+export const HomeBanner = ({ data }) => {
   return (
     <Wrapper>
       <Content fluid>
         <Flex>
           <Box sx={{ width: ['100%', null, '83.3%', '66.67%', '50%'] }}>
-            <Greeting type="h2">Hello, I am </Greeting>
-            <Name type="h1">Remilekun Salami</Name>
-            <Summary>
-              A software engineer based in Lagos, Nigeria specializing in building amazing web and mobile applications.
-            </Summary>
+            <Greeting type="h2">{data.title}</Greeting>
+            <Name type="h1">{data.subtitle}</Name>
+            <Summary>{data.description}</Summary>
             <Link href="#contact" passHref>
               <OutlineButton fontSize="small" size="large" as="a" className="nl">
                 Say Hello

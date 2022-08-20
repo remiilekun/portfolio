@@ -5,6 +5,7 @@ import { useMeasure } from 'react-use';
 import Fade from 'react-reveal/Fade';
 import { SectionHeader, SkillBadge } from 'components/molecules';
 import { Content, Typography, Image } from 'components/atoms';
+import { getStrapiResourceImageURL } from 'lib/utils';
 import Companies from './Companies';
 
 const Wrapper = styled.section`
@@ -59,13 +60,13 @@ const Subtitle = styled(Typography.Paragraph)`
   font-weight: ${({ theme }) => theme.font.weight.bold};
 `;
 
-const AboutMe = ({ companies, skills, ...props }) => {
+const AboutMe = ({ companies, data, skills, ...props }) => {
   const [imageRef, { width }] = useMeasure();
 
   return (
     <Wrapper {...props}>
       <Content fluid>
-        <SectionHeader>About Me</SectionHeader>
+        <SectionHeader>{data.title}</SectionHeader>
 
         <SubSection>
           <Flex mx="-1.5rem" flexWrap="wrap" mb="3rem" alignItems="center">
@@ -78,15 +79,7 @@ const AboutMe = ({ companies, skills, ...props }) => {
               }}
             >
               <Fade left>
-                <Text>
-                  Hello, I am Remilekun Salami (Casper), a software engineer based in Lagos, Nigeria. I am passionate
-                  about writing elegant code to enable easy extendabilty and maintenance. I’m highly skilled in building
-                  functional applications and can comfortably translate design mockups into responsive pixel-perfect web
-                  and/or mobile screens to bring designs to life. I currently work at Bravado as a senior mobile
-                  (React-Native) developer. In my spare time I read articles to help my growth, read manga, watch
-                  anime/movies, hang out with friends, you can also catch me playing Apex Legends (gamer tag:
-                  casper_rsj).
-                </Text>
+                <Text>{data.description}</Text>
               </Fade>
             </Box>
 
@@ -101,7 +94,7 @@ const AboutMe = ({ companies, skills, ...props }) => {
             >
               <Fade bottom>
                 <PictureWrapper ref={imageRef}>
-                  <Picture height={width} src="/assets/img/remi.jpg" alt="Remi Salami" />
+                  <Picture height={width} src={getStrapiResourceImageURL(data.avatar)} alt="Remi Salami" />
                 </PictureWrapper>
               </Fade>
             </Box>
