@@ -18,6 +18,7 @@
   "dependencies": {
     "@emotion/react": "^11.10.0",
     "@emotion/styled": "^11.10.0",
+    "@next/bundle-analyzer": "^12.2.5",
     "@theme-ui/components": "^0.14.7",
     "axios": "^0.27.2",
     "bezier-easing": "^2.1.0",
