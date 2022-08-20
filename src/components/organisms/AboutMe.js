@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
-import { Box, Flex } from '@theme-ui/components';
+import { Box, Flex, Grid } from '@theme-ui/components';
 import { useMeasure } from 'react-use';
 import Fade from 'react-reveal/Fade';
 import { SectionHeader, SkillBadge } from 'components/molecules';
@@ -104,22 +104,21 @@ const AboutMe = ({ companies, data, skills, ...props }) => {
 
         <SubSection>
           <Subtitle>My technology stack:</Subtitle>
-          <Flex mx="-0.5rem" sx={{ flexWrap: 'wrap' }}>
+          <Grid
+            sx={{
+              flexWrap: 'wrap',
+              gridGap: '1rem',
+              gridTemplateColumns: ['repeat(2, 1fr)', 'repeat(3, 1fr)', null, 'repeat(6, 1fr)'],
+            }}
+          >
             {skills.map((skill, index) => (
-              <Box
-                key={skill.id}
-                sx={{
-                  mb: ['1rem', '1rem', '1rem', 0],
-                  px: '0.5rem',
-                  width: ['50%', '33.3%', null, 2 / '16.67%'],
-                }}
-              >
+              <Box key={skill.id} sx={{ width: '100%' }}>
                 <Fade bottom delay={index * 250}>
                   <SkillBadge skill={skill} />
                 </Fade>
               </Box>
             ))}
-          </Flex>
+          </Grid>
         </SubSection>
 
         <SubSection>
