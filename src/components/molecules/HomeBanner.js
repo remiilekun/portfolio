@@ -71,8 +71,8 @@ export const HomeBanner = ({ data }) => {
       <Content fluid>
         <Flex>
           <Box sx={{ width: ['100%', null, '83.3%', '66.67%', '50%'] }}>
-            <Greeting type="h2">{data.title}</Greeting>
-            <Name type="h1">{data.subtitle}</Name>
+            <Greeting type="h1">{data.title}</Greeting>
+            <Name type="h2">{data.subtitle}</Name>
             <Summary>{data.description}</Summary>
             <Link href="#contact" passHref>
               <OutlineButton fontSize="small" size="large" as="a" className="nl">

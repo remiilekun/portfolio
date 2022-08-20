@@ -37,7 +37,7 @@ const Wrapper = styled.div`
 export const SkillBadge = ({ skill, ...props }) => {
   return (
     <Wrapper {...props}>
-      <Logo src={getStrapiResourceImageURL(skill?.icon)} /> <Text>{skill?.name}</Text>
+      <Logo alt={skill.name} src={getStrapiResourceImageURL(skill.icon)} /> <Text>{skill.name}</Text>
     </Wrapper>
   );
 };
