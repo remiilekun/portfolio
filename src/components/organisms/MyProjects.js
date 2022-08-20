@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Box } from '@theme-ui/components';
 import { SectionHeader } from 'components/molecules';
 import { Content } from 'components/atoms';
@@ -15,3 +16,21 @@ const MyProjects = ({ projects, ...props }) => {
 };
 
 export default MyProjects;
+
+MyProjects.propTypes = {
+  projects: PropTypes.arrayOf(
+    PropTypes.shape({
+      coverImage: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired,
+      imageOrder: PropTypes.number,
+      link: PropTypes.shape({
+        android: PropTypes.string,
+        ios: PropTypes.string,
+        web: PropTypes.string,
+      }),
+      logo: PropTypes.any,
+      name: PropTypes.string.isRequired,
+      technologies: PropTypes.array.isRequired,
+    }),
+  ),
+};

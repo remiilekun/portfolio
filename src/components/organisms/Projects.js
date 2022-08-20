@@ -49,11 +49,22 @@ const Projects = ({ projects, showAll }) => {
 };
 
 Projects.propTypes = {
+  projects: PropTypes.arrayOf(
+    PropTypes.shape({
+      coverImage: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired,
+      imageOrder: PropTypes.number,
+      link: PropTypes.shape({
+        android: PropTypes.string,
+        ios: PropTypes.string,
+        web: PropTypes.string,
+      }),
+      logo: PropTypes.any,
+      name: PropTypes.string.isRequired,
+      technologies: PropTypes.array.isRequired,
+    }),
+  ),
   showAll: PropTypes.bool,
-};
-
-Projects.defaultProps = {
-  showAll: false,
 };
 
 export default Projects;

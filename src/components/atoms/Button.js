@@ -113,6 +113,7 @@ export const Button = styled(ButtonTemplate)`
         }
       `;
     }
+    return null;
   }}
 
   ${({ color, faded, theme }) =>

@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import PropTypes from 'prop-types';
 import { Box } from '@theme-ui/components';
 import { Content } from 'components/atoms';
 import { ProjectsBanner, Footer } from 'components/molecules';
@@ -35,3 +36,21 @@ export async function getStaticProps() {
 }
 
 export default ProjectsPage;
+
+ProjectsPage.propTypes = {
+  projects: PropTypes.arrayOf(
+    PropTypes.shape({
+      coverImage: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired,
+      imageOrder: PropTypes.number,
+      link: PropTypes.shape({
+        android: PropTypes.string,
+        ios: PropTypes.string,
+        web: PropTypes.string,
+      }),
+      logo: PropTypes.any,
+      name: PropTypes.string.isRequired,
+      technologies: PropTypes.array.isRequired,
+    }),
+  ),
+};

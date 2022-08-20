@@ -8,7 +8,7 @@ function scrollAnchors(e) {
   const originalTop = distanceToTop(targetAnchor);
   const offsetTop = 80;
   window.scrollBy({ top: originalTop - offsetTop, left: 0, behavior: 'smooth' });
-  const checkIfDone = setInterval(function() {
+  const checkIfDone = setInterval(() => {
     const atBottom = window.innerHeight + window.pageYOffset >= document.body.offsetHeight - 2;
     if (distanceToTop(targetAnchor) === offsetTop || atBottom) {
       window.history.pushState('', '', targetID);

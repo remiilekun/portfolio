@@ -45,7 +45,7 @@ const ContactMe = props => {
             }}
           >
             <Subtitle>
-              Feel free to reach out to me if you have any question or if you'll like to create magic with me.
+              Feel free to reach out to me if you have any question or if you&apos;ll like to create magic with me.
             </Subtitle>
 
             <Box sx={{ maxWidth: '50rem' }}>

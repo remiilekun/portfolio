@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { Flex, Box } from '@theme-ui/components';
 import { Content, OutlineButton, Typography } from 'components/atoms';
@@ -84,4 +85,12 @@ export const HomeBanner = ({ data }) => {
       </Content>
     </Wrapper>
   );
+};
+
+HomeBanner.propTypes = {
+  data: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    subtitle: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+  }).isRequired,
 };

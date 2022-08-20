@@ -227,14 +227,12 @@ Project.propTypes = {
     web: PropTypes.string,
   }),
   logo: PropTypes.any,
-  logoType: PropTypes.string,
   name: PropTypes.string.isRequired,
   technologies: PropTypes.array.isRequired,
 };
 
 Project.defaultProps = {
   imageOrder: 1,
-  logoType: 'svg',
   link: {
     android: '',
     ios: '',

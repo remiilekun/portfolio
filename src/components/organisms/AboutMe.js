@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { Box, Flex } from '@theme-ui/components';
 import { useMeasure } from 'react-use';
@@ -131,3 +132,13 @@ const AboutMe = ({ companies, data, skills, ...props }) => {
 };
 
 export default AboutMe;
+
+AboutMe.propTypes = {
+  companies: PropTypes.array,
+  data: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    avatar: PropTypes.object,
+  }).isRequired,
+  skills: PropTypes.array,
+};
