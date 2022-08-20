@@ -10,7 +10,7 @@ export const companies = [
     ],
     role: 'Senior Mobile (React Native) Developer',
     period: 'July 2021 - Present',
-    id: 'opay',
+    id: 'bravado',
   },
   {
     company: 'OPay',

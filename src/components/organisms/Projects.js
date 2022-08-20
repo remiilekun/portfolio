@@ -1,4 +1,3 @@
-import { useMemo } from 'react';
 import { Project } from 'components/molecules';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
@@ -19,9 +18,7 @@ const ProjectsWrapper = styled(Flex)`
 `;
 
 const Projects = ({ showAll }) => {
-  const data = useMemo(() => {
-    return showAll ? projects : [...projects.slice(0, 3)];
-  }, []);
+  const data = showAll ? projects : [...projects.slice(0, 3)];
 
   return (
     <ProjectsWrapper>

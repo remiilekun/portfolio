@@ -127,7 +127,7 @@ export const Nav = () => {
   return (
     <Wrapper scrolled={scrolled}>
       <Content fluid>
-        <Flex justifyContent="space-between" alignItems="center">
+        <Flex sx={{ alignItems: 'center', justifyContent: 'space-between' }}>
           <Brand onClick={onLogoClick}>Remi Salami</Brand>
 
           {breakpoint === 'mobile' ? (
