@@ -1,11 +1,10 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { SectionHeader, SkillBadge } from 'components/molecules';
-import { Content, Typography, Image } from 'components/atoms';
 import { Box, Flex } from '@theme-ui/components';
 import { useMeasure } from 'react-use';
-import { skills } from 'data/skills';
 import Fade from 'react-reveal/Fade';
+import { SectionHeader, SkillBadge } from 'components/molecules';
+import { Content, Typography, Image } from 'components/atoms';
 import Companies from './Companies';
 
 const Wrapper = styled.section`
@@ -60,7 +59,7 @@ const Subtitle = styled(Typography.Paragraph)`
   font-weight: ${({ theme }) => theme.font.weight.bold};
 `;
 
-const AboutMe = props => {
+const AboutMe = ({ companies, skills, ...props }) => {
   const [imageRef, { width }] = useMeasure();
 
   return (
@@ -112,9 +111,9 @@ const AboutMe = props => {
         <SubSection>
           <Subtitle>My technology stack:</Subtitle>
           <Flex flexWrap="wrap" mx="-0.5rem">
-            {Object.keys(skills).map((type, index) => (
+            {skills.map((skill, index) => (
               <Box
-                key={type}
+                key={skill.id}
                 sx={{
                   mb: ['1rem', '1rem', '1rem', 0],
                   px: '0.5rem',
@@ -122,7 +121,7 @@ const AboutMe = props => {
                 }}
               >
                 <Fade bottom delay={index * 250}>
-                  <SkillBadge type={type} />
+                  <SkillBadge skill={skill} />
                 </Fade>
               </Box>
             ))}
@@ -131,7 +130,7 @@ const AboutMe = props => {
 
         <SubSection>
           <Subtitle>I have been able to create solutions for:</Subtitle>
-          <Companies />
+          <Companies companies={companies} />
         </SubSection>
       </Content>
     </Wrapper>

@@ -2,7 +2,6 @@ import { Project } from 'components/molecules';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
 import { Flex, Box } from '@theme-ui/components';
-import { projects } from 'data/projects';
 import { OutlineButton } from 'components/atoms';
 import Slide from 'react-reveal/Slide';
 import styled from '@emotion/styled';
@@ -17,7 +16,7 @@ const ProjectsWrapper = styled(Flex)`
   }
 `;
 
-const Projects = ({ showAll }) => {
+const Projects = ({ projects, showAll }) => {
   const data = showAll ? projects : [...projects.slice(0, 3)];
 
   return (

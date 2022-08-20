@@ -1,14 +1,7 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document';
-
 import { GA_TRACKING_ID } from 'lib/gtag';
 
 export default class MyDocument extends Document {
-  // static getInitialProps({ renderPage }) {
-  //   const page = renderPage();
-
-  //   return { ...page };
-  // }
-
   render() {
     return (
       <Html lang="en">

@@ -1,10 +1,11 @@
 import axios from 'axios';
+import CONFIG from 'config';
 
 const instance = axios.create({
-  baseURL: `${process.env.NEXT_PUBLIC_CMS_API_URL}`,
+  baseURL: CONFIG.CMS_API_URL,
   headers: {
     'Content-Type': 'application/json',
-    Authentication: `Bearer ${process.env.NEXT_PUBLIC_CMS_ACCESS_TOKEN}`,
+    Authentication: `Bearer ${CONFIG.CMS_ACCESS_TOKENL}`,
   },
 });
 

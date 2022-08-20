@@ -5,6 +5,7 @@ import { Image, Typography, OutlineButton } from 'components/atoms';
 import { RightArrowIcon, AppStoreIcon, PlayStoreIcon } from 'components/icons';
 import { useMeasure } from 'react-use';
 import { useTheme } from '@emotion/react';
+import { getStrapiResourceImageURL } from 'lib/utils';
 import { SkillBadge } from './SkillBadge';
 
 const Wrapper = styled(Flex)`
@@ -113,7 +114,7 @@ const Link = styled.a`
   }
 `;
 
-export const Project = ({ coverImage, description, imageOrder, link, logo, logoType, name, technologies }) => {
+export const Project = ({ coverImage, description, imageOrder, link, logo, name, technologies }) => {
   const [imageRef, { width }] = useMeasure();
   const { primary } = useTheme().colors;
 
@@ -122,11 +123,9 @@ export const Project = ({ coverImage, description, imageOrder, link, logo, logoT
   };
 
   const renderLogo = () => {
-    if (logo) {
-      if (logoType === 'svg') {
-        return <Logo as={logo} />;
-      }
-      return <Logo as="img" src={logo} alt={name} />;
+    const src = getStrapiResourceImageURL(logo);
+    if (src) {
+      return <Logo as="img" src={src} alt={name} />;
     }
     return null;
   };
@@ -142,7 +141,7 @@ export const Project = ({ coverImage, description, imageOrder, link, logo, logoT
         }}
       >
         <ImageWrapper ref={imageRef}>
-          <ProjectImage height={height()} src={coverImage} alt="" />
+          <ProjectImage height={height()} src={getStrapiResourceImageURL(coverImage)} alt="" />
         </ImageWrapper>
       </Box>
       <Box
@@ -157,8 +156,8 @@ export const Project = ({ coverImage, description, imageOrder, link, logo, logoT
         </Heading>
         <Description>{description}</Description>
         <Technologies>
-          {technologies.map(tech => (
-            <Skill key={tech} type={tech} />
+          {technologies?.data?.map(tech => (
+            <Skill key={tech.id} skill={tech.attributes} />
           ))}
         </Technologies>
         <Links>
