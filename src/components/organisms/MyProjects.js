@@ -5,13 +5,11 @@ import { Content } from 'components/atoms';
 import Projects from './Projects';
 
 const MyProjects = ({ projects, ...props }) => {
-  const data = projects.sort((a, b) => b.priority - a.priority);
-
   return (
     <Box mb="15rem" {...props}>
       <Content fluid>
         <SectionHeader>My Projects</SectionHeader>
-        <Projects projects={data} />
+        <Projects projects={projects} />
       </Content>
     </Box>
   );

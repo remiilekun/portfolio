@@ -17,7 +17,8 @@ const ProjectsWrapper = styled(Flex)`
 `;
 
 const Projects = ({ projects, showAll }) => {
-  const data = showAll ? projects : [...projects.slice(0, 3)];
+  const sortedProjects = projects.sort((a, b) => b.priority - a.priority);
+  const data = showAll ? sortedProjects : [...sortedProjects.slice(0, 3)];
 
   return (
     <ProjectsWrapper>
