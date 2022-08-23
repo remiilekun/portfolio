@@ -56,9 +56,10 @@ const Heading = styled(Box)`
   margin-bottom: 1.5rem;
 `;
 
-const Logo = styled.svg`
+const Logo = styled.img`
   height: 4rem;
   margin-right: 1rem;
+  object-fit: contain;
   width: 7rem;
 `;
 
