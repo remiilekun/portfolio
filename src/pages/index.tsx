@@ -6,6 +6,7 @@ import MyProjects from '@/components/organisms/MyProjects';
 import ContactMe from '@/components/organisms/ContactMe';
 import api from '@/services/api';
 import { AboutMeType, CompanyType, HomeBannerType, ProjectType, SkillType } from '@/types/common';
+import { Box } from '@theme-ui/components';
 
 type HomePageProps = {
   about: AboutMeType;
@@ -21,6 +22,7 @@ const HomePage = ({ about, banner, companies, projects, skills }: HomePageProps)
       <Head>
         <title>Remilekun Salami</title>
       </Head>
+
       <HomeBanner data={banner} />
       <AboutMe id="about" data={about} skills={skills} companies={companies} />
       <MyProjects id="projects" projects={projects} />
