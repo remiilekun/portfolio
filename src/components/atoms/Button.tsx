@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { css, keyframes } from '@emotion/react';
-import PropTypes from 'prop-types';
+import { ThemeType } from '@/theme';
 
 const rotate = keyframes`
 from {
@@ -11,7 +11,32 @@ to {
 }
 `;
 
-export const ButtonTemplate = styled.button`
+type ButtonTemplateProps = {
+  block?: boolean;
+  borderRadius?: string;
+  color?: keyof ThemeType['colors'];
+  cornered?: boolean;
+  faded?: boolean;
+  fontSize?: keyof ThemeType['font']['size'];
+  fontWeight?: keyof ThemeType['font']['weight'];
+  link?: boolean;
+  loading?: boolean;
+  rounded?: boolean;
+  size?: 'small' | 'normal' | 'large';
+} & React.ComponentPropsWithoutRef<'button'>;
+
+type ButtonProps = {
+  color: keyof ThemeType['colors'];
+  textColor?: keyof ThemeType['colors'];
+} & ButtonTemplateProps;
+
+type OutlineButtonProps = {
+  color: keyof ThemeType['colors'];
+  noBorder?: boolean;
+  textColor?: keyof ThemeType['colors'];
+} & ButtonTemplateProps;
+
+export const ButtonTemplate = styled.button<ButtonTemplateProps>`
   -webkit-appearance: none;
   align-items: center;
   background-color: transparent;
@@ -27,7 +52,7 @@ export const ButtonTemplate = styled.button`
   transition: all 0.3s;
   user-select: none;
   white-space: nowrap;
-  ${({ size, theme, fontWeight, fontSize }) =>
+  ${({ size = 'normal', theme, fontWeight = 'medium', fontSize }) =>
     size &&
     css`
       font-size: ${(fontSize && theme.font.size[fontSize]) || theme.buttons[size].fontSize};
@@ -54,8 +79,6 @@ export const ButtonTemplate = styled.button`
       css`
         border-radius: ${borderRadius};
       `}
-
-
 
 
   ${({ cornered }) =>
@@ -97,11 +120,13 @@ export const ButtonTemplate = styled.button`
 
 `;
 
-export const Button = styled(ButtonTemplate)`
+export const Button = styled((props: ButtonTemplateProps) => <ButtonTemplate color="primary" rounded {...props} />)<
+  ButtonProps
+>`
   background-color: ${({ theme, color }) => theme.colors[color]};
   &,
   &:visited {
-    color: ${({ theme, textColor }) => theme.colors[textColor]};
+    color: ${({ theme, textColor = 'black' }) => theme.colors[textColor]};
   }
 
   ${({ color, theme }) => {
@@ -141,15 +166,17 @@ export const Button = styled(ButtonTemplate)`
       `}
 `;
 
-export const OutlineButton = styled(ButtonTemplate)`
-  border: 1px solid ${({ theme, color }) => theme.colors[color]};
+export const OutlineButton = styled((props: ButtonTemplateProps) => <ButtonTemplate color="white" {...props} />)<
+  OutlineButtonProps
+>`
+  border: 1px solid ${({ theme, color = 'white' }) => theme.colors[color]};
   &,
   &:visited {
-    color: ${({ theme, color, textColor }) => theme.colors[textColor || color]};
+    color: ${({ theme, color, textColor = 'white' }) => theme.colors[textColor || color]};
   }
 
   &:hover {
-    background-color: ${({ theme, color }) => theme.colors[color]}1A;
+    background-color: ${({ theme, color = 'white' }) => theme.colors[color]}1A;
   }
 
   ${({ noBorder }) =>
@@ -162,35 +189,3 @@ export const OutlineButton = styled(ButtonTemplate)`
     border-color: #f0f0f0;
   }
 `;
-
-ButtonTemplate.defaultProps = {
-  size: 'normal',
-};
-
-ButtonTemplate.propTypes = {
-  size: PropTypes.oneOf(['small', 'normal', 'large']).isRequired,
-};
-
-Button.propTypes = {
-  color: PropTypes.string,
-  textColor: PropTypes.string,
-};
-
-Button.defaultProps = {
-  color: 'primary',
-  cornered: false,
-  fontWeight: 'medium',
-  rounded: true,
-  size: 'normal',
-  textColor: 'almost-black',
-};
-
-OutlineButton.propTypes = {
-  color: PropTypes.string,
-};
-
-OutlineButton.defaultProps = {
-  color: 'white',
-  fontWeight: 'medium',
-  size: 'normal',
-};

@@ -12,7 +12,7 @@ if (typeof document !== 'undefined' && !document.lazyLoadInstance) {
   document.lazyLoadInstance = new LazyLoad(lazyloadConfig);
 }
 
-const StyledSpinner = styled(Spinner)`
+const StyledSpinner = styled(Spinner)<{ size?: string }>`
   left: 50%;
   position: absolute;
   top: 50%;
@@ -28,9 +28,29 @@ const StlyedImage = styled.img`
   display: inline-block;
 `;
 
-export const Image = ({ alt, className, sizes, spin, spinnerSize, src, srcset, ...rest }) => {
+type ImageProps = {
+  alt: string;
+  className?: string;
+  sizes?: string;
+  spin?: boolean;
+  spinnerSize?: string;
+  src: string;
+  srcset?: string;
+};
+
+export const Image = ({
+  alt,
+  className = '',
+  sizes = '',
+  spin = true,
+  spinnerSize = '2.5rem',
+  src,
+  srcset = '',
+  ...rest
+}: ImageProps) => {
   const [loading, setLoading] = useState(!!src);
   const [, setError] = useState(!src);
+
   useEffect(() => {
     document.lazyLoadInstance.update();
   });
@@ -58,22 +78,4 @@ export const Image = ({ alt, className, sizes, spin, spinnerSize, src, srcset, .
       {loading && spin && <StyledSpinner size={spinnerSize} />}
     </Wrapper>
   );
-};
-
-Image.propTypes = {
-  alt: PropTypes.string.isRequired,
-  className: PropTypes.string,
-  sizes: PropTypes.string,
-  spin: PropTypes.bool,
-  spinnerSize: PropTypes.string,
-  src: PropTypes.string.isRequired,
-  srcset: PropTypes.string,
-};
-
-Image.defaultProps = {
-  className: '',
-  sizes: '',
-  spin: true,
-  spinnerSize: '2.5rem',
-  srcset: '',
 };

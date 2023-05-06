@@ -12,3 +12,5 @@ export const theme = {
   heading,
   mq,
 };
+
+export type ThemeType = typeof theme;
