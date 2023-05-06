@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { Flex, Box } from '@theme-ui/components';
-import { Content, OutlineButton, Typography } from 'components/atoms';
-import { RightArrowIcon } from 'components/icons';
+import { Content, OutlineButton, Typography } from '@/components/atoms';
+import { RightArrowIcon } from '@/components/icons';
 import Link from 'next/link';
 
 const Wrapper = styled.section`

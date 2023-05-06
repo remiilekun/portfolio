@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
-import { SectionHeader } from 'components/molecules';
-import { Content, Typography } from 'components/atoms';
+import { SectionHeader } from '@/components/molecules';
+import { Content, Typography } from '@/components/atoms';
 import { Flex, Box } from '@theme-ui/components';
 import ContactForm from './ContactForm';
 

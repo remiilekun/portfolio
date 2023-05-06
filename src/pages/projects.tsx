@@ -1,10 +1,10 @@
 import Head from 'next/head';
 import PropTypes from 'prop-types';
 import { Box } from '@theme-ui/components';
-import { Content } from 'components/atoms';
-import { ProjectsBanner, Footer } from 'components/molecules';
-import Projects from 'components/organisms/Projects';
-import api from 'services/api';
+import { Content } from '@/components/atoms';
+import { ProjectsBanner, Footer } from '@/components/molecules';
+import Projects from '@/components/organisms/Projects';
+import api from '@/services/api';
 
 const ProjectsPage = ({ projects }) => {
   return (

@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
-import { HomeBanner, Footer } from 'components/molecules';
-import AboutMe from 'components/organisms/AboutMe';
-import MyProjects from 'components/organisms/MyProjects';
-import ContactMe from 'components/organisms/ContactMe';
-import api from 'services/api';
+import { HomeBanner, Footer } from '@/components/molecules';
+import AboutMe from '@/components/organisms/AboutMe';
+import MyProjects from '@/components/organisms/MyProjects';
+import ContactMe from '@/components/organisms/ContactMe';
+import api from '@/services/api';
 
 const Home = ({ companies, projects, skills, banner, about }) => {
   return (

@@ -1,11 +1,11 @@
 import styled from '@emotion/styled';
 import { Flex, Box } from '@theme-ui/components';
 import PropTypes from 'prop-types';
-import { Image, Typography, OutlineButton } from 'components/atoms';
-import { RightArrowIcon, AppStoreIcon, PlayStoreIcon } from 'components/icons';
+import { Image, Typography, OutlineButton } from '@/components/atoms';
+import { RightArrowIcon, AppStoreIcon, PlayStoreIcon } from '@/components/icons';
 import { useMeasure } from 'react-use';
 import { useTheme } from '@emotion/react';
-import { getStrapiResourceImageURL } from 'lib/utils';
+import { getStrapiResourceImageURL } from '@/lib/utils';
 import { SkillBadge } from './SkillBadge';
 
 const Wrapper = styled(Flex)`

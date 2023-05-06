@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { Flex, Box } from '@theme-ui/components';
-import { Company } from 'components/molecules';
-import { parseCompanyDate } from 'lib/date';
+import { Company } from '@/components/molecules';
+import { parseCompanyDate } from '@/lib/date';
 
 const Companies = ({ companies }) => {
   return (

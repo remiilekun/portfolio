@@ -1,8 +1,8 @@
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 import PropTypes from 'prop-types';
-import { Typography } from 'components/atoms';
-import { getStrapiResourceImageURL } from 'lib/utils';
+import { Typography } from '@/components/atoms';
+import { getStrapiResourceImageURL } from '@/lib/utils';
 
 const Logo = styled.img`
   flex-shrink: 0;

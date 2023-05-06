@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { Content, Typography } from 'components/atoms';
+import { Content, Typography } from '@/components/atoms';
 
 const Wrapper = styled.section`
   background-image: url("/assets/img/delivery-i.png");

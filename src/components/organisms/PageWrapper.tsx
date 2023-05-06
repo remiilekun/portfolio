@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { Nav, Socials } from 'components/molecules';
+import { Nav, Socials } from '@/components/molecules';
 
 const Wrapper = styled.div`
   position: relative;

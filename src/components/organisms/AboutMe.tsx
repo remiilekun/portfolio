@@ -4,9 +4,9 @@ import styled from '@emotion/styled';
 import { Box, Flex, Grid } from '@theme-ui/components';
 import { useMeasure } from 'react-use';
 import Fade from 'react-reveal/Fade';
-import { SectionHeader, SkillBadge } from 'components/molecules';
-import { Content, Typography, Image } from 'components/atoms';
-import { getStrapiResourceImageURL } from 'lib/utils';
+import { SectionHeader, SkillBadge } from '@/components/molecules';
+import { Content, Typography, Image } from '@/components/atoms';
+import { getStrapiResourceImageURL } from '@/lib/utils';
 import Companies from './Companies';
 
 const Wrapper = styled.section`

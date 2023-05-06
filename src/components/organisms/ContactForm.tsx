@@ -1,4 +1,4 @@
-import { Form, OutlineButton } from 'components/atoms';
+import { Form, OutlineButton } from '@/components/atoms';
 
 const ContactForm = () => {
   return (

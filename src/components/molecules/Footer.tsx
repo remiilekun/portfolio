@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { Typography, Content } from 'components/atoms';
+import { Typography, Content } from '@/components/atoms';
 
 const Wrapper = styled.footer`
   align-items: center;

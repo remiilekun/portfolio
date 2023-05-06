@@ -1,8 +1,8 @@
 import styled from '@emotion/styled';
 import PropTypes from 'prop-types';
-import { Typography } from 'components/atoms';
+import { Typography } from '@/components/atoms';
 import { Box } from '@theme-ui/components';
-import { parseAndFormatCompanyDate } from 'lib/date';
+import { parseAndFormatCompanyDate } from '@/lib/date';
 
 const Wrapper = styled.div`
   width: 100%;

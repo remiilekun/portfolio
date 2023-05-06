@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { GithubIcon, TwitterIcon, InstagramIcon, LinkedinIcon } from 'components/icons';
+import { GithubIcon, TwitterIcon, InstagramIcon, LinkedinIcon } from '@/components/icons';
 
 const Wrapper = styled.aside`
   align-items: center;
