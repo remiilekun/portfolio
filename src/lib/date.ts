@@ -23,7 +23,7 @@ export const formatCompanyDate = (date: Date) => {
 };
 
 export const parseAndFormatCompanyDate = (date: string) => {
-  if (date) return '';
+  if (!date) return '';
   const newDate = parseCompanyDate(date);
   if (newDate) return formatCompanyDate(newDate);
   return '';
