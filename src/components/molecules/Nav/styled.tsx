@@ -3,7 +3,7 @@ import { css } from '@emotion/react';
 import { animated } from 'react-spring';
 import { OutlineButton, ButtonTemplate } from '../../atoms';
 
-export const Wrapper = styled.nav`
+export const Wrapper = styled.nav<{ scrolled?: boolean }>`
   left: 0;
   padding: 2rem 0;
   position: fixed;
@@ -76,7 +76,7 @@ export const MobileWrapper = styled.div`
   display: flex;
 `;
 
-export const Hamburger = styled(ButtonTemplate)`
+export const Hamburger = styled(ButtonTemplate)<{ active?: boolean }>`
   cursor: pointer;
   height: 21px;
   padding: 0;

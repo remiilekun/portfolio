@@ -18,7 +18,11 @@ const Main = styled.main`
   width: 100%;
 `;
 
-const PageWrapper = ({ children }) => {
+type PageWrapperProps = {
+  children: React.ReactNode | React.ReactNode[];
+};
+
+const PageWrapper = ({ children }: PageWrapperProps) => {
   return (
     <Wrapper>
       <Nav />

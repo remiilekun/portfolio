@@ -264,3 +264,7 @@ declare module 'react-reveal/Wobble' {
   class Animation extends React.Component<RevealProps> {}
   export default Animation;
 }
+
+declare module 'react-reveal/globals' {
+  export default function config(params: { ssrFadeout: boolean }): void;
+}

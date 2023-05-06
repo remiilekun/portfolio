@@ -26,6 +26,7 @@ export type CompanyType = {
 export type ProjectType = {
   coverImage: StrapiImage;
   description: string;
+  id?: string;
   imageOrder: number;
   link: { web?: string; ios?: string; android?: string };
   logo: StrapiImage;

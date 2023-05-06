@@ -7,15 +7,15 @@ type HeadingTagProps = {
   align?: keyof ThemeType['font']['align'];
   children?: React.ReactNode;
   className?: string;
-  type: 'h1' | 'h2' | 'h3' | 'h4';
+  type: keyof ThemeType['heading']['desktop'];
 };
 
 type HeadingProps = {
   color?: keyof ThemeType['colors'];
   ellipsize?: boolean;
-  type?: 'h1' | 'h2' | 'h3' | 'h4';
+  type?: keyof ThemeType['heading']['desktop'];
   weight?: keyof ThemeType['font']['weight'];
-} & HeadingTagProps;
+} & Omit<HeadingTagProps, 'type'>;
 
 type ParagraphProps = {
   align?: keyof ThemeType['font']['align'];

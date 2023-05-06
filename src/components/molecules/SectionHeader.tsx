@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { Box } from '@theme-ui/components';
+import { Box, BoxProps } from '@theme-ui/components';
 import { Typography } from '@/components/atoms';
 
 const Wrapper = styled(Box)`
@@ -72,7 +72,11 @@ const Arrow = styled.span`
   }
 `;
 
-export const SectionHeader = ({ children, ...props }) => {
+type SectionHeaderProps = {
+  children: React.ReactNode | React.ReactNode[];
+} & BoxProps;
+
+export const SectionHeader = ({ children, ...props }: SectionHeaderProps) => {
   return (
     <Wrapper {...props}>
       <Lines />

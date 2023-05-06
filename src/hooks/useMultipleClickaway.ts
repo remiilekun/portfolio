@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 
-function useMultipleClickaway(refs) {
+function useMultipleClickaway(refs: any) {
   const [isOutside, setIsOutSide] = useState(true);
-  function handleClickOutside(event) {
-    const outside = refs.every(ref => ref.current && !ref.current.contains(event.target));
+  function handleClickOutside(event: any) {
+    const outside = refs.every((ref: any) => ref.current && !ref.current.contains(event.target));
     setIsOutSide(outside);
   }
 

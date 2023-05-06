@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import { keyframes } from '@emotion/react';
+import { ThemeType } from '@/theme';
 
 export const rotate = keyframes`
 from {
@@ -10,24 +11,19 @@ to {
 }
 `;
 
-export const Spinner = styled.span`
+export const Spinner = styled.span<{ color?: keyof ThemeType['colors']; size?: string }>`
   &::before {
     content: '';
     -webkit-transform-origin: center;
     animation: ${rotate} 500ms infinite linear;
     border-radius: 50%;
-    border: 0.2rem solid ${props => props.theme.colors[props.color]};
+    border: 0.2rem solid ${({ theme, color = 'white' }) => theme.colors[color]};
     border-right-color: transparent;
     border-top-color: transparent;
     content: '';
     display: block;
-    height: ${props => props.size};
+    height: ${({ size = '2.5rem' }) => size};
     transform-origin: center;
-    width: ${props => props.size};
+    width: ${({ size = '2.5rem' }) => size};
   }
 `;
-
-Spinner.defaultProps = {
-  color: 'white',
-  size: '2.5rem',
-};

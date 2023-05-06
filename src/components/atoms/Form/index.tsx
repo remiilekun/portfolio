@@ -4,11 +4,18 @@ import { Input } from './Input';
 import { Label } from './Label';
 import { Textarea } from './Textarea';
 
-const Form = styled.form``;
+const StyledForm = styled.form``;
 
-Form.Group = FormGroup;
-Form.Input = Input;
-Form.Label = Label;
-Form.Textarea = Textarea;
+const Form = Object.assign(StyledForm, {
+  Group: FormGroup,
+  Input: Input,
+  Label: Label,
+  Textarea: Textarea,
+}) as typeof StyledForm & {
+  Group: typeof FormGroup;
+  Input: typeof Input;
+  Label: typeof Label;
+  Textarea: typeof Textarea;
+};
 
 export { Form };

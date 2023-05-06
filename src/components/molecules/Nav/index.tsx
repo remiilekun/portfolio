@@ -134,37 +134,35 @@ export const Nav = () => {
     },
   });
 
-  return (
-    mounted && (
-      <Wrapper scrolled={scrolled}>
-        <Content fluid>
-          <Flex sx={{ alignItems: 'center', justifyContent: 'space-between' }}>
-            <Brand onClick={onLogoClick}>Remi Salami</Brand>
+  return mounted ? (
+    <Wrapper scrolled={scrolled}>
+      <Content fluid>
+        <Flex sx={{ alignItems: 'center', justifyContent: 'space-between' }}>
+          <Brand onClick={onLogoClick}>Remi Salami</Brand>
 
-            {breakpoint === 'mobile' ? (
-              <MobileWrapper>
-                {transitions.map(
-                  ({ item, key, props: { opacity, transform } }) =>
-                    item && (
-                      <MobileOverlay key={key} style={{ opacity }}>
-                        <MobileMenu ref={menuRef} style={{ transform }}>
-                          <NavMenu />
-                        </MobileMenu>
-                      </MobileOverlay>
-                    ),
-                )}
-                <Hamburger ref={hamRef} aria-label="Hamburger button" active={active} onClick={toggleActive}>
-                  <span />
-                  <span />
-                  <span />
-                </Hamburger>
-              </MobileWrapper>
-            ) : (
-              <NavMenu />
-            )}
-          </Flex>
-        </Content>
-      </Wrapper>
-    )
-  );
+          {breakpoint === 'mobile' ? (
+            <MobileWrapper>
+              {transitions.map(
+                ({ item, key, props: { opacity, transform } }) =>
+                  item && (
+                    <MobileOverlay key={key} style={{ opacity }}>
+                      <MobileMenu ref={menuRef} style={{ transform }}>
+                        <NavMenu />
+                      </MobileMenu>
+                    </MobileOverlay>
+                  ),
+              )}
+              <Hamburger ref={hamRef} aria-label="Hamburger button" active={active} onClick={toggleActive}>
+                <span />
+                <span />
+                <span />
+              </Hamburger>
+            </MobileWrapper>
+          ) : (
+            <NavMenu />
+          )}
+        </Flex>
+      </Content>
+    </Wrapper>
+  ) : null;
 };

@@ -1,10 +1,10 @@
 import styled from '@emotion/styled';
 import { SectionHeader } from '@/components/molecules';
 import { Content, Typography } from '@/components/atoms';
-import { Flex, Box } from '@theme-ui/components';
+import { Flex, Box, BoxProps } from '@theme-ui/components';
 import ContactForm from './ContactForm';
 
-const Wrapper = styled.section`
+const Wrapper = styled(Box)`
   margin-bottom: 5rem;
 
   ${({ theme }) => theme.mq.md`
@@ -32,9 +32,9 @@ const Subtitle = styled(Typography.Paragraph)`
   margin-bottom: 2rem;
 `;
 
-const ContactMe = props => {
+const ContactMe = (props: BoxProps) => {
   return (
-    <Wrapper {...props}>
+    <Wrapper as="section" {...props}>
       <Content fluid>
         <SectionHeader>Let us talk</SectionHeader>
 

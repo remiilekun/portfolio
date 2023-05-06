@@ -20,7 +20,7 @@ const ContactForm = () => {
           name="message"
           placeholder="I want to build the next great thing"
           required
-          rows="5"
+          rows={5}
         />
       </Form.Group>
 

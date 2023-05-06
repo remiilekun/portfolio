@@ -29,12 +29,12 @@ type ButtonTemplateProps = {
 } & React.ComponentPropsWithoutRef<'button'>;
 
 type ButtonProps = {
-  color: keyof ThemeType['colors'];
+  color?: keyof ThemeType['colors'];
   textColor?: keyof ThemeType['colors'];
 } & ButtonTemplateProps;
 
 type OutlineButtonProps = {
-  color: keyof ThemeType['colors'];
+  color?: keyof ThemeType['colors'];
   noBorder?: boolean;
   textColor?: keyof ThemeType['colors'];
 } & ButtonTemplateProps;
@@ -126,13 +126,13 @@ export const ButtonTemplate = styled.button<ButtonTemplateProps>`
 export const Button = styled((props: ButtonTemplateProps) => <ButtonTemplate color="primary" rounded {...props} />)<
   ButtonProps
 >`
-  background-color: ${({ theme, color }) => theme.colors[color]};
+  background-color: ${({ theme, color = 'primary' }) => theme.colors[color]};
   &,
   &:visited {
     color: ${({ theme, textColor = 'black' }) => theme.colors[textColor]};
   }
 
-  ${({ color, theme }) => {
+  ${({ color = 'primary', theme }) => {
     if (color.includes('black') || color.includes('dark')) {
       return css`
         &,
@@ -144,7 +144,7 @@ export const Button = styled((props: ButtonTemplateProps) => <ButtonTemplate col
     return null;
   }}
 
-  ${({ color, faded, theme }) =>
+  ${({ color = 'primary', faded, theme }) =>
     faded &&
     css`
       background-color: ${theme.colors[color]}30;
@@ -154,7 +154,7 @@ export const Button = styled((props: ButtonTemplateProps) => <ButtonTemplate col
       }
     `}
 
-    ${({ link, theme, color }) =>
+    ${({ link, theme, color = 'primary' }) =>
       link &&
       css`
         background-color: transparent;
