@@ -1,6 +1,7 @@
 import React from 'react';
+import { SVGElementProps } from '@/types/common';
 
-function SvgJs(props) {
+function SvgJs(props: SVGElementProps) {
   return (
     <svg width="1em" height="1em" viewBox="0 0 30 30" fill="none" {...props}>
       <g clipPath="url(#js_svg__clip0)">

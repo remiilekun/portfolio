@@ -1,6 +1,7 @@
 import React from 'react';
+import { SVGElementProps } from '@/types/common';
 
-function SvgHtml(props) {
+function SvgHtml(props: SVGElementProps) {
   return (
     <svg width="1em" height="1em" viewBox="0 0 30 30" fill="none" {...props}>
       <path d="M1.875 0l2.39 27L15 30l10.73-2.998L28.126 0H1.875z" fill="#FF5722" />

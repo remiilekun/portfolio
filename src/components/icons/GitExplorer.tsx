@@ -1,6 +1,7 @@
 import React from 'react';
+import { SVGElementProps } from '@/types/common';
 
-function SvgGitExplorer(props) {
+function SvgGitExplorer(props: SVGElementProps) {
   return (
     <svg width="1em" height="1em" viewBox="0 0 121 121" fill="none" {...props}>
       <path

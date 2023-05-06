@@ -1,6 +1,7 @@
 import React from 'react';
+import { SVGElementProps } from '@/types/common';
 
-function SvgFindmaids(props) {
+function SvgFindmaids(props: SVGElementProps) {
   return (
     <svg width="1em" height="1em" viewBox="0 0 89 55" fill="none" {...props}>
       <path fill="url(#findmaids_svg__pattern0)" d="M9.772 9.611h18.902v18.421H9.772z" />

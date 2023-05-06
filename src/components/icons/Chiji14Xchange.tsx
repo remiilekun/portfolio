@@ -1,6 +1,7 @@
 import React from 'react';
+import { SVGElementProps } from '@/types/common';
 
-function SvgChiji14Xchange(props) {
+function SvgChiji14Xchange(props: SVGElementProps) {
   return (
     <svg width="1em" height="1em" viewBox="0 0 162 33" fill="none" {...props}>
       <path fill="url(#chiji14xchange_svg__pattern0)" d="M0 0h162v32.4H0z" />

@@ -1,6 +1,7 @@
 import React from 'react';
+import { SVGElementProps } from '@/types/common';
 
-function SvgUduX(props) {
+function SvgUduX(props: SVGElementProps) {
   return (
     <svg width="1em" height="1em" viewBox="0 0 119.854 28.489" {...props}>
       <defs>
