@@ -1,6 +1,6 @@
-import { css, Global } from '@emotion/react';
+import { css } from '@emotion/react';
 
-const globalStyle = css`
+export const rootStyles = css`
   @font-face {
     font-family: 'Gilroy';
     src: url('/assets/fonts/Gilroy/Gilroy-Regular.otf') format('truetype');
@@ -204,7 +204,3 @@ const globalStyle = css`
     top: -9999px;
   }
 `;
-
-const GlobalStyle = () => <Global styles={globalStyle} />;
-
-export default GlobalStyle;
