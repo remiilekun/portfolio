@@ -1,10 +1,10 @@
 import { Project } from '@/components/molecules';
-import PropTypes from 'prop-types';
 import Link from 'next/link';
 import { Flex, Box } from '@theme-ui/components';
 import { OutlineButton } from '@/components/atoms';
 import Slide from 'react-reveal/Slide';
 import styled from '@emotion/styled';
+import { ProjectType } from '@/types/common';
 
 const ProjectsWrapper = styled(Flex)`
   flex-direction: column;
@@ -16,7 +16,12 @@ const ProjectsWrapper = styled(Flex)`
   }
 `;
 
-const Projects = ({ projects, showAll }) => {
+type ProjectsListProps = {
+  projects: ProjectType[];
+  showAll?: boolean;
+};
+
+const ProjectsList = ({ projects, showAll }: ProjectsListProps) => {
   const sortedProjects = projects.sort((a, b) => b.priority - a.priority);
   const data = showAll ? sortedProjects : [...sortedProjects.slice(0, 3)];
 
@@ -49,25 +54,4 @@ const Projects = ({ projects, showAll }) => {
   );
 };
 
-Projects.propTypes = {
-  projects: PropTypes.arrayOf(
-    PropTypes.shape({
-      coverImage: PropTypes.object,
-      description: PropTypes.string.isRequired,
-      imageOrder: PropTypes.number,
-      link: PropTypes.shape({
-        android: PropTypes.string,
-        ios: PropTypes.string,
-        web: PropTypes.string,
-      }),
-      logo: PropTypes.any,
-      name: PropTypes.string.isRequired,
-      technologies: PropTypes.shape({
-        data: PropTypes.array.isRequired,
-      }),
-    }),
-  ),
-  showAll: PropTypes.bool,
-};
-
-export default Projects;
+export default ProjectsList;

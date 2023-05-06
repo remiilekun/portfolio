@@ -1,38 +1,22 @@
-import PropTypes from 'prop-types';
-import { Box } from '@theme-ui/components';
+import { Box, BoxProps } from '@theme-ui/components';
 import { SectionHeader } from '@/components/molecules';
 import { Content } from '@/components/atoms';
-import Projects from './Projects';
+import { ProjectType } from '@/types/common';
+import ProjectsList from './ProjectsList';
 
-const MyProjects = ({ projects, ...props }) => {
+type ProjectsProps = {
+  projects: ProjectType[];
+} & BoxProps;
+
+const MyProjects = ({ projects, ...props }: ProjectsProps) => {
   return (
     <Box mb="15rem" {...props}>
       <Content fluid>
         <SectionHeader>My Projects</SectionHeader>
-        <Projects projects={projects} />
+        <ProjectsList projects={projects} />
       </Content>
     </Box>
   );
 };
 
 export default MyProjects;
-
-MyProjects.propTypes = {
-  projects: PropTypes.arrayOf(
-    PropTypes.shape({
-      coverImage: PropTypes.object,
-      description: PropTypes.string.isRequired,
-      imageOrder: PropTypes.number,
-      link: PropTypes.shape({
-        android: PropTypes.string,
-        ios: PropTypes.string,
-        web: PropTypes.string,
-      }),
-      logo: PropTypes.any,
-      name: PropTypes.string.isRequired,
-      technologies: PropTypes.shape({
-        data: PropTypes.array.isRequired,
-      }),
-    }),
-  ),
-};

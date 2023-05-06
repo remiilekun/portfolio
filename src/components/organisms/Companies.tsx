@@ -1,9 +1,13 @@
-import PropTypes from 'prop-types';
 import { Flex, Box } from '@theme-ui/components';
 import { Company } from '@/components/molecules';
 import { parseCompanyDate } from '@/lib/date';
+import { CompanyType } from '@/types/common';
 
-const Companies = ({ companies }) => {
+type CompaniesProps = {
+  companies: CompanyType[];
+};
+
+const Companies = ({ companies }: CompaniesProps) => {
   return (
     <Flex>
       <Box sx={{ maxWidth: '65rem' }}>
@@ -18,15 +22,3 @@ const Companies = ({ companies }) => {
 };
 
 export default Companies;
-
-Companies.propTypes = {
-  companies: PropTypes.arrayOf(
-    PropTypes.shape({
-      description: PropTypes.array.isRequired,
-      end_date: PropTypes.string,
-      name: PropTypes.string.isRequired,
-      role: PropTypes.string.isRequired,
-      start_date: PropTypes.string.isRequired,
-    }),
-  ),
-};

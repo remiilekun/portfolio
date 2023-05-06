@@ -1,15 +1,15 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
-import { Box, Flex, Grid } from '@theme-ui/components';
+import { Box, BoxProps, Flex, Grid } from '@theme-ui/components';
 import { useMeasure } from 'react-use';
 import Fade from 'react-reveal/Fade';
 import { SectionHeader, SkillBadge } from '@/components/molecules';
 import { Content, Typography, Image } from '@/components/atoms';
 import { getStrapiResourceImageURL } from '@/lib/utils';
+import { AboutMeType, CompanyType, SkillType } from '@/types/common';
 import Companies from './Companies';
 
-const Wrapper = styled.section`
+const Wrapper = styled(Box)`
   margin-bottom: 15rem;
 `;
 
@@ -31,7 +31,7 @@ const PictureWrapper = styled.div`
   `}
 `;
 
-const Picture = styled(Image)`
+const Picture = styled(Image)<{ height: string | number }>`
   border-radius: 1rem;
   border: 1px solid ${({ theme }) => theme.colors.primary};
   height: ${({ height }) => height}px;
@@ -61,11 +61,17 @@ const Subtitle = styled(Typography.Paragraph)`
   font-weight: ${({ theme }) => theme.font.weight.bold};
 `;
 
-const AboutMe = ({ companies, data, skills, ...props }) => {
-  const [imageRef, { width }] = useMeasure();
+type AboutMeProps = {
+  companies: CompanyType[];
+  data: AboutMeType;
+  skills: SkillType[];
+} & BoxProps;
+
+const AboutMe = ({ companies, data, skills, ...props }: AboutMeProps) => {
+  const [imageRef, { width }] = useMeasure<HTMLDivElement>();
 
   return (
-    <Wrapper {...props}>
+    <Wrapper as="section" {...props}>
       <Content fluid>
         <SectionHeader>{data.title}</SectionHeader>
 
@@ -131,13 +137,3 @@ const AboutMe = ({ companies, data, skills, ...props }) => {
 };
 
 export default AboutMe;
-
-AboutMe.propTypes = {
-  companies: PropTypes.array,
-  data: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-    avatar: PropTypes.object,
-  }).isRequired,
-  skills: PropTypes.array,
-};

@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 
-export const Content = styled.div`
+export const Content = styled.div<{ fluid?: boolean }>`
   display: block;
   margin-left: auto;
   margin-right: auto;

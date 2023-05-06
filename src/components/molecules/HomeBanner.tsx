@@ -1,10 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { Flex, Box } from '@theme-ui/components';
 import { Content, OutlineButton, Typography } from '@/components/atoms';
 import { RightArrowIcon } from '@/components/icons';
 import Link from 'next/link';
+import { HomeBannerType } from '@/types/common';
 
 const Wrapper = styled.section`
   background-image: url("/assets/img/coding-i.png");
@@ -65,7 +65,11 @@ const Summary = styled(Typography.Paragraph)`
   `}
 `;
 
-export const HomeBanner = ({ data }) => {
+type HomeBannerProps = {
+  data: HomeBannerType;
+};
+
+export const HomeBanner = ({ data }: HomeBannerProps) => {
   return (
     <Wrapper>
       <Content fluid>
@@ -85,12 +89,4 @@ export const HomeBanner = ({ data }) => {
       </Content>
     </Wrapper>
   );
-};
-
-HomeBanner.propTypes = {
-  data: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    subtitle: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-  }).isRequired,
 };

@@ -12,6 +12,7 @@ to {
 `;
 
 type ButtonTemplateProps = {
+  as?: any;
   block?: boolean;
   borderRadius?: string;
   color?: keyof ThemeType['colors'];
@@ -19,10 +20,12 @@ type ButtonTemplateProps = {
   faded?: boolean;
   fontSize?: keyof ThemeType['font']['size'];
   fontWeight?: keyof ThemeType['font']['weight'];
+  href?: string;
   link?: boolean;
   loading?: boolean;
   rounded?: boolean;
   size?: 'small' | 'normal' | 'large';
+  target?: string;
 } & React.ComponentPropsWithoutRef<'button'>;
 
 type ButtonProps = {

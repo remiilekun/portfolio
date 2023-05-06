@@ -1,8 +1,8 @@
 import styled from '@emotion/styled';
-import PropTypes from 'prop-types';
+import { Box, BoxProps } from '@theme-ui/components';
 import { Typography } from '@/components/atoms';
-import { Box } from '@theme-ui/components';
 import { parseAndFormatCompanyDate } from '@/lib/date';
+import { CompanyType } from '@/types/common';
 
 const Wrapper = styled.div`
   width: 100%;
@@ -71,7 +71,13 @@ const Lines = styled.span`
   }
 `;
 
-const CompanyHeader = ({ children, ...props }) => {
+type CompanyHeaderProps = {
+  children: React.ReactNode | React.ReactNode[];
+} & BoxProps;
+
+type CompanyProps = CompanyType;
+
+const CompanyHeader = ({ children, ...props }: CompanyHeaderProps) => {
   return (
     <HeaderWrapper {...props}>
       <Lines />
@@ -80,7 +86,7 @@ const CompanyHeader = ({ children, ...props }) => {
   );
 };
 
-export const Company = ({ name, description, start_date, end_date, role }) => {
+export const Company = ({ name, description, start_date, end_date, role }: CompanyProps) => {
   const period = `${parseAndFormatCompanyDate(start_date)} ${
     end_date ? `- ${parseAndFormatCompanyDate(end_date)}` : ''
   }`;
@@ -102,12 +108,4 @@ export const Company = ({ name, description, start_date, end_date, role }) => {
       </Box>
     </Wrapper>
   );
-};
-
-Company.propTypes = {
-  description: PropTypes.array.isRequired,
-  end_date: PropTypes.string,
-  name: PropTypes.string.isRequired,
-  role: PropTypes.string.isRequired,
-  start_date: PropTypes.string.isRequired,
 };

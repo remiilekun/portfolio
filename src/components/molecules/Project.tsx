@@ -1,12 +1,12 @@
+import { useMeasure } from 'react-use';
 import styled from '@emotion/styled';
+import { useTheme } from '@emotion/react';
 import { Flex, Box } from '@theme-ui/components';
-import PropTypes from 'prop-types';
 import { Image, Typography, OutlineButton } from '@/components/atoms';
 import { RightArrowIcon, AppStoreIcon, PlayStoreIcon } from '@/components/icons';
-import { useMeasure } from 'react-use';
-import { useTheme } from '@emotion/react';
 import { getStrapiResourceImageURL } from '@/lib/utils';
 import { SkillBadge } from './SkillBadge';
+import { ProjectType } from '@/types/common';
 
 const Wrapper = styled(Flex)`
   flex-wrap: wrap;
@@ -27,7 +27,7 @@ const ImageWrapper = styled.div`
   width: 100%;
 `;
 
-const ProjectImage = styled(Image)`
+const ProjectImage = styled(Image)<{ height?: string | number }>`
   background-color: ${({ theme }) => theme.colors.primary}29;
   border-radius: 1rem;
   height: ${({ height }) => height}px;
@@ -115,8 +115,10 @@ const Link = styled.a`
   }
 `;
 
-export const Project = ({ coverImage, description, imageOrder, link, logo, name, technologies }) => {
-  const [imageRef, { width }] = useMeasure();
+type ProjectProps = ProjectType;
+
+export const Project = ({ coverImage, description, imageOrder = 1, link, logo, name, technologies }: ProjectProps) => {
+  const [imageRef, { width }] = useMeasure<HTMLDivElement>();
   const { primary } = useTheme().colors;
 
   const height = () => {
@@ -162,7 +164,7 @@ export const Project = ({ coverImage, description, imageOrder, link, logo, name,
           ))}
         </Technologies>
         <Links>
-          {link.web && (
+          {link?.web && (
             <LinkItem>
               <OutlineButton
                 as={Link}
@@ -179,7 +181,7 @@ export const Project = ({ coverImage, description, imageOrder, link, logo, name,
             </LinkItem>
           )}
 
-          {link.ios && (
+          {link?.ios && (
             <LinkItem>
               <OutlineButton
                 as={Link}
@@ -196,7 +198,7 @@ export const Project = ({ coverImage, description, imageOrder, link, logo, name,
             </LinkItem>
           )}
 
-          {link.android && (
+          {link?.android && (
             <LinkItem>
               <OutlineButton
                 as={Link}
@@ -216,29 +218,4 @@ export const Project = ({ coverImage, description, imageOrder, link, logo, name,
       </Box>
     </Wrapper>
   );
-};
-
-Project.propTypes = {
-  coverImage: PropTypes.object,
-  description: PropTypes.string.isRequired,
-  imageOrder: PropTypes.number,
-  link: PropTypes.shape({
-    android: PropTypes.string,
-    ios: PropTypes.string,
-    web: PropTypes.string,
-  }),
-  logo: PropTypes.any,
-  name: PropTypes.string.isRequired,
-  technologies: PropTypes.shape({
-    data: PropTypes.array.isRequired,
-  }),
-};
-
-Project.defaultProps = {
-  imageOrder: 1,
-  link: {
-    android: '',
-    ios: '',
-    web: '',
-  },
 };

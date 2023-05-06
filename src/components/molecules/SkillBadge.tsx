@@ -1,8 +1,8 @@
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
-import PropTypes from 'prop-types';
 import { Typography } from '@/components/atoms';
 import { getStrapiResourceImageURL } from '@/lib/utils';
+import { SkillType } from '@/types/common';
 
 const Logo = styled.img`
   flex-shrink: 0;
@@ -34,17 +34,14 @@ const Wrapper = styled.div`
   }
 `;
 
-export const SkillBadge = ({ skill, ...props }) => {
+type SkillBadgeProps = {
+  skill: SkillType;
+};
+
+export const SkillBadge = ({ skill, ...props }: SkillBadgeProps) => {
   return (
     <Wrapper {...props}>
       <Logo alt={skill.name} src={getStrapiResourceImageURL(skill.icon)} /> <Text>{skill.name}</Text>
     </Wrapper>
   );
-};
-
-SkillBadge.propTypes = {
-  skill: PropTypes.shape({
-    icon: PropTypes.object,
-    name: PropTypes.string,
-  }).isRequired,
 };

@@ -1,12 +1,16 @@
 import Head from 'next/head';
-import PropTypes from 'prop-types';
 import { Box } from '@theme-ui/components';
 import { Content } from '@/components/atoms';
 import { ProjectsBanner, Footer } from '@/components/molecules';
-import Projects from '@/components/organisms/Projects';
+import ProjectsList from '@/components/organisms/ProjectsList';
 import api from '@/services/api';
+import { ProjectType } from '@/types/common';
 
-const ProjectsPage = ({ projects }) => {
+type ProjectsPageProps = {
+  projects: ProjectType[];
+};
+
+const ProjectsPage = ({ projects }: ProjectsPageProps) => {
   return (
     <>
       <Head>
@@ -15,7 +19,7 @@ const ProjectsPage = ({ projects }) => {
       <ProjectsBanner />
       <Box sx={{ mb: '8rem' }}>
         <Content fluid>
-          <Projects projects={projects} showAll />
+          <ProjectsList projects={projects} showAll />
         </Content>
       </Box>
 
@@ -36,23 +40,3 @@ export async function getStaticProps() {
 }
 
 export default ProjectsPage;
-
-ProjectsPage.propTypes = {
-  projects: PropTypes.arrayOf(
-    PropTypes.shape({
-      coverImage: PropTypes.object,
-      description: PropTypes.string.isRequired,
-      imageOrder: PropTypes.number,
-      link: PropTypes.shape({
-        android: PropTypes.string,
-        ios: PropTypes.string,
-        web: PropTypes.string,
-      }),
-      logo: PropTypes.any,
-      name: PropTypes.string.isRequired,
-      technologies: PropTypes.shape({
-        data: PropTypes.array.isRequired,
-      }),
-    }),
-  ),
-};

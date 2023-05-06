@@ -1,13 +1,21 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Head from 'next/head';
 import { HomeBanner, Footer } from '@/components/molecules';
 import AboutMe from '@/components/organisms/AboutMe';
 import MyProjects from '@/components/organisms/MyProjects';
 import ContactMe from '@/components/organisms/ContactMe';
 import api from '@/services/api';
+import { AboutMeType, CompanyType, HomeBannerType, ProjectType, SkillType } from '@/types/common';
 
-const Home = ({ companies, projects, skills, banner, about }) => {
+type HomePageProps = {
+  about: AboutMeType;
+  banner: HomeBannerType;
+  companies: CompanyType[];
+  projects: ProjectType[];
+  skills: SkillType[];
+};
+
+const HomePage = ({ about, banner, companies, projects, skills }: HomePageProps) => {
   return (
     <>
       <Head>
@@ -23,13 +31,14 @@ const Home = ({ companies, projects, skills, banner, about }) => {
 };
 
 export async function getStaticProps() {
-  const resources = await Promise.allSettled([
+  const resources = (await Promise.allSettled([
     api.get('/projects?populate=deep'),
     api.get('/skills?populate=deep'),
     api.get('/companies?populate=deep'),
     api.get('/banner?populate=deep'),
     api.get('/about-section?populate=deep'),
-  ]);
+  ])) as { value: { data: { data: Record<string, any> } } }[];
+
   const projects = resources[0].value.data.data;
   const skills = resources[1].value.data.data;
   const companies = resources[2].value.data.data;
@@ -47,49 +56,4 @@ export async function getStaticProps() {
   };
 }
 
-export default Home;
-
-Home.propTypes = {
-  projects: PropTypes.arrayOf(
-    PropTypes.shape({
-      coverImage: PropTypes.object,
-      description: PropTypes.string.isRequired,
-      imageOrder: PropTypes.number,
-      link: PropTypes.shape({
-        android: PropTypes.string,
-        ios: PropTypes.string,
-        web: PropTypes.string,
-      }),
-      logo: PropTypes.any,
-      name: PropTypes.string.isRequired,
-      technologies: PropTypes.shape({
-        data: PropTypes.array.isRequired,
-      }),
-    }),
-  ),
-  skills: PropTypes.arrayOf(
-    PropTypes.shape({
-      icon: PropTypes.object,
-      name: PropTypes.string,
-    }).isRequired,
-  ),
-  companies: PropTypes.arrayOf(
-    PropTypes.shape({
-      description: PropTypes.array.isRequired,
-      end_date: PropTypes.string,
-      name: PropTypes.string.isRequired,
-      role: PropTypes.string.isRequired,
-      start_date: PropTypes.string.isRequired,
-    }),
-  ),
-  banner: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    subtitle: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-  }).isRequired,
-  about: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-    avatar: PropTypes.object,
-  }).isRequired,
-};
+export default HomePage;
