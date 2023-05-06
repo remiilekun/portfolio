@@ -1,9 +1,34 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
-import PropTypes from 'prop-types';
+import { ThemeType } from '@/theme';
 
-const HeadingTag = ({ type: Component, children, className, ...props }) => {
+type HeadingTagProps = {
+  align?: keyof ThemeType['font']['align'];
+  children?: React.ReactNode;
+  className?: string;
+  type: 'h1' | 'h2' | 'h3' | 'h4';
+};
+
+type HeadingProps = {
+  color?: keyof ThemeType['colors'];
+  ellipsize?: boolean;
+  type?: 'h1' | 'h2' | 'h3' | 'h4';
+  weight?: keyof ThemeType['font']['weight'];
+} & HeadingTagProps;
+
+type ParagraphProps = {
+  align?: keyof ThemeType['font']['align'];
+  children?: React.ReactNode;
+  className?: string;
+  color?: keyof ThemeType['colors'];
+  decoration?: string;
+  ellipsize?: boolean;
+  weight?: keyof ThemeType['font']['weight'];
+  size?: keyof ThemeType['font']['size'];
+};
+
+const HeadingTag = ({ type: Component, children, className, ...props }: HeadingTagProps) => {
   return (
     <Component className={className} {...props}>
       {children}
@@ -11,18 +36,20 @@ const HeadingTag = ({ type: Component, children, className, ...props }) => {
   );
 };
 
-export const Heading = styled(HeadingTag)`
-  color: ${({ theme, color }) => theme.colors[color]};
+export const Heading = styled((props: Omit<HeadingTagProps, 'type'>) => <HeadingTag type="h1" {...props} />)<
+  HeadingProps
+>`
+  color: ${({ theme, color = 'white' }) => theme.colors[color]};
   &:visited {
-    color: ${({ theme, color }) => theme.colors[color]};
+    color: ${({ theme, color = 'white' }) => theme.colors[color]};
   }
   display: block;
-  font-weight: ${({ theme, weight }) => theme.font.weight[weight]};
+  font-weight: ${({ theme, weight = 'normal' }) => theme.font.weight[weight]};
   line-height: 1;
   margin: 0;
   position: relative;
-  text-align: ${({ theme, align }) => theme.font.align[align]};
-  ${({ theme, type }) => {
+  text-align: ${({ theme, align = 'initial' }) => theme.font.align[align]};
+  ${({ theme, type = 'h1' }) => {
     return css`
       font-size: ${theme.heading.mobile[type]};
       ${theme.mq.sm`
@@ -40,18 +67,18 @@ export const Heading = styled(HeadingTag)`
     `}
 `;
 
-export const Paragraph = styled.p`
-  color: ${({ theme, color }) => theme.colors[color]};
+export const Paragraph = styled.p<ParagraphProps>`
+  color: ${({ theme, color = 'white' }) => theme.colors[color]};
   &:visited {
-    color: ${({ theme, color }) => theme.colors[color]};
+    color: ${({ theme, color = 'white' }) => theme.colors[color]};
   }
   display: block;
-  font-size: ${({ theme, size }) => theme.font.size[size]};
-  font-weight: ${({ theme, weight }) => theme.font.weight[weight]};
+  font-size: ${({ theme, size = 'normal' }) => theme.font.size[size]};
+  font-weight: ${({ theme, weight = 'normal' }) => theme.font.weight[weight]};
   line-height: 1;
   margin: 0;
-  text-align: ${({ theme, align }) => theme.font.align[align]};
-  text-decoration: ${({ decoration }) => decoration};
+  text-align: ${({ theme, align = 'initial' }) => theme.font.align[align]};
+  text-decoration: ${({ decoration = 'none' }) => decoration};
 
   ${({ ellipsize }) =>
     ellipsize &&
@@ -62,17 +89,17 @@ export const Paragraph = styled.p`
     `}
 `;
 
-export const Text = styled.span`
-  color: ${({ theme, color }) => theme.colors[color]};
+export const Text = styled.span<ParagraphProps>`
+  color: ${({ theme, color = 'inherit' }) => theme.colors[color]};
   &:visited {
-    color: ${({ theme, color }) => theme.colors[color]};
+    color: ${({ theme, color = 'inherit' }) => theme.colors[color]};
   }
   display: inline;
-  font-size: ${({ theme, size }) => theme.font.size[size]};
-  font-weight: ${({ theme, weight }) => theme.font.weight[weight]};
+  font-size: ${({ theme, size = 'normal' }) => theme.font.size[size]};
+  font-weight: ${({ theme, weight = 'normal' }) => theme.font.weight[weight]};
   line-height: 1;
-  text-align: ${({ theme, align }) => theme.font.align[align]};
-  text-decoration: ${({ decoration }) => decoration};
+  text-align: ${({ theme, align = 'initial' }) => theme.font.align[align]};
+  text-decoration: ${({ decoration = 'none' }) => decoration};
 
   ${({ ellipsize }) =>
     ellipsize &&
@@ -82,34 +109,6 @@ export const Text = styled.span`
       white-space: nowrap;
     `}
 `;
-
-HeadingTag.propTypes = {
-  className: PropTypes.string.isRequired,
-  type: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4']).isRequired,
-};
-
-Heading.defaultProps = {
-  align: 'initial',
-  color: 'white',
-  type: 'h1',
-  weight: 'normal',
-};
-
-Paragraph.defaultProps = {
-  align: 'initial',
-  color: 'white',
-  decoration: 'none',
-  size: 'normal',
-  weight: 'normal',
-};
-
-Text.defaultProps = {
-  align: 'initial',
-  color: 'inherit',
-  decoration: 'none',
-  size: 'inherit',
-  weight: 'normal',
-};
 
 export default {
   Heading,

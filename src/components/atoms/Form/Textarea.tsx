@@ -1,14 +1,18 @@
+import { ThemeType } from '@/theme';
 import styled from '@emotion/styled';
-import PropTypes from 'prop-types';
 
-export const Textarea = styled.textarea`
+type TextareaProps = {
+  textColor?: keyof ThemeType['colors'];
+} & React.ComponentPropsWithoutRef<'input'>;
+
+export const Textarea = styled.textarea<TextareaProps>`
   -moz-appearance: none;
   -webkit-appearance: none;
   appearence: none;
   background-color: ${({ theme }) => theme.colors.primary}29;
   border-radius: 2rem;
   border: none;
-  color: ${({ theme, textColor }) => theme.colors[textColor]};
+  color: ${({ theme, textColor = 'white' }) => theme.colors[textColor]};
   display: block;
   font-size: 1.6rem;
   line-height: 1.2;
@@ -27,13 +31,3 @@ export const Textarea = styled.textarea`
     font-size: 1.4rem;
   }
 `;
-
-Textarea.propTypes = {
-  textColor: PropTypes.string,
-  type: PropTypes.string,
-};
-
-Textarea.defaultProps = {
-  textColor: 'white',
-  type: 'text',
-};

@@ -1,14 +1,18 @@
+import { ThemeType } from '@/theme';
 import styled from '@emotion/styled';
-import PropTypes from 'prop-types';
 
-export const Input = styled.input`
+type InputProps = {
+  textColor?: keyof ThemeType['colors'];
+} & React.ComponentPropsWithoutRef<'input'>;
+
+export const Input = styled.input<InputProps>`
   -moz-appearance: none;
   -webkit-appearance: none;
   appearence: none;
   background-color: ${({ theme }) => theme.colors.primary}29;
   border-radius: 5rem;
   border: none;
-  color: ${({ theme, textColor }) => theme.colors[textColor]};
+  color: ${({ theme, textColor = 'white' }) => theme.colors[textColor]};
   display: block;
   font-size: 1.6rem;
   height: 4.5rem;
@@ -27,13 +31,3 @@ export const Input = styled.input`
     font-size: 1.4rem;
   }
 `;
-
-Input.propTypes = {
-  textColor: PropTypes.string,
-  type: PropTypes.string,
-};
-
-Input.defaultProps = {
-  textColor: 'white',
-  type: 'text',
-};
