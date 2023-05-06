@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styled from '@emotion/styled';
 import LazyLoad from 'vanilla-lazyload';
-import PropTypes from 'prop-types';
 import { Spinner } from './Spinner';
 
 const lazyloadConfig = {

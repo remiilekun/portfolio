@@ -1,7 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { SVGElementProps } from '@/types/common';
 
-function SvgGithub({ fill, ...props }) {
+function SvgGithub({ fill = '#fff', ...props }: SVGElementProps) {
   return (
     <svg width="1em" height="1em" viewBox="0 0 25 25" fill="none" {...props}>
       <g clipPath="url(#github_svg__clip0)">
@@ -18,13 +18,5 @@ function SvgGithub({ fill, ...props }) {
     </svg>
   );
 }
-
-SvgGithub.propTypes = {
-  fill: PropTypes.string,
-};
-
-SvgGithub.defaultProps = {
-  fill: '#fff',
-};
 
 export default SvgGithub;

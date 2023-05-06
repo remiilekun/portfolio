@@ -1,7 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { SVGElementProps } from '@/types/common';
 
-function SvgPlayStore({ fill, ...props }) {
+function SvgPlayStore({ fill = '#B0AFF6', ...props }: SVGElementProps) {
   return (
     <svg width="1em" height="1em" viewBox="0 0 23 25" fill="none" {...props}>
       <path
@@ -11,13 +11,5 @@ function SvgPlayStore({ fill, ...props }) {
     </svg>
   );
 }
-
-SvgPlayStore.propTypes = {
-  fill: PropTypes.string,
-};
-
-SvgPlayStore.defaultProps = {
-  fill: '#B0AFF6',
-};
 
 export default SvgPlayStore;

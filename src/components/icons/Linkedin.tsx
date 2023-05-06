@@ -1,7 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { SVGElementProps } from '@/types/common';
 
-function SvgLinkedin({ fill, ...props }) {
+function SvgLinkedin({ fill = '#fff', ...props }: SVGElementProps) {
   return (
     <svg width="1em" height="1em" viewBox="0 0 430.117 430.117" {...props}>
       <path
@@ -11,13 +11,5 @@ function SvgLinkedin({ fill, ...props }) {
     </svg>
   );
 }
-
-SvgLinkedin.propTypes = {
-  fill: PropTypes.string,
-};
-
-SvgLinkedin.defaultProps = {
-  fill: '#fff',
-};
 
 export default SvgLinkedin;

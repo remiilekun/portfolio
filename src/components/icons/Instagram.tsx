@@ -1,7 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { SVGElementProps } from '@/types/common';
 
-function SvgInstagram({ fill, ...props }) {
+function SvgInstagram({ fill = '#fff', ...props }: SVGElementProps) {
   return (
     <svg width="1em" height="1em" viewBox="0 0 169.063 169.063" {...props}>
       <g fill={fill}>
@@ -11,13 +11,5 @@ function SvgInstagram({ fill, ...props }) {
     </svg>
   );
 }
-
-SvgInstagram.propTypes = {
-  fill: PropTypes.string,
-};
-
-SvgInstagram.defaultProps = {
-  fill: '#fff',
-};
 
 export default SvgInstagram;

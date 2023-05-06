@@ -1,7 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { SVGElementProps } from '@/types/common';
 
-function SvgRightArrow({ fill, ...props }) {
+function SvgRightArrow({ fill = '#fff', ...props }: SVGElementProps) {
   return (
     <svg width="1em" height="1em" viewBox="0 0 31 31" fill="none" {...props}>
       <path
@@ -11,13 +11,5 @@ function SvgRightArrow({ fill, ...props }) {
     </svg>
   );
 }
-
-SvgRightArrow.propTypes = {
-  fill: PropTypes.string,
-};
-
-SvgRightArrow.defaultProps = {
-  fill: '#fff',
-};
 
 export default SvgRightArrow;

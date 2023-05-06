@@ -1,7 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { SVGElementProps } from '@/types/common';
 
-function SvgTwitter({ fill, ...props }) {
+function SvgTwitter({ fill = '#fff', ...props }: SVGElementProps) {
   return (
     <svg width="1em" height="1em" viewBox="0 0 25 25" fill="none" {...props}>
       <g clipPath="url(#twitter_svg__clip0)">
@@ -18,13 +18,5 @@ function SvgTwitter({ fill, ...props }) {
     </svg>
   );
 }
-
-SvgTwitter.propTypes = {
-  fill: PropTypes.string,
-};
-
-SvgTwitter.defaultProps = {
-  fill: '#fff',
-};
 
 export default SvgTwitter;
