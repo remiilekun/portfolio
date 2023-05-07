@@ -6,7 +6,6 @@ import MyProjects from '@/components/organisms/MyProjects';
 import ContactMe from '@/components/organisms/ContactMe';
 import api from '@/services/api';
 import { AboutMeType, CompanyType, HomeBannerType, ProjectType, SkillType } from '@/types/common';
-import { Box } from '@theme-ui/components';
 
 type HomePageProps = {
   about: AboutMeType;

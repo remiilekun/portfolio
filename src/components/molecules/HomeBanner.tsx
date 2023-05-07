@@ -78,12 +78,10 @@ export const HomeBanner = ({ data }: HomeBannerProps) => {
             <Greeting type="h2">{data.title}</Greeting>
             <Name type="h1">{data.subtitle}</Name>
             <Summary>{data.description}</Summary>
-            <Link href="#contact" passHref>
-              <OutlineButton fontSize="small" size="large" as="a" className="nl">
-                Say Hello
-                <RightArrowIcon style={{ marginLeft: '1.5rem' }} />
-              </OutlineButton>
-            </Link>
+            <OutlineButton as={Link} href="#contact" fontSize="small" size="large" className="nl">
+              Say Hello
+              <RightArrowIcon style={{ marginLeft: '1.5rem' }} />
+            </OutlineButton>
           </Box>
         </Flex>
       </Content>

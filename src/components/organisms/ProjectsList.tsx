@@ -43,11 +43,9 @@ const ProjectsList = ({ projects, showAll }: ProjectsListProps) => {
             width: '100%',
           }}
         >
-          <Link href="/projects" passHref>
-            <OutlineButton fontSize="normal" size="large" as="a">
-              View More
-            </OutlineButton>
-          </Link>
+          <OutlineButton as={Link} href="/projects" fontSize="normal" size="large">
+            View More
+          </OutlineButton>
         </Box>
       )}
     </ProjectsWrapper>

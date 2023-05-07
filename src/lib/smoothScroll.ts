@@ -1,6 +1,7 @@
 function scrollAnchors(e: any) {
   const distanceToTop = (el: any) => Math.floor(el.getBoundingClientRect().top);
   e.preventDefault();
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
   const [, id] = this.getAttribute('href').split('#');
   const targetID = `#${id}`;

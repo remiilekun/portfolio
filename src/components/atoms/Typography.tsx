@@ -110,8 +110,10 @@ export const Text = styled.span<ParagraphProps>`
     `}
 `;
 
-export default {
+const Typography = {
   Heading,
   Paragraph,
   Text,
 };
+
+export default Typography;

@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 import { animated } from 'react-spring';
 import { OutlineButton, ButtonTemplate } from '../../atoms';
+import Link from 'next/link';
 
 export const Wrapper = styled.nav<{ scrolled?: boolean }>`
   left: 0;
@@ -57,7 +58,7 @@ export const NavItem = styled.li`
   `}
 `;
 
-export const NavLink = styled.a`
+export const NavLink = styled(Link)`
   &,
   &:visited {
     color: ${({ theme }) => theme.colors.white};

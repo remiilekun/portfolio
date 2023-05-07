@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useLayoutEffect, useRef } from 'react';
 import { Flex } from '@theme-ui/components';
-import Link from 'next/link';
 import { createBreakpoint } from 'react-use';
 import { useTransition } from 'react-spring';
 import cb from 'bezier-easing';
@@ -36,25 +35,25 @@ const NavMenu = () => {
     <NavList>
       <NavItem>
         <Fade top>
-          <Link href="#about" passHref>
-            <NavLink className="nl">About Me</NavLink>
-          </Link>
+          <NavLink href="#about" className="nl">
+            About Me
+          </NavLink>
         </Fade>
       </NavItem>
 
       <NavItem>
         <Fade top delay={100}>
-          <Link href="#projects" passHref>
-            <NavLink className="nl">Projects</NavLink>
-          </Link>
+          <NavLink href="#projects" className="nl">
+            Projects
+          </NavLink>
         </Fade>
       </NavItem>
 
       <NavItem>
         <Fade top delay={200}>
-          <Link href="#contact" passHref>
-            <NavLink className="nl">Contact Me</NavLink>
-          </Link>
+          <NavLink href="#contact" className="nl">
+            Contact Me
+          </NavLink>
         </Fade>
       </NavItem>
 
