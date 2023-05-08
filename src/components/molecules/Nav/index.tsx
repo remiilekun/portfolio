@@ -1,3 +1,4 @@
+'use client';
 import React, { useEffect, useState, useLayoutEffect, useRef } from 'react';
 import { Flex } from '@theme-ui/components';
 import { createBreakpoint } from 'react-use';
@@ -6,7 +7,7 @@ import cb from 'bezier-easing';
 import * as smoothScroll from '@/lib/smoothScroll';
 import { useMultipleClickaway } from '@/hooks';
 import Fade from 'react-reveal/Fade';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 import { Content } from '../../atoms';
 import {
   Brand,

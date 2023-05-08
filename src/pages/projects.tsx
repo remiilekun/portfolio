@@ -22,7 +22,6 @@ const ProjectsPage = ({ projects }: ProjectsPageProps) => {
           <ProjectsList projects={projects} showAll />
         </Content>
       </Box>
-
       <Footer />
     </>
   );

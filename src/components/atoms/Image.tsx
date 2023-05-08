@@ -1,3 +1,4 @@
+'use client';
 import React, { useEffect, useState } from 'react';
 import styled from '@emotion/styled';
 import LazyLoad from 'vanilla-lazyload';

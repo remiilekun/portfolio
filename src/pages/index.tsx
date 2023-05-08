@@ -16,6 +16,10 @@ type HomePageProps = {
 };
 
 const HomePage = ({ about, banner, companies, projects, skills }: HomePageProps) => {
+  console.log('ln19', 'home');
+
+  return null;
+
   return (
     <>
       <Head>

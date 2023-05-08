@@ -1,7 +1,7 @@
+'use client';
 import React from 'react';
 import localFont from 'next/font/local';
 import { GA_TRACKING_ID } from '@/lib/gtag';
-
 import PageWrapper from '@/components/organisms/PageWrapper';
 
 type AppLayoutProps = {
@@ -35,9 +35,9 @@ const gilroyFont = localFont({
   display: 'swap',
 });
 
-console.log('ln37', gilroyFont);
-
 const AppLayout = ({ children }: AppLayoutProps) => {
+  console.log('ln38', 'app layout');
+
   return (
     <html lang="en" className={gilroyFont.className}>
       <head>
@@ -102,6 +102,7 @@ const AppLayout = ({ children }: AppLayoutProps) => {
         />
       </head>
       <body>
+        <h1 style={{ color: 'red' }}> hello world</h1>
         <PageWrapper>{children}</PageWrapper>
       </body>
     </html>
