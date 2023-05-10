@@ -8,7 +8,6 @@ type ThemeProviderProps = {
 };
 
 const ThemeProvider = ({ children }: ThemeProviderProps) => {
-  console.log('ln11', theme);
   return <EmotionThemeProvider theme={theme}>{children}</EmotionThemeProvider>;
 };
 

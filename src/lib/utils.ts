@@ -3,6 +3,6 @@ export const validateEmail = (email: string) => {
   return re.test(email);
 };
 
-export const getStrapiResourceImageURL = (icon: { data?: { attributes?: { url?: string } } }) => {
+export const getStrapiResourceImageURL = (icon?: { data?: { attributes?: { url?: string } } }) => {
   return icon?.data?.attributes?.url || '';
 };
