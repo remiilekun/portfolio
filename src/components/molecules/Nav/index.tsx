@@ -1,13 +1,12 @@
-import React, { useEffect, useState, useLayoutEffect, useRef } from 'react';
+import React, { useEffect, useState, useLayoutEffect, useRef, useMemo } from 'react';
 import { Flex } from '@theme-ui/components';
-import Link from 'next/link';
 import { createBreakpoint } from 'react-use';
 import { useTransition } from 'react-spring';
 import cb from 'bezier-easing';
 import * as smoothScroll from '@/lib/smoothScroll';
 import { useMultipleClickaway } from '@/hooks';
 import Fade from 'react-reveal/Fade';
-import { useRouter } from 'next/router';
+import { usePathname, useRouter } from 'next/navigation';
 import { Content } from '../../atoms';
 import {
   Brand,
@@ -36,25 +35,25 @@ const NavMenu = () => {
     <NavList>
       <NavItem>
         <Fade top>
-          <Link href="#about" passHref>
-            <NavLink className="nl">About Me</NavLink>
-          </Link>
+          <NavLink href="#about" className="nl">
+            About Me
+          </NavLink>
         </Fade>
       </NavItem>
 
       <NavItem>
         <Fade top delay={100}>
-          <Link href="#projects" passHref>
-            <NavLink className="nl">Projects</NavLink>
-          </Link>
+          <NavLink href="#projects" className="nl">
+            Projects
+          </NavLink>
         </Fade>
       </NavItem>
 
       <NavItem>
         <Fade top delay={200}>
-          <Link href="#contact" passHref>
-            <NavLink className="nl">Contact Me</NavLink>
-          </Link>
+          <NavLink href="#contact" className="nl">
+            Contact Me
+          </NavLink>
         </Fade>
       </NavItem>
 
@@ -77,7 +76,8 @@ export const Nav = () => {
   const [active, setActive] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const breakpoint = useBreakpoint();
-  const { pathname, push } = useRouter();
+  const pathname = usePathname();
+  const { push } = useRouter();
   const toggleActive = () => setActive(v => !v);
   const hamRef = useRef(null);
   const menuRef = useRef(null);
@@ -134,35 +134,39 @@ export const Nav = () => {
     },
   });
 
-  return mounted ? (
+  const renderMenu = useMemo(() => {
+    if (!mounted) return null;
+    if (breakpoint === 'mobile')
+      return (
+        <MobileWrapper>
+          {transitions.map(
+            ({ item, key, props: { opacity, transform } }) =>
+              item && (
+                <MobileOverlay key={key} style={{ opacity }}>
+                  <MobileMenu ref={menuRef} style={{ transform }}>
+                    <NavMenu />
+                  </MobileMenu>
+                </MobileOverlay>
+              ),
+          )}
+          <Hamburger ref={hamRef} aria-label="Hamburger button" active={active} onClick={toggleActive}>
+            <span />
+            <span />
+            <span />
+          </Hamburger>
+        </MobileWrapper>
+      );
+    return <NavMenu />;
+  }, [active, breakpoint, mounted, transitions]);
+
+  return (
     <Wrapper scrolled={scrolled}>
       <Content fluid>
         <Flex sx={{ alignItems: 'center', justifyContent: 'space-between' }}>
           <Brand onClick={onLogoClick}>Remi Salami</Brand>
-
-          {breakpoint === 'mobile' ? (
-            <MobileWrapper>
-              {transitions.map(
-                ({ item, key, props: { opacity, transform } }) =>
-                  item && (
-                    <MobileOverlay key={key} style={{ opacity }}>
-                      <MobileMenu ref={menuRef} style={{ transform }}>
-                        <NavMenu />
-                      </MobileMenu>
-                    </MobileOverlay>
-                  ),
-              )}
-              <Hamburger ref={hamRef} aria-label="Hamburger button" active={active} onClick={toggleActive}>
-                <span />
-                <span />
-                <span />
-              </Hamburger>
-            </MobileWrapper>
-          ) : (
-            <NavMenu />
-          )}
+          {renderMenu}
         </Flex>
       </Content>
     </Wrapper>
-  ) : null;
+  );
 };

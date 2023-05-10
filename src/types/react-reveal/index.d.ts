@@ -34,7 +34,7 @@ interface RevealProps {
    * @property {boolean}
    */
 
-  children?: ReactNode | ReactNode[];
+  children?: React.ReactNode | React.ReactNode[];
   collapse?: boolean;
   /**
    * @property {number}
@@ -134,7 +134,7 @@ interface RevealProps {
 }
 
 declare module 'react-reveal/Bounce' {
-  import React, { ReactNode } from 'react';
+  import React from 'react';
 
   class Animation extends React.Component<RevealProps> {}
   export default Animation;

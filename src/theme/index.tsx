@@ -1,3 +1,4 @@
+'use client';
 import { breakpoints } from './breakpoints';
 import { buttons } from './buttons';
 import { colors } from './colors';

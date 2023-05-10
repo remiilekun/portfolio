@@ -66,7 +66,7 @@ const Summary = styled(Typography.Paragraph)`
 `;
 
 type HomeBannerProps = {
-  data: HomeBannerType;
+  data?: HomeBannerType;
 };
 
 export const HomeBanner = ({ data }: HomeBannerProps) => {
@@ -75,15 +75,13 @@ export const HomeBanner = ({ data }: HomeBannerProps) => {
       <Content fluid>
         <Flex>
           <Box sx={{ width: ['100%', null, '83.3%', '66.67%', '50%'] }}>
-            <Greeting type="h2">{data.title}</Greeting>
-            <Name type="h1">{data.subtitle}</Name>
-            <Summary>{data.description}</Summary>
-            <Link href="#contact" passHref>
-              <OutlineButton fontSize="small" size="large" as="a" className="nl">
-                Say Hello
-                <RightArrowIcon style={{ marginLeft: '1.5rem' }} />
-              </OutlineButton>
-            </Link>
+            <Greeting type="h2">{data?.title}</Greeting>
+            <Name type="h1">{data?.subtitle}</Name>
+            <Summary>{data?.description}</Summary>
+            <OutlineButton as={Link} href="#contact" fontSize="small" size="large" className="nl">
+              Say Hello
+              <RightArrowIcon style={{ marginLeft: '1.5rem' }} />
+            </OutlineButton>
           </Box>
         </Flex>
       </Content>

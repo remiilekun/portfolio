@@ -1,33 +1,6 @@
 import { css } from '@emotion/react';
 
 export const rootStyles = css`
-  @font-face {
-    font-family: 'Gilroy';
-    src: url('/assets/fonts/Gilroy/Gilroy-Regular.otf') format('truetype');
-    font-display: swap;
-  }
-
-  @font-face {
-    font-family: 'Gilroy';
-    font-weight: 500;
-    src: url('/assets/fonts/Gilroy/Gilroy-Medium.otf') format('truetype');
-    font-display: swap;
-  }
-
-  @font-face {
-    font-family: 'Gilroy';
-    font-weight: 700;
-    src: url('/assets/fonts/Gilroy/Gilroy-Bold.otf') format('truetype');
-    font-display: swap;
-  }
-
-  @font-face {
-    font-family: 'Gilroy';
-    font-weight: 900;
-    src: url('/assets/fonts/Gilroy/Gilroy-Black.otf') format('truetype');
-    font-display: swap;
-  }
-
   html,
   body,
   h1,
@@ -107,7 +80,7 @@ export const rootStyles = css`
 
   body {
     background-color: #1b1b2b;
-    font-family: Gilroy, sans-serif;
+    font-family: var(--font-gilroy);
     font-size: 1.6rem;
     line-height: 1.4;
   }
