@@ -1,5 +1,6 @@
 import React from 'react';
 import { Metadata } from 'next';
+import { Analytics } from '@vercel/analytics/react';
 import Script from 'next/script';
 import localFont from 'next/font/local';
 import { GA_TRACKING_ID } from '@/lib/gtag';
@@ -42,6 +43,7 @@ const AppLayout = ({ children }: AppLayoutProps) => {
       <body>
         <PageWrapper>{children}</PageWrapper>
       </body>
+      <Analytics />
       <Script id="gtag" defer src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`} />
       <Script
         id="setup-gtag"

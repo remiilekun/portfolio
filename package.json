@@ -20,6 +20,7 @@
     "@emotion/styled": "^11.11.0",
     "@next/bundle-analyzer": "^12.2.5",
     "@theme-ui/components": "^0.14.7",
+    "@vercel/analytics": "^1.0.1",
     "axios": "^0.27.2",
     "bezier-easing": "^2.1.0",
     "date-fns": "^2.29.2",
