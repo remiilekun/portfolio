@@ -3,6 +3,7 @@ import React from 'react';
 import { Global } from '@emotion/react';
 import styled from '@emotion/styled';
 import { Nav, Socials } from '@/components/molecules';
+import { Box } from '@theme-ui/components';
 import { rootStyles } from '@/rootStyles';
 import ThemeProvider from '../ThemeProvider';
 
@@ -17,22 +18,19 @@ const Wrapper = styled.div`
   `}
 `;
 
-const Main = styled.main`
-  width: 100%;
-`;
-
 type PageWrapperProps = {
   children: React.ReactNode | React.ReactNode[];
 };
 
 const PageWrapper = ({ children }: PageWrapperProps) => {
-  console.log('ln29', 'hello worl');
   return (
     <ThemeProvider>
       <Global styles={rootStyles} />
       <Wrapper>
         <Nav />
-        <Main>{children}</Main>
+        <Box as="main" sx={{ width: '100%' }}>
+          {children}
+        </Box>
         <Socials />
       </Wrapper>
     </ThemeProvider>
