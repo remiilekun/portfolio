@@ -1,16 +1,7 @@
-'use client';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
+import NextImage from 'next/image';
 import styled from '@emotion/styled';
-import LazyLoad from 'vanilla-lazyload';
 import { Spinner } from './Spinner';
-
-const lazyloadConfig = {
-  elements_selector: '.lazy-image',
-};
-
-if (typeof document !== 'undefined' && !document.lazyLoadInstance) {
-  document.lazyLoadInstance = new LazyLoad(lazyloadConfig);
-}
 
 const StyledSpinner = styled(Spinner)<{ size?: string }>`
   left: 50%;
@@ -24,7 +15,7 @@ const Wrapper = styled.div`
   position: relative;
 `;
 
-const StlyedImage = styled.img`
+const StlyedImage = styled(NextImage)`
   display: inline-block;
 `;
 
@@ -51,15 +42,11 @@ export const Image = ({
   const [loading, setLoading] = useState(!!src);
   const [, setError] = useState(!src);
 
-  useEffect(() => {
-    document.lazyLoadInstance.update();
-  });
-
   return (
-    <Wrapper className={className}>
+    <Wrapper className={className} {...rest}>
       <StlyedImage
         alt={alt}
-        className="lazy-image"
+        fill
         data-sizes={sizes}
         data-src={src}
         data-srcset={srcset}
@@ -72,7 +59,6 @@ export const Image = ({
           setLoading(false);
         }}
         src={src}
-        {...rest}
       />
 
       {loading && spin && <StyledSpinner size={spinnerSize} />}
