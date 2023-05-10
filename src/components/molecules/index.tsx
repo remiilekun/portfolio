@@ -1,3 +1,4 @@
+'use client';
 export * from './Company';
 export * from './Footer';
 export * from './HomeBanner';

@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 import styled from '@emotion/styled';
 import { Box, BoxProps, Flex, Grid } from '@theme-ui/components';
@@ -62,18 +63,18 @@ const Subtitle = styled(Typography.Paragraph)`
 `;
 
 type AboutMeProps = {
-  companies: CompanyType[];
-  data: AboutMeType;
-  skills: SkillType[];
+  companies?: CompanyType[];
+  data?: AboutMeType;
+  skills?: SkillType[];
 } & BoxProps;
 
-const AboutMe = ({ companies, data, skills, ...props }: AboutMeProps) => {
+const AboutMe = ({ companies = [], data, skills = [], ...props }: AboutMeProps) => {
   const [imageRef, { width }] = useMeasure<HTMLDivElement>();
 
   return (
     <Wrapper as="section" {...props}>
       <Content fluid>
-        <SectionHeader>{data.title}</SectionHeader>
+        <SectionHeader>{data?.title}</SectionHeader>
 
         <SubSection>
           <Flex mx="-1.5rem" mb="3rem" sx={{ flexWrap: 'wrap', alignItems: 'center' }}>
@@ -86,7 +87,7 @@ const AboutMe = ({ companies, data, skills, ...props }: AboutMeProps) => {
               }}
             >
               <Fade left>
-                <Text>{data.description}</Text>
+                <Text>{data?.description}</Text>
               </Fade>
             </Box>
 
@@ -101,7 +102,7 @@ const AboutMe = ({ companies, data, skills, ...props }: AboutMeProps) => {
             >
               <Fade bottom>
                 <PictureWrapper ref={imageRef}>
-                  <Picture height={width} src={getStrapiResourceImageURL(data.avatar)} alt="Remi Salami" />
+                  <Picture height={width} src={getStrapiResourceImageURL(data?.avatar)} alt="Remi Salami" />
                 </PictureWrapper>
               </Fade>
             </Box>

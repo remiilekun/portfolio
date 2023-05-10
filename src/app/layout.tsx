@@ -125,6 +125,7 @@ export const metadata: Metadata = {
     site: '@remiilekun',
     title: 'Remilekun Salami',
   },
+  metadataBase: new URL('https://remilekunsalami.com'),
 };
 
 export default AppLayout;

@@ -1,3 +1,4 @@
+'use client';
 import styled from '@emotion/styled';
 import { SectionHeader } from '@/components/molecules';
 import { Content, Typography } from '@/components/atoms';
