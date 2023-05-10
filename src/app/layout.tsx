@@ -42,9 +42,10 @@ const AppLayout = ({ children }: AppLayoutProps) => {
       <body>
         <PageWrapper>{children}</PageWrapper>
       </body>
-      <Script id="gtag" async src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`} />
+      <Script id="gtag" defer src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`} />
       <Script
         id="setup-gtag"
+        defer
         dangerouslySetInnerHTML={{
           __html: `
             window.dataLayer = window.dataLayer || [];
