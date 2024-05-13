@@ -1,5 +1,5 @@
 import React from 'react';
-import { Metadata } from 'next';
+import { Metadata, Viewport } from 'next';
 import { Analytics } from '@vercel/analytics/react';
 import Script from 'next/script';
 import localFont from 'next/font/local';
@@ -67,7 +67,6 @@ export const metadata: Metadata = {
   title: 'Remilekun Salami',
   description:
     'A software engineer based in Lagos, Nigeria specializing in building amazing web and mobile applications.',
-  themeColor: '#b0aff6',
   icons: {
     icon: '/favicon.ico',
     shortcut: '/favicon.ico',
@@ -129,6 +128,13 @@ export const metadata: Metadata = {
     title: 'Remilekun Salami',
   },
   metadataBase: new URL('https://remilekunsalami.com'),
+};
+
+export const viewport: Viewport = {
+  themeColor: '#b0aff6',
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
 };
 
 export default AppLayout;
