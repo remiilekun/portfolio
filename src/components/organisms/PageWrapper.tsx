@@ -13,7 +13,6 @@ const Wrapper = styled.div`
   min-height: 100vh;
 
   ${({ theme }) => theme.mq.md`
-    padding-left: 5rem;
     padding-bottom: 0;
   `}
 `;
