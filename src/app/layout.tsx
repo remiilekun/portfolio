@@ -1,10 +1,11 @@
 import React from 'react';
 import { Metadata, Viewport } from 'next';
 import { Analytics } from '@vercel/analytics/react';
-import Script from 'next/script';
+import { GoogleTagManager } from '@next/third-parties/google';
 import localFont from 'next/font/local';
-import { GA_TRACKING_ID } from '@/lib/gtag';
 import PageWrapper from '@/components/organisms/PageWrapper';
+
+export const GA_TRACKING_ID = 'G-3NBR5VC0N3';
 
 type AppLayoutProps = {
   children: React.ReactNode | React.ReactNode[];
@@ -44,21 +45,7 @@ const AppLayout = ({ children }: AppLayoutProps) => {
         <PageWrapper>{children}</PageWrapper>
       </body>
       <Analytics />
-      <Script id="gtag" defer src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`} />
-      <Script
-        id="setup-gtag"
-        defer
-        dangerouslySetInnerHTML={{
-          __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', '${GA_TRACKING_ID}', {
-              page_path: window.location.pathname,
-            });
-          `,
-        }}
-      />
+      <GoogleTagManager gtmId="385033243" />
     </html>
   );
 };
