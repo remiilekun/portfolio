@@ -1,10 +1,11 @@
 import React from 'react';
-import { Metadata } from 'next';
+import { Metadata, Viewport } from 'next';
 import { Analytics } from '@vercel/analytics/react';
-import Script from 'next/script';
+import { GoogleTagManager } from '@next/third-parties/google';
 import localFont from 'next/font/local';
-import { GA_TRACKING_ID } from '@/lib/gtag';
 import PageWrapper from '@/components/organisms/PageWrapper';
+
+export const GA_TRACKING_ID = 'G-3NBR5VC0N3';
 
 type AppLayoutProps = {
   children: React.ReactNode | React.ReactNode[];
@@ -44,21 +45,7 @@ const AppLayout = ({ children }: AppLayoutProps) => {
         <PageWrapper>{children}</PageWrapper>
       </body>
       <Analytics />
-      <Script id="gtag" defer src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`} />
-      <Script
-        id="setup-gtag"
-        defer
-        dangerouslySetInnerHTML={{
-          __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', '${GA_TRACKING_ID}', {
-              page_path: window.location.pathname,
-            });
-          `,
-        }}
-      />
+      <GoogleTagManager gtmId="385033243" />
     </html>
   );
 };
@@ -67,7 +54,6 @@ export const metadata: Metadata = {
   title: 'Remilekun Salami',
   description:
     'A software engineer based in Lagos, Nigeria specializing in building amazing web and mobile applications.',
-  themeColor: '#b0aff6',
   icons: {
     icon: '/favicon.ico',
     shortcut: '/favicon.ico',
@@ -102,6 +88,9 @@ export const metadata: Metadata = {
     'SASS',
     'SASS developer',
     'Javascript',
+    'Typescript',
+    'react',
+    'react-native',
     'react developer',
     'react-native developer',
     'Javascript developer',
@@ -129,6 +118,13 @@ export const metadata: Metadata = {
     title: 'Remilekun Salami',
   },
   metadataBase: new URL('https://remilekunsalami.com'),
+};
+
+export const viewport: Viewport = {
+  themeColor: '#b0aff6',
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
 };
 
 export default AppLayout;
