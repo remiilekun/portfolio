@@ -1,5 +1,6 @@
 import React from 'react';
 import { Metadata, Viewport } from 'next';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Analytics } from '@vercel/analytics/react';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import localFont from 'next/font/local';
@@ -45,6 +46,7 @@ const AppLayout = ({ children }: AppLayoutProps) => {
         <PageWrapper>{children}</PageWrapper>
       </body>
       <Analytics />
+      <SpeedInsights />
       <GoogleAnalytics gaId={GA_TRACKING_ID} />
     </html>
   );
