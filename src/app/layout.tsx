@@ -1,7 +1,7 @@
 import React from 'react';
 import { Metadata, Viewport } from 'next';
 import { Analytics } from '@vercel/analytics/react';
-import { GoogleTagManager } from '@next/third-parties/google';
+import { GoogleAnalytics } from '@next/third-parties/google';
 import localFont from 'next/font/local';
 import PageWrapper from '@/components/organisms/PageWrapper';
 
@@ -45,7 +45,7 @@ const AppLayout = ({ children }: AppLayoutProps) => {
         <PageWrapper>{children}</PageWrapper>
       </body>
       <Analytics />
-      <GoogleTagManager gtmId="385033243" />
+      <GoogleAnalytics gaId={GA_TRACKING_ID} />
     </html>
   );
 };
