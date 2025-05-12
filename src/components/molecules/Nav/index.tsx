@@ -58,7 +58,12 @@ const NavMenu = () => {
       </NavItem>
 
       <Fade top delay={300}>
-      <NavButton as="a" target="_blank" rel="noopener noreferrer" href="/assets/resume.pdf">
+        <NavButton
+          as="a"
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://docs.google.com/document/d/1s5h0MPp3_oIwGzO9Ix-XRmW8361XXJXqV0ImrBLTAPs/export?format=pdf"
+        >
           Download Resume
         </NavButton>
       </Fade>
