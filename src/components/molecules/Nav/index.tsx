@@ -1,11 +1,11 @@
 import React, { useEffect, useState, useLayoutEffect, useRef, useMemo } from 'react';
 import { Flex } from '@theme-ui/components';
 import { createBreakpoint } from 'react-use';
-import { useTransition } from 'react-spring';
+import { useTransition } from '@react-spring/web';
 import cb from 'bezier-easing';
 import * as smoothScroll from '@/lib/smoothScroll';
 import { useMultipleClickaway } from '@/hooks';
-import Fade from 'react-reveal/Fade';
+import { Fade } from 'react-awesome-reveal';
 import { usePathname, useRouter } from 'next/navigation';
 import { Content } from '../../atoms';
 import {
@@ -34,7 +34,7 @@ const NavMenu = () => {
   return (
     <NavList>
       <NavItem>
-        <Fade top>
+        <Fade direction="down" triggerOnce>
           <NavLink href="#about" className="nl">
             About Me
           </NavLink>
@@ -42,7 +42,7 @@ const NavMenu = () => {
       </NavItem>
 
       <NavItem>
-        <Fade top delay={100}>
+        <Fade direction="down" delay={100} triggerOnce>
           <NavLink href="#projects" className="nl">
             Projects
           </NavLink>
@@ -50,14 +50,14 @@ const NavMenu = () => {
       </NavItem>
 
       <NavItem>
-        <Fade top delay={200}>
+        <Fade direction="down" delay={200} triggerOnce>
           <NavLink href="#contact" className="nl">
             Contact Me
           </NavLink>
         </Fade>
       </NavItem>
 
-      <Fade top delay={300}>
+      <Fade direction="down" delay={300} triggerOnce>
         <NavButton
           as="a"
           target="_blank"
@@ -124,7 +124,7 @@ export const Nav = () => {
   }, []);
 
   const easing = cb(0.53, -0.19, 0.39, 1.29);
-  const transitions = useTransition(active, null, {
+  const transitions = useTransition(active, {
     from: { opacity: 0, transform: 'scale(0)' },
     enter: { opacity: 1, transform: 'scale(1)' },
     leave: { opacity: 0, transform: 'scale(0)' },
@@ -139,11 +139,11 @@ export const Nav = () => {
     if (breakpoint === 'mobile')
       return (
         <MobileWrapper>
-          {transitions.map(
-            ({ item, key, props: { opacity, transform } }) =>
+          {transitions(
+            (style, item) =>
               item && (
-                <MobileOverlay key={key} style={{ opacity }}>
-                  <MobileMenu ref={menuRef} style={{ transform }}>
+                <MobileOverlay style={{ opacity: style.opacity }}>
+                  <MobileMenu ref={menuRef} style={{ transform: style.transform }}>
                     <NavMenu />
                   </MobileMenu>
                 </MobileOverlay>

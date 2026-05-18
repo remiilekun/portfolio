@@ -2,14 +2,14 @@ import { Project } from '@/components/molecules';
 import Link from 'next/link';
 import { Flex, Box } from '@theme-ui/components';
 import { OutlineButton } from '@/components/atoms';
-import Slide from 'react-reveal/Slide';
+import { Slide } from 'react-awesome-reveal';
 import styled from '@emotion/styled';
 import { ProjectType } from '@/types/common';
 
 const ProjectsWrapper = styled(Flex)`
   flex-direction: column;
 
-  .react-reveal {
+  .reveal-item {
     &:not(:last-child) {
       margin-bottom: 8rem;
     }
@@ -28,7 +28,7 @@ const ProjectsList = ({ projects, showAll }: ProjectsListProps) => {
   return (
     <ProjectsWrapper>
       {data.map(({ id, ...project }, i) => (
-        <Slide bottom key={id}>
+        <Slide direction="up" triggerOnce className="reveal-item" key={id}>
           <Project {...project} imageOrder={i % 2} />
         </Slide>
       ))}

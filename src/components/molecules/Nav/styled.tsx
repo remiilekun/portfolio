@@ -1,7 +1,7 @@
 'use client';
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
-import { animated } from 'react-spring';
+import { animated } from '@react-spring/web';
 import { OutlineButton, ButtonTemplate } from '../../atoms';
 import Link from 'next/link';
 

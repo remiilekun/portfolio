@@ -3,7 +3,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { Box, BoxProps, Flex, Grid } from '@theme-ui/components';
 import { useMeasure } from 'react-use';
-import Fade from 'react-reveal/Fade';
+import { Fade } from 'react-awesome-reveal';
 import { SectionHeader, SkillBadge } from '@/components/molecules';
 import { Content, Typography, Image } from '@/components/atoms';
 import { getStrapiResourceImageURL } from '@/lib/utils';
@@ -86,7 +86,7 @@ const AboutMe = ({ companies = [], data, skills = [], ...props }: AboutMeProps) 
                 width: ['100%', null, '50%', '58.33%', '66.67%'],
               }}
             >
-              <Fade left>
+              <Fade direction="left" triggerOnce>
                 <Text>{data?.description}</Text>
               </Fade>
             </Box>
@@ -100,7 +100,7 @@ const AboutMe = ({ companies = [], data, skills = [], ...props }: AboutMeProps) 
                 width: ['100%', null, '50%', '41.67%', '33.3%'],
               }}
             >
-              <Fade bottom>
+              <Fade direction="up" triggerOnce>
                 <PictureWrapper ref={imageRef}>
                   <Picture height={width} src={getStrapiResourceImageURL(data?.avatar)} alt="Remi Salami" />
                 </PictureWrapper>
@@ -120,7 +120,7 @@ const AboutMe = ({ companies = [], data, skills = [], ...props }: AboutMeProps) 
           >
             {skills.map((skill, index) => (
               <Box key={skill.id} sx={{ width: '100%' }}>
-                <Fade bottom delay={index * 250}>
+                <Fade direction="up" delay={index * 250} triggerOnce>
                   <SkillBadge skill={skill} />
                 </Fade>
               </Box>
