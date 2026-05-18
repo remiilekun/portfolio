@@ -1,21 +1,18 @@
-import styled from '@emotion/styled';
+import React from 'react';
 import { FormGroup } from './Group';
 import { Input } from './Input';
 import { Label } from './Label';
 import { Textarea } from './Textarea';
 
-const StyledForm = styled.form``;
+type FormBaseProps = React.ComponentPropsWithoutRef<'form'>;
 
-const Form = Object.assign(StyledForm, {
+const FormBase = ({ children, ...rest }: FormBaseProps) => <form {...rest}>{children}</form>;
+
+const Form = Object.assign(FormBase, {
   Group: FormGroup,
   Input: Input,
   Label: Label,
   Textarea: Textarea,
-}) as typeof StyledForm & {
-  Group: typeof FormGroup;
-  Input: typeof Input;
-  Label: typeof Label;
-  Textarea: typeof Textarea;
-};
+});
 
 export { Form };

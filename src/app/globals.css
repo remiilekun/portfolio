@@ -1,0 +1,80 @@
+@import 'tailwindcss';
+
+@theme {
+  /* Breakpoints — em-based, matching the previous Emotion `mq` helpers */
+  --breakpoint-sm: 36em;
+  --breakpoint-md: 48em;
+  --breakpoint-lg: 62em;
+  --breakpoint-xl: 75em;
+
+  /* Colors */
+  --color-primary: #b0aff6;
+  --color-error: crimson;
+  --color-steel: #1b1b2b;
+  --color-black: #000000;
+  --color-white: #ffffff;
+
+  /* Font sizes — `rem` values resolve against the 62.5% root (1rem = 10px) */
+  --text-tiny: 1.2rem;
+  --text-small: 1.4rem;
+  --text-normal: 1.6rem;
+  --text-medium: 1.8rem;
+  --text-big: 2rem;
+  --text-large: 3rem;
+
+  /* Heading sizes */
+  --text-h1-mobile: 3rem;
+  --text-h2-mobile: 2.3rem;
+  --text-h3-mobile: 1.8rem;
+  --text-h1-desktop: 6.5rem;
+  --text-h2-desktop: 4.5rem;
+  --text-h3-desktop: 2.5rem;
+
+  --font-sans: var(--font-gilroy);
+
+  /* Spinner rotation */
+  --animate-spin-fast: spin-fast 500ms infinite linear;
+
+  @keyframes spin-fast {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+}
+
+@layer base {
+  html {
+    /* 1rem = 10px — keeps every `rem` value (and Tailwind's rem spacing scale)
+       pixel-identical to the previous Emotion design system. */
+    font-size: 62.5%;
+  }
+
+  body {
+    background-color: var(--color-steel);
+    font-family: var(--font-gilroy);
+    font-size: 1.6rem;
+    line-height: 1.4;
+  }
+
+  *,
+  *::before,
+  *::after {
+    font-family: inherit;
+  }
+
+  a,
+  a:visited {
+    color: inherit;
+  }
+
+  [disabled] {
+    cursor: not-allowed;
+  }
+
+  :focus:not(:focus-visible) {
+    outline: none;
+  }
+}

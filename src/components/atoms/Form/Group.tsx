@@ -1,11 +1,12 @@
-import styled from '@emotion/styled';
-import { Box } from '@theme-ui/components';
+import React from 'react';
+import { cn } from '@/lib/utils';
 
-export const FormGroup = styled(Box)`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  &:not(:last-child) {
-    margin-bottom: 2rem;
-  }
-`;
+type FormGroupProps = React.ComponentPropsWithoutRef<'div'>;
+
+export const FormGroup = ({ className, children, ...rest }: FormGroupProps) => {
+  return (
+    <div className={cn('flex flex-col w-full [&:not(:last-child)]:mb-8', className)} {...rest}>
+      {children}
+    </div>
+  );
+};

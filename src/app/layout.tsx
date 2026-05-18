@@ -6,6 +6,8 @@ import { GoogleAnalytics } from '@next/third-parties/google';
 import localFont from 'next/font/local';
 import PageWrapper from '@/components/organisms/PageWrapper';
 
+import './globals.css';
+
 export const GA_TRACKING_ID = 'G-3NBR5VC0N3';
 
 type AppLayoutProps = {

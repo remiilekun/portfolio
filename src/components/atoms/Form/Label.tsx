@@ -1,10 +1,15 @@
-import { ThemeType } from '@/theme';
-import styled from '@emotion/styled';
+import React from 'react';
+import { cn } from '@/lib/utils';
+import { ColorName, textColor } from '@/lib/styles';
 
-export const Label = styled.label<{ color?: keyof ThemeType['colors'] }>`
-  color: ${({ theme, color = 'white' }) => theme.colors[color]};
-  display: inline-block;
-  font-size: 1.6rem;
-  font-weight: normal;
-  margin-bottom: 0.5rem;
-`;
+type LabelProps = {
+  color?: ColorName;
+} & React.ComponentPropsWithoutRef<'label'>;
+
+export const Label = ({ color = 'white', className, children, ...rest }: LabelProps) => {
+  return (
+    <label className={cn('inline-block mb-2 text-normal font-normal', textColor[color], className)} {...rest}>
+      {children}
+    </label>
+  );
+};

@@ -1,75 +1,23 @@
-import React, { useEffect, useState, useLayoutEffect, useRef, useMemo } from 'react';
-import { Flex } from '@theme-ui/components';
+'use client';
+import { useEffect, useState, useRef, useMemo } from 'react';
 import { createBreakpoint } from 'react-use';
 import { useTransition } from '@react-spring/web';
 import cb from 'bezier-easing';
-import * as smoothScroll from '@/lib/smoothScroll';
 import { useMultipleClickaway } from '@/hooks';
-import { Fade } from 'react-awesome-reveal';
 import { usePathname, useRouter } from 'next/navigation';
-import { Content } from '../../atoms';
-import {
-  Brand,
-  Hamburger,
-  MobileMenu,
-  MobileOverlay,
-  MobileWrapper,
-  NavButton,
-  NavItem,
-  NavLink,
-  NavList,
-  Wrapper,
-} from './styled';
+import { Content } from '@/components/atoms';
+import { Wrapper } from './Wrapper';
+import { Brand } from './Brand';
+import { MobileWrapper } from './MobileWrapper';
+import { Hamburger } from './Hamburger';
+import { MobileOverlay } from './MobileOverlay';
+import { MobileMenu } from './MobileMenu';
+import { NavMenu } from './NavMenu';
 
 export const useBreakpoint = createBreakpoint({
   desktop: 768,
   mobile: 0,
 });
-
-const NavMenu = () => {
-  useLayoutEffect(() => {
-    smoothScroll.initialize();
-  }, []);
-
-  return (
-    <NavList>
-      <NavItem>
-        <Fade direction="down" triggerOnce>
-          <NavLink href="#about" className="nl">
-            About Me
-          </NavLink>
-        </Fade>
-      </NavItem>
-
-      <NavItem>
-        <Fade direction="down" delay={100} triggerOnce>
-          <NavLink href="#projects" className="nl">
-            Projects
-          </NavLink>
-        </Fade>
-      </NavItem>
-
-      <NavItem>
-        <Fade direction="down" delay={200} triggerOnce>
-          <NavLink href="#contact" className="nl">
-            Contact Me
-          </NavLink>
-        </Fade>
-      </NavItem>
-
-      <Fade direction="down" delay={300} triggerOnce>
-        <NavButton
-          as="a"
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://docs.google.com/document/d/1s5h0MPp3_oIwGzO9Ix-XRmW8361XXJXqV0ImrBLTAPs/export?format=pdf"
-        >
-          Download Resume
-        </NavButton>
-      </Fade>
-    </NavList>
-  );
-};
 
 export const Nav = () => {
   const [mounted, setMounted] = useState(false);
@@ -149,11 +97,7 @@ export const Nav = () => {
                 </MobileOverlay>
               ),
           )}
-          <Hamburger ref={hamRef} aria-label="Hamburger button" active={active} onClick={toggleActive}>
-            <span />
-            <span />
-            <span />
-          </Hamburger>
+          <Hamburger ref={hamRef} aria-label="Hamburger button" active={active} onClick={toggleActive} />
         </MobileWrapper>
       );
     return <NavMenu />;
@@ -162,10 +106,10 @@ export const Nav = () => {
   return (
     <Wrapper scrolled={scrolled}>
       <Content fluid>
-        <Flex sx={{ alignItems: 'center', justifyContent: 'space-between' }}>
+        <div className="flex items-center justify-between">
           <Brand onClick={onLogoClick}>Remi Salami</Brand>
           {renderMenu}
-        </Flex>
+        </div>
       </Content>
     </Wrapper>
   );
